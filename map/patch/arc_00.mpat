@@ -1,0 +1,226 @@
+#define .NpcID:BoatNPC               00
+
+@ $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True
+	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
+    Call  MakeNpcs  ( .False $NpcGroupList_8024580C )
+    Call  DisablePlayerInput ( .True )
+	Exec  $Script_EnterMap
+    Exec  $Script_PanCamera_CamPan_MainIsland
+    Exec  $Script_SetupModels
+    Exec  $Script_SetupIslandChoosing
+	Return
+	End
+}
+
+#new:Script $Script_SetupModels
+{
+    % Exec $Script_BoatBop
+    Exec $Script_MarioMovement
+    Return
+    End
+}
+
+#new:Script $Script_BoatBop
+{
+    Loop
+        Set   *Var0  00000000
+            Loop  5` 
+                Add   *Var0  00000001
+                Call TranslateGroup ( ~Model:Boat_Group 00000000 *Var0 00000000 )
+                Wait  3`
+            EndLoop
+            Wait 6`
+            Set *Var1 *Var0
+            Loop  5` 
+                Sub   *Var1  00000001
+                Call TranslateGroup ( ~Model:Boat_Group 00000000 *Var1 00000000 )
+                Wait  3`
+              EndLoop
+            Wait 8`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_MarioMovement
+{
+    Call 802C9000 ( ~Model:Boat_Mario F )
+    Call EnableTexPanning ( ~Model:Boat_Mario .True )
+    Loop 
+        SetF  *VarE  *Fixed[1.0]
+        AddF  *VarF  *VarE
+        If  *VarF  ==  00000438
+            SetF  *VarF  00000000
+        EndIf
+        Set   *Var0  *VarF
+        Div   *Var0  00000009
+        Mod   *Var0  00000004
+        Mul   *Var0  00004000
+        Call  SetTexPanOffset   ( 0000000F 00000000 *Var0 00000000 )
+        Wait  1`
+    EndLoop
+    Return
+    End
+}
+
+@ $Script_PanCamera_CamPan_MainIsland
+{
+	Call  UseSettingsFrom   ( .Cam:Default 0` 43` 200` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_MainIsland )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+@ $Script_PanCamera_CamPan_WaterfallIsland
+{
+	Call  UseSettingsFrom   ( .Cam:Default 284` 43` 38` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_WaterfallIsland )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+@ $Script_SetupMusic
+{
+	Call  SetMusicTrack ( 00000000 .Song:SeasideCity 00000000 00000008 )
+	Call  PlayAmbientSounds  ( .AmbientSounds:Sea )
+	Return
+	End
+}
+
+#new:Function $Function_CheckPlayerInput
+{
+    PUSH s0, s1, rA %Save them incase set_variable uses it
+    LI s1, 80074024
+    LW s0, 0010(s1) %Loads byte at the address (this case Gamestatus) at offset 0x0010 in s0
+    LI a1, *Var0 %Argument 1 is *Var0
+    JAL ~Func:set_variable
+    ADD a2, r0, s0 %Easy way to load s0 into a2
+    POP s0, s1, rA %Restore s0 and rA
+    JR rA %ra (Return Adress)
+    ORI v0, r0, 2 %funcs return into v0, value "2" to signal that it is done
+}
+
+#new:Script $Script_SetupIslandChoosing
+{
+
+    % INITIAL CAM SETUP
+
+    Switch *GB_ARC_00_currentIsland
+            Case == 0 % Tangle Island / Starting Island
+                Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
+                Exec $Script_PanCamera_CamPan_MainIsland
+            Case == 1 % Waterfall Island
+                Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                Exec $Script_PanCamera_CamPan_WaterfallIsland
+    EndSwitch
+
+    % ISLAND MOVEMENT
+
+    Loop
+        Switch *GB_ARC_00_currentIsland
+            Case == 0 % Tangle Island / Starting Island
+                Call $Function_CheckPlayerInput ( *Var0 )
+                Switch *Var0
+                    Case == 00080000 % RIGHT
+                        Call CloseMessage ()
+                        Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:WaterfallIsland_BoatMarker )
+                        ExecWait $Script_PanCamera_CamPan_WaterfallIsland
+                        Set *GB_ARC_00_currentIsland 00000001
+                        Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                    Case == .Buttons:A
+                        Call CloseMessage ()
+                        Call GotoMap ( "arc_00" 00000000 )
+                    Case == .Buttons:Z
+                        Call CloseMessage ()
+                        Call ShowMessageAtScreenPos ( 002F0001 000000A0 00000000 )
+                        Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
+                    EndSwitch
+            Case == 1 % Waterfall Island
+                Call $Function_CheckPlayerInput ( *Var0 )
+                Switch *Var0
+                    Case == 00040000 % LEFT
+                        Call CloseMessage ()
+                        Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:MainIsland_BoatMarker )
+                        ExecWait $Script_PanCamera_CamPan_MainIsland
+                        Set *GB_ARC_00_currentIsland 00000000
+                        Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
+                    Case == .Buttons:A
+                        Call CloseMessage ()
+                        Call GotoMap ( "arc_00" 00000000 )
+                    Case == .Buttons:Z
+                        Call CloseMessage ()
+                        Call ShowMessageAtScreenPos ( 002F0003 000000A0 00000000 )
+                        Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                    EndSwitch
+        EndSwitch
+    Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:NpcGroupList $NpcGroupList_8024580C
+{
+	00000001 $NpcGroup_BoatGuy 00000000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_BoatGuy
+{
+    .NpcID:BoatNPC $NpcSettings_80242190 ~Vec3f:BoatNPC
+	00400F09 $Script_Init_80243F78 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:BoatNPC
+	~AnimationTable:BoatNPC
+	00000000 00000000 00000000 00000000
+}
+
+#new:NpcSettings $NpcSettings_80242190
+{
+	00000000 00010001 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_80243F78
+{
+    Call BindNpcIdle ( .NpcID:BoatNPC $Script_BoatNpcSetup )
+    Return
+    End
+}
+
+#new:Script $Script_BoatNpcSetup
+{
+    Call EnableNpcShadow ( .NpcID:BoatNPC .False )
+    Call SetNpcFlagBits ( .NpcID:BoatNPC 00000002 .True )
+    Set   *Var1  00000000
+    Loop
+        Loop  5` 
+            Call GetNpcPos ( .NpcID:BoatNPC *Var0 00000000 *Var2 )
+            Add   *Var1  00000001
+            Call TranslateGroup ( ~Model:Boat_Group *Var0 *Var1 *Var2 )
+            Wait  3`
+        EndLoop
+        Wait 6`
+        Loop  5` 
+            Call GetNpcPos ( .NpcID:BoatNPC *Var0 00000000 *Var2 )
+            Sub   *Var1  00000001
+            Call TranslateGroup ( ~Model:Boat_Group *Var0 *Var1 *Var2 )
+            Wait  3`
+            EndLoop
+        Wait 8`
+    EndLoop
+    Return
+    End
+}

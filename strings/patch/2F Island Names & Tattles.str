@@ -1,0 +1,30 @@
+#message:2F:000
+{
+	[Style Tattle][NoSkip][CustomVoice soundIDs=0x000,0x000]
+	[CenterX:FF]Tangle Island[BR]
+	[SetPosX 40][Down 3][RIGHT][BR]
+	[Yield][End]
+}
+
+#message:2F:001
+{
+	[Style Right]
+	Tangle Island Tattle[BR]
+	[Wait][End]
+}
+
+#message:2F:002
+{
+	[Style Tattle][NoSkip][CustomVoice soundIDs=0x000,0x000]
+	[CenterX:FF]Waterfall Island[BR]
+	[SetPosX 10][DelayOff][Down 3][Spacing 42][LEFT][DOWN][RIGHT][BR]
+	[Yield][End]
+}
+
+
+#message:2F:003
+{
+	[Style Right]
+	Waterfall Island Tattle[BR]
+	[Wait][End]
+}

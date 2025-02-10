@@ -1,0 +1,7 @@
+@ $Script_8024FD70
+{
+    Call GotoMap ( "arc_00" 00000000 )
+    Wait 300`
+    Return
+    End
+}
