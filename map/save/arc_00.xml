@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_00" author="unnamed" textures="jan_tex">
 	<Editor>
-		<Camera pos="278.454803,352.465820,495.909302" pitch="36.360001" yaw="0.960004"/>
+		<Camera pos="224.633057,305.037109,415.149902" pitch="36.360001" yaw="0.800004"/>
 		<Camera pos="-413.124329,65536.000000,559.234741"/>
 		<Camera pos="65536.000000,-45.353851,22.117731"/>
 		<Camera pos="783.000000,32.000000,65536.000000"/>
@@ -13974,11 +13974,11 @@
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="284,43,38" yaw="0.000000">
 			<MapObject name="CamPan_WaterfallIsland" id="2"/>
-			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000"/>
+			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="0,43,200" yaw="0.000000">
 			<MapObject name="CamPan_MainIsland" id="1"/>
-			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000"/>
+			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="Group">
 			<MapObject name="Entrances" id="0"/>

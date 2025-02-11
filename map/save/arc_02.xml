@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_02" author="unnamed" background="jan_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="360.792175,96.717110,169.104630" pitch="11.360258" yaw="19.481972"/>
-		<Camera pos="317.669312,65536.000000,-60.011723"/>
-		<Camera pos="65536.000000,57.716881,-63.906410"/>
-		<Camera pos="395.152679,21.073292,65536.000000"/>
+		<Camera pos="-313.203552,124.036812,522.218140" pitch="10.000000" yaw="0.000000"/>
+		<Camera pos="37.667877,65536.000000,122.523674"/>
+		<Camera pos="65536.000000,59.000000,100.000000"/>
+		<Camera pos="0.000000,59.000000,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="4A">
@@ -132,7 +132,7 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="12">
+		<Node name="Root" id="14">
 			<Node name="Entrances" id="2">
 				<Node name="Entry0" id="FFFFFFFF"/>
 				<Node name="Entry1" id="0"/>
@@ -153,6 +153,8 @@
 			<Node name="TreeFX_Bush3_Item" id="F"/>
 			<Node name="GateFXMarkerR" id="10"/>
 			<Node name="GateFXMarkerL" id="11"/>
+			<Node name="NPC_MBush_0" id="12"/>
+			<Node name="NPC_MBush_1" id="13"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -5671,7 +5673,7 @@
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="MainZone" id="0"/>
+			<MapObject name="MainZone" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5692,7 +5694,17 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="12"/>
+			<MapObject name="Root" id="14"/>
+		</Marker>
+		<Marker ver="4" type="NPC" pos="286,0,36" yaw="90.000000">
+			<MapObject name="NPC_MBush_1" id="13"/>
+			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Sprite sprite="45" palette="0" animations="2,2,2,2,2,2,7,7,2,2,2,2,2,2,2,2"/>
+		</Marker>
+		<Marker ver="4" type="NPC" pos="-257,0,33" yaw="90.000000">
+			<MapObject name="NPC_MBush_0" id="12"/>
+			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Sprite sprite="45" palette="0" animations="2,2,2,2,2,2,7,7,2,2,2,2,2,2,2,2"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="316,0,-62" yaw="0.000000">
 			<MapObject name="GateFXMarkerL" id="11"/>

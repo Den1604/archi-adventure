@@ -8,11 +8,11 @@
     ORI t6, r0, 5 % hex for 5
     ORI t7, r0, 4 % hex for 4
     ORI t8, r0, 6 % hex for 6
-    SB t5, 0000 (t0) % set Boots
-    SB t5, 0000 (t0) % set Hammer
-    SB t1, 0002 (t0) % set hp
-    SB t1, 0003 (t0) % max hp
-    SB t1, 0004 (t0) % true max hp
+    SB r0, 0000 (t0) % set Boots
+    SB r0, 0001 (t0) % set Hammer
+    SB t4, 0002 (t0) % set hp
+    SB t4, 0003 (t0) % max hp
+    SB t4, 0004 (t0) % true max hp
     SB t4, 0005 (t0) % set fp
     SB t4, 0006 (t0) % max fp
     SB t4, 0007 (t0) % true max fp
@@ -26,6 +26,8 @@
 @ $Script_8024FD70
 {
     Call GotoMap ( "arc_00" 00000000 )
+    Set *GB_StoryProgress 0A
+    Call $GivePlayerStartingStats
     Wait 300`
     Return
     End
