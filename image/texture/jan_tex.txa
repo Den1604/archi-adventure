@@ -1120,3 +1120,15 @@ tex: jan_mountainholes
 	filter: yes
 	combine: 8
 }
+
+tex: jan_spear
+{
+	img: jan_spear.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: repeat
+	}
+	filter: yes
+	combine: 8
+}

@@ -1,5 +1,8 @@
 #define .NpcID:BoatNPC               00
 
+#define .CamSpeed:initialEntry *Fixed[100.00]
+#define .CamSpeed:changingIslands *Fixed[4.50]
+
 @ $Script_Main
 {
 	Set   *GB_WorldLocation  .Location:GoombaRoad
@@ -10,10 +13,10 @@
 	Exec  $Script_SetupTexturePan
     Call  MakeNpcs  ( .False $NpcGroupList_8024580C )
     Call  DisablePlayerInput ( .True )
-	Exec  $Script_EnterMap
-    Exec  $Script_PanCamera_CamPan_MainIsland
     Exec  $Script_SetupModels
+    Set *MapVar[0] .CamSpeed:initialEntry
     Exec  $Script_SetupIslandChoosing
+	Exec  $Script_EnterMap
 	Return
 	End
 }
@@ -26,7 +29,7 @@
     End
 }
 
-#new:Script $Script_BoatBop
+#new:Script $Script_BoatBop % moved to binding the model to an NPC
 {
     Loop
         Set   *Var0  00000000
@@ -73,7 +76,7 @@
 {
 	Call  UseSettingsFrom   ( .Cam:Default 0` 43` 200` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_MainIsland )
-	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  SetCamSpeed       ( .Cam:Default *MapVar[0] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
 	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
 	Return
@@ -84,7 +87,7 @@
 {
 	Call  UseSettingsFrom   ( .Cam:Default 284` 43` 38` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_WaterfallIsland )
-	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  SetCamSpeed       ( .Cam:Default *MapVar[0] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
 	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
 	Return
@@ -119,12 +122,14 @@
 
     Switch *GB_ARC_00_currentIsland
             Case == 0 % Tangle Island / Starting Island
+                ExecWait $Script_PanCamera_CamPan_MainIsland
                 Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
-                Exec $Script_PanCamera_CamPan_MainIsland
             Case == 1 % Waterfall Island
+                ExecWait $Script_PanCamera_CamPan_WaterfallIsland
                 Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
-                Exec $Script_PanCamera_CamPan_WaterfallIsland
     EndSwitch
+
+    Set *MapVar[0] .CamSpeed:changingIslands
 
     % ISLAND MOVEMENT
 
@@ -141,7 +146,7 @@
                         Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
                     Case == .Buttons:A
                         Call CloseMessage ()
-                        Call GotoMap ( "arc_00" 00000000 )
+                        Call GotoMap ( "arc_01" 00000001 )
                     Case == .Buttons:Z
                         Call CloseMessage ()
                         Call ShowMessageAtScreenPos ( 002F0001 000000A0 00000000 )
@@ -204,7 +209,7 @@
 {
     Call EnableNpcShadow ( .NpcID:BoatNPC .False )
     Call SetNpcFlagBits ( .NpcID:BoatNPC 00000002 .True )
-    Set   *Var1  00000000
+    Set   *Var1  -3`
     Loop
         Loop  5` 
             Call GetNpcPos ( .NpcID:BoatNPC *Var0 00000000 *Var2 )

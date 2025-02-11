@@ -1,0 +1,5 @@
+@Hook:Pause 800E80B4
+{
+    JR RA
+    NOP
+}

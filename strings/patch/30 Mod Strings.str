@@ -1,0 +1,7 @@
+#message:30:000
+{
+	[Style Narrate]
+	[CenterX:FF][BR]
+	[Down 5]Would you like to leave?[BR]
+	[Yield][End]
+}

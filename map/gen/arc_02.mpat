@@ -1,17 +1,18 @@
-% Auto-generated script for arc_01
+% Auto-generated script for arc_02
 
 #new:Header $Header
 {
 	[MainScript] $Script_Main
 	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 2
+	[EntryCount] 3
 }
 
 #new:EntryList $EntryList
 {
 	~Vec4f:Entry0
 	~Vec4f:Entry1
+	~Vec4f:Entry2
 }
 
 #new:Script $Script_TexturePan_Update
@@ -418,6 +419,71 @@
   1C8:  ADDIU     SP, SP, 88
 }
 
+#new:Script $Script_Foliage_SearchBush
+{
+    0:  UseIntBuffer  *Var[0]
+    C:  Get4Int  *Var[1] *Var[2] *Var[3] *Var[4]
+   24:  Call  GetPlayerPos  ( *Var[5] *Var[F] *Var[7] )
+   3C:  Thread
+   44:      Set   *Flag[00]  .False
+   54:      If  *Var[1]  !=  00000000
+   64:          Loop  00000005
+   70:              UseIntBuffer  *Var[1]
+   7C:              Get1Int  *Var[2]
+   88:              Loop  *Var[2]
+   94:                  Get1Int  *Var[3]
+   A0:                  Call  $Function_Foliage_TransformModel    ( *Var[3] *Fixed[0.1] 00000001 *Var[F] 00000000 )
+   C0:                  If  *Flag[00]  ==  .False
+   D0:                      Set   *Flag[00]  .True
+   E0:                      Call  PlaySoundAtModel  ( *Var[3] 00000153 00000000 )
+   F8:                  EndIf
+  100:              EndLoop
+  108:              Wait  1`
+  114:              UseIntBuffer  *Var[1]
+  120:              Get1Int  *Var[2]
+  12C:              Loop  *Var[2]
+  138:                  Get1Int  *Var[3]
+  144:                  Call  $Function_Foliage_TransformModel    ( *Var[3] *Fixed[0.1] FFFFFFFF *Var[F] 00000000 )
+  164:              EndLoop
+  16C:              Wait  1`
+  178:          EndLoop
+  180:          UseIntBuffer  *Var[1]
+  18C:          Get1Int  *Var[2]
+  198:          Loop  *Var[2]
+  1A4:              Get1Int  *Var[3]
+  1B0:              Call  TranslateModel    ( *Var[3] 00000000 00000000 00000000 )
+  1CC:          EndLoop
+  1D4:          Wait  1`
+  1E0:      EndIf
+  1E8:  EndThread
+  1F0:  Thread
+  1F8:      If  *Var[2]  !=  00000000
+  208:          UseIntBuffer  *Var[2]
+  214:          Get1Int  *Var[3]
+  220:          Loop  *Var[3]
+  22C:              Get1Int  *Var[4]
+  238:              Get3Int  *Var[5] *Var[6] *Var[7]
+  24C:              Get3Int  *Var[8] *Var[9] *Var[A]
+  260:              If  *Var[A]  ==  00000000
+  270:                  Call  DropItemEntity    ( *Var[4] *Var[5] *Var[6] *Var[7] *Var[8] *Var[9] )
+  294:              Else
+  29C:                  Call  GetValueByRef ( *Var[A] *Var[B] )
+  2B0:                  If  *Var[B]  ==  00000000
+  2C0:                      Call  SetValueByRef     ( *Var[A] 00000001 )
+  2D4:                      Call  DropItemEntity    ( *Var[4] *Var[5] *Var[6] *Var[7] *Var[8] *Var[9] )
+  2F8:                  EndIf
+  300:              EndIf
+  308:          EndLoop
+  310:      EndIf
+  318:  EndThread
+  320:  Wait  15`
+  32C:  If  *Var[4]  !=  00000000
+  33C:      ExecWait  *Var[4]
+  348:  EndIf
+  350:  Return
+  358:  End
+}
+
 #new:Script $Script_Foliage_ShakeTree
 {
     0:  SetTimescale  *Fixed[2.0]
@@ -566,27 +632,10 @@
 
 #new:Script $Script_SetupTexturePan
 {
-	Call     802C9000 	( ~Model:Campfire_Smoke 0 )
-	Call     802C9000 	( ~Model:Water 1 )
-	Call     802C9000 	( ~Model:WaterReflection 2 )
+	Call     802C9000 	( ~Model:Water 0 )
+	Call     802C9000 	( ~Model:WaterReflection 1 )
 	Thread
 		Set  *Var[0] 0
-		Set  *Var[1] FFFFFF06
-		Set  *Var[2] 0
-		Set  *Var[3] 0
-		Set  *Var[4] 0
-		Set  *Var[5] 1
-		Set  *Var[6] 0
-		Set  *Var[7] 0
-		Set  *Var[8] 0
-		Set  *Var[9] 0
-		Set  *Var[A] 0
-		Set  *Var[B] 0
-		Set  *Var[C] 0
-		Exec $Script_TexturePan_Update
-	EndThread
-	Thread
-		Set  *Var[0] 1
 		Set  *Var[1] 7D
 		Set  *Var[2] FFFFFF06
 		Set  *Var[3] FFFFFF06
@@ -602,11 +651,11 @@
 		Exec $Script_TexturePan_Update
 	EndThread
 	Thread
-		Set  *Var[0] 2
+		Set  *Var[0] 1
 		Set  *Var[1] 0
-		Set  *Var[2] FA
+		Set  *Var[2] 7D
 		Set  *Var[3] 0
-		Set  *Var[4] 7D
+		Set  *Var[4] FA
 		Set  *Var[5] 0
 		Set  *Var[6] 1
 		Set  *Var[7] 0
@@ -630,44 +679,158 @@
 #new:TreeModelList $LeafModels_Tree_o188
 {
 	5`
-	~Model:o89
-	~Model:o90
 	~Model:o91
 	~Model:o92
+	~Model:o90
 	~Model:o93
+	~Model:o89
 }
 
 #new:TreeEffectVectors $FoliageFXPos_Tree_o188
 {
 	2`
-	~Vec3d:TreeFX_Tree2_0
-	~Vec3d:TreeFX_Tree2_1
-}
-
-#new:TreeDropList $FoliageDrops_Tree_o188
-{
-	7`
-	.Item:Coin ~Vec3d:Tree2_Drop1 0000000E *ARC_01_TREE_COIN1 *MapFlag[00]
-	.Item:Coin ~Vec3d:Tree2_Drop1 0000000E *ARC_01_TREE_COIN2 *MapFlag[01]
-	.Item:Coin ~Vec3d:Tree2_Drop1 0000000E *ARC_01_TREE_COIN3 *MapFlag[02]
-	.Item:Coin ~Vec3d:Tree2_Drop1 0000000E *ARC_01_TREE_COIN4 *MapFlag[03]
-	.Item:Coin ~Vec3d:Tree2_Drop1 0000000E *ARC_01_TREE_COIN5 *MapFlag[04]
-	.Item:Coin ~Vec3d:Tree2_Drop1 0000000E *ARC_01_TREE_COIN6 *MapFlag[05]
-	.Item:Coin ~Vec3d:Tree2_Drop1 0000000E *ARC_01_TREE_COIN7 *MapFlag[06]
+	~Vec3d:TreeFX_Tree1_0
+	~Vec3d:TreeFX_Tree1_1
 }
 
 #new:ShakeTreeEvent $ShakeTreeData_Tree_o188
 {
 	$TrunkModels_Tree_o188
 	$LeafModels_Tree_o188
-	$FoliageDrops_Tree_o188
+	00000000
 	$FoliageFXPos_Tree_o188
 	00000000
 }
 
 #new:TriggerCoord $TriggerCoord_Tree_o188
 {
-	~BombPos:Tree_2_BombPos
+	~BombPos:Tree1BombPos
+}
+
+#new:TreeModelList $TrunkModels_Tree_o189
+{
+	1`
+	~Model:Tree2_Trunk
+}
+
+#new:TreeModelList $LeafModels_Tree_o189
+{
+	5`
+	~Model:o95
+	~Model:096
+	~Model:o97
+	~Model:094
+	~Model:o98
+}
+
+#new:TreeEffectVectors $FoliageFXPos_Tree_o189
+{
+	2`
+	~Vec3d:TreeFX_Tree2_0
+	~Vec3d:TreeFX_Tree2_1
+}
+
+#new:TreeDropList $FoliageDrops_Tree_o189
+{
+	1`
+	.Item:DriedFruit ~Vec3d:Tree2_Drop2 0000000E 00000000 00000000
+}
+
+#new:ShakeTreeEvent $ShakeTreeData_Tree_o189
+{
+	$TrunkModels_Tree_o189
+	$LeafModels_Tree_o189
+	$FoliageDrops_Tree_o189
+	$FoliageFXPos_Tree_o189
+	00000000
+}
+
+#new:TriggerCoord $TriggerCoord_Tree_o189
+{
+	~BombPos:Tree2BombPos
+}
+
+#new:TreeModelList $BushModels_Bush_Bush1Coll
+{
+	1`
+	~Model:Bush1
+}
+
+#new:TreeEffectVectors $FoliageFXPos_Bush_Bush1Coll
+{
+	1`
+	~Vec3d:TreeFX_Bush1_0
+}
+
+#new:TreeDropList $FoliageDrops_Bush_Bush1Coll
+{
+	3`
+	.Item:Coin ~Vec3d:TreeFX_Bush1_Item 00000006 *ARC_02_BUSH1_COIN1 *ARC_02_BUSH1_COIN1
+	.Item:Coin ~Vec3d:TreeFX_Bush1_Item 00000006 *ARC_02_BUSH1_COIN2 *ARC_02_BUSH1_COIN2
+	.Item:Coin ~Vec3d:TreeFX_Bush1_Item 00000006 *ARC_02_BUSH1_COIN3 *ARC_02_BUSH1_COIN3
+}
+
+#new:SearchBushEvent $SearchBushData_Bush_Bush1Coll
+{
+	$BushModels_Bush_Bush1Coll
+	$FoliageDrops_Bush_Bush1Coll
+	$FoliageFXPos_Bush_Bush1Coll
+	00000000
+}
+
+#new:TreeModelList $BushModels_Bush_Bush2Coll
+{
+	1`
+	~Model:Bush2
+}
+
+#new:TreeEffectVectors $FoliageFXPos_Bush_Bush2Coll
+{
+	1`
+	~Vec3d:TreeFX_Bush2_0
+}
+
+#new:TreeDropList $FoliageDrops_Bush_Bush2Coll
+{
+	2`
+	.Item:Coin ~Vec3d:TreeFX_Bush2_Item 00000006 *ARC_02_BUSH2_COIN1 *ARC_02_BUSH2_COIN1
+	.Item:Coin ~Vec3d:TreeFX_Bush2_Item 00000006 *ARC_02_BUSH2_COIN2 *ARC_02_BUSH2_COIN2
+}
+
+#new:SearchBushEvent $SearchBushData_Bush_Bush2Coll
+{
+	$BushModels_Bush_Bush2Coll
+	$FoliageDrops_Bush_Bush2Coll
+	$FoliageFXPos_Bush_Bush2Coll
+	00000000
+}
+
+#new:TreeModelList $BushModels_Bush_Bush3Coll
+{
+	1`
+	~Model:Bush3
+}
+
+#new:TreeEffectVectors $FoliageFXPos_Bush_Bush3Coll
+{
+	1`
+	~Vec3d:TreeFX_Bush3_0
+}
+
+#new:TreeDropList $FoliageDrops_Bush_Bush3Coll
+{
+	3`
+	.Item:Coin ~Vec3d:TreeFX_Bush3_Item 00000006 *ARC_02_BUSH3_COIN1 *ARC_02_BUSH3_COIN1
+	.Item:Coin ~Vec3d:TreeFX_Bush3_Item 00000006 *ARC_02_BUSH3_COIN2 *ARC_02_BUSH3_COIN2
+	.Item:Coin ~Vec3d:TreeFX_Bush3_Item 00000006 *ARC_02_BUSH3_COIN3 *ARC_02_BUSH3_COIN3
+}
+
+#new:SearchBushEvent $SearchBushData_Bush_Bush3Coll
+{
+	$BushModels_Bush_Bush3Coll
+	$FoliageDrops_Bush_Bush3Coll
+	$FoliageFXPos_Bush_Bush3Coll
+	00000000
 }
 
 #new:Script $Script_BindFoliage
@@ -675,6 +838,15 @@
 	Set   *Var[0]  $ShakeTreeData_Tree_o188
 	Bind  $Script_Foliage_ShakeTree .Trigger:WallHammer ~Collider:o188 00000001 00000000
 	Bind  $Script_Foliage_ShakeTree .Trigger:PointBomb $TriggerCoord_Tree_o188 00000001 00000000
+	Set   *Var[0]  $ShakeTreeData_Tree_o189
+	Bind  $Script_Foliage_ShakeTree .Trigger:WallHammer ~Collider:o189 00000001 00000000
+	Bind  $Script_Foliage_ShakeTree .Trigger:PointBomb $TriggerCoord_Tree_o189 00000001 00000000
+	Set   *Var[0]  $SearchBushData_Bush_Bush1Coll
+	Bind  $Script_Foliage_SearchBush .Trigger:WallPressA ~Collider:Bush1Coll 00000001 00000000
+	Set   *Var[0]  $SearchBushData_Bush_Bush2Coll
+	Bind  $Script_Foliage_SearchBush .Trigger:WallPressA ~Collider:Bush2Coll 00000001 00000000
+	Set   *Var[0]  $SearchBushData_Bush_Bush3Coll
+	Bind  $Script_Foliage_SearchBush .Trigger:WallPressA ~Collider:Bush3Coll 00000001 00000000
 	Return
 	End
 }
@@ -683,9 +855,12 @@
 {
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
-		Case  ==  ~Entry:Entry0
+		CaseOR  ==  ~Entry:Entry0
+		CaseOR  ==  ~Entry:Entry1
+		CaseOR  ==  ~Entry:Entry2
 			Set   *Var[0] $Script_CreateExitTriggers
 			Exec  EnterWalk
+		EndCaseGroup
 		Default
 			Exec  $Script_CreateExitTriggers
 	EndSwitch
@@ -698,7 +873,29 @@
 	SetGroup 0000001B
 	Call     UseExitHeading ( 60` ~Entry:Entry0 )
 	Exec     ExitWalk
-	Call  GotoMap   ( "arc_02" ~Entry:arc_02:Entry1 )
+	Call  GotoMap   ( "arc_02" ~Entry:arc_02:Entry0 )
+	Wait  100`
+	Return
+	End
+}
+
+#new:Script $Script_Exit_Entry1
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry1 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "arc_01" ~Entry:arc_01:Entry0 )
+	Wait  100`
+	Return
+	End
+}
+
+#new:Script $Script_Exit_Entry2
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry2 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "arc_02" ~Entry:arc_02:Entry2 )
 	Wait  100`
 	Return
 	End
@@ -706,7 +903,9 @@
 
 #new:Script $Script_CreateExitTriggers
 {
-	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:exitEntry0 00000001 00000000
+	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:Entry0Collider 00000001 00000000
+	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:Entry1Collider 00000001 00000000
+	Bind  $Script_Exit_Entry2 .Trigger:FloorAbove ~Collider:Entry2Collider 00000001 00000000
 	Return
 	End
 }

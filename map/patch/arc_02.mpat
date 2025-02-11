@@ -1,0 +1,101 @@
+@ $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
+	Exec  $Script_BindFoliage
+    Call ScaleModel ( ~Model:FoliageBlock1 *Fixed[1.0] *Fixed[1.25] *Fixed[1.0] )
+    Call ScaleModel ( ~Model:FoliageBlock2 *Fixed[1.0] *Fixed[1.25] *Fixed[1.0] )
+    If *ARC_02_SECRETPATHWAY == .False
+        Call RotateModel ( ~Model:FoliageBlock1 -50` 0 0 1 )
+        Call RotateModel ( ~Model:FoliageBlock2 50` 0 0 1 )
+        Bind $Script_RevealSecretPath .Trigger:WallPressA ~Collider:BushMovementColl 00000001 00000000
+    Else
+        Call RotateModel ( ~Model:FoliageBlock1 15` 0 0 1 )
+        Call RotateModel ( ~Model:FoliageBlock2 -15` 0 0 1 )
+        Call TranslateModel ( ~Model:WoodArch 0` 55` 0` )
+        Call ModifyColliderFlags ( 00000000 ~Collider:BushMovementColl 7FFFFE00 )
+    EndIf
+	Exec  $Script_EnterMap
+	Return
+	End
+}
+
+@ $FoliageDrops_Tree_o189
+{
+	1`
+	.Item:DriedFruit ~Vec3d:Tree2_Drop2 0000000E *ARC_02_TREE_DRIED_FRUIT *MapFlag[08]
+}
+
+@ $FoliageDrops_Bush_Bush1Coll
+{
+	3`
+	.Item:Coin ~Vec3d:TreeFX_Bush1_Item 00000006 *ARC_02_BUSH1_COIN1 *MapFlag[00]
+	.Item:Coin ~Vec3d:TreeFX_Bush1_Item 00000006 *ARC_02_BUSH1_COIN2 *MapFlag[01]
+	.Item:Coin ~Vec3d:TreeFX_Bush1_Item 00000006 *ARC_02_BUSH1_COIN3 *MapFlag[02]
+}
+
+@ $FoliageDrops_Bush_Bush2Coll
+{
+	2`
+	.Item:Coin ~Vec3d:TreeFX_Bush2_Item 00000006 *ARC_02_BUSH2_COIN1 *MapFlag[03]
+	.Item:Coin ~Vec3d:TreeFX_Bush2_Item 00000006 *ARC_02_BUSH2_COIN2 *MapFlag[04]
+}
+
+@ $FoliageDrops_Bush_Bush3Coll
+{
+	3`
+	.Item:Coin ~Vec3d:TreeFX_Bush3_Item 00000006 *ARC_02_BUSH3_COIN1 *MapFlag[05]
+	.Item:Coin ~Vec3d:TreeFX_Bush3_Item 00000006 *ARC_02_BUSH3_COIN2 *MapFlag[06]
+	.Item:Coin ~Vec3d:TreeFX_Bush3_Item 00000006 *ARC_02_BUSH3_COIN3 *MapFlag[07]
+}
+
+#new:Script $Script_RevealSecretPath {
+    Call DisablePlayerInput ( .True )
+    Exec $Script_GateRise
+    Call MakeLerp ( 50` -15` 12` .Easing:SinOut )
+    Loop
+        Call UpdateLerp ( )
+        Call RotateModel ( ~Model:FoliageBlock2 *Var0 0` 0` 1` )
+        Call ScaleModel ( ~Model:FoliageBlock2 *Fixed[1.0] *Fixed[1.25] *Fixed[1.0] )
+        Mul *Var0 -1`
+        Call RotateModel ( ~Model:FoliageBlock1 *Var0 0` 0` 1` )
+        Call ScaleModel ( ~Model:FoliageBlock1 *Fixed[1.0] *Fixed[1.25] *Fixed[1.0] )
+        Mul *Var0 -1`
+        Wait  1`
+        If  *Var1  ==  00000000
+            BreakLoop
+        EndIf
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_GateRise
+{
+    Thread
+        Call PlaySound ( 00000052 )
+        Call ShakeCam ( .Cam:Default 2` 13` 1` )
+    EndThread
+    Call PlayEffect ( ~FX:ShockWave:Sand ~Vec3D:GateFXMarkerL )
+    Call PlayEffect ( ~FX:ShockWave:Sand ~Vec3D:GateFXMarkerR )
+    Call MakeLerp ( 0` 55` 30` .Easing:SinOut )
+    Loop
+        Call UpdateLerp ( )
+        Call TranslateModel ( ~Model:WoodArch 0` *Var0 0` )
+        Wait 1`
+        If  *Var1  ==  00000000
+            BreakLoop
+        EndIf
+    EndLoop
+    Call StopSound ( 00000052 )
+    Call ModifyColliderFlags ( 00000000 ~Collider:BushMovementColl 7FFFFE00 )
+    Set *ARC_02_SECRETPATHWAY .True
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
