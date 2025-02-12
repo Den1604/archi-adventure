@@ -106,8 +106,8 @@
 
 #new:NpcGroupList $NpcGroupList_Enemies
 {
-	00000001 $NpcGroup_MBush_00 140E0003
-	00000001 $NpcGroup_MBush_01 140E0003
+	00000001 $NpcGroup_MBush_00 2F010000
+	00000001 $NpcGroup_MBush_01 2F000000
 	00000000 00000000 00000000
 }
 

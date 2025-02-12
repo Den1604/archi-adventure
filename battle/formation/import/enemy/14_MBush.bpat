@@ -4,7 +4,7 @@
 % stats
 [Index]        27b 
 [Level]        16`b 
-[MaxHP]         8`b 
+[MaxHP]         5`b 
 [Coins]         1`b 
 [Flags]       00000000 
 [StatusTable] $StatusTable_80221890_14 
@@ -253,7 +253,7 @@
   418:  Call  JumpToGoal        ( .Actor:Self  10` .False .True .False )
   438:  Call  ResetAllActorSounds   ( .Actor:Self )
   448:  Wait  2`
-  454:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 ~DebuffType:Poison:2:25` 00000003 00000020 )
+  454:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 ~DebuffType:Poison:2:25` 00000001 00000020 )
   47C:  Switch  *Var0 
   488:  	CaseOR  ==  .HitResult:Hit % 0
   494:  	CaseOR  ==  .HitResult:QuakeImmune % 2

@@ -572,6 +572,7 @@
 		<Map name="arc_00" nickname="Island Picker"/>
 		<Map name="arc_01" nickname="Tangle Island Map #3"/>
 		<Map name="arc_02" nickname="Tangle Island Map #2"/>
+		<Stage name="arc_bt00" nickname="Tangle Island Battle Map"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
 	<Resource name="tik_tex" compressed="false"/>

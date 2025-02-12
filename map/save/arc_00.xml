@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_00" author="unnamed" textures="jan_tex">
 	<Editor>
-		<Camera pos="224.633057,305.037109,415.149902" pitch="36.360001" yaw="0.800004"/>
+		<Camera pos="224.242126,317.117920,435.146118" pitch="37.160000" yaw="1.120004"/>
 		<Camera pos="-413.124329,65536.000000,559.234741"/>
 		<Camera pos="65536.000000,-45.353851,22.117731"/>
 		<Camera pos="783.000000,32.000000,65536.000000"/>

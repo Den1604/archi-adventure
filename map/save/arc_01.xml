@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_01" author="unnamed" background="jan_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="70.257469,81.917969,113.367203" pitch="23.120092" yaw="359.201111"/>
-		<Camera pos="78.770294,65536.000000,-84.346512"/>
+		<Camera pos="-232.165771,72.960526,120.631386" pitch="16.520008" yaw="1.012406"/>
+		<Camera pos="35.583668,65536.000000,-222.889328"/>
 		<Camera pos="65536.000000,-17.407043,130.354584"/>
 		<Camera pos="100.510696,12.882975,65536.000000"/>
 	</Editor>
@@ -98,12 +98,13 @@
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
-		<Node name="Root" id="1">
+		<Node name="Root" id="2">
 			<Node name="MainZone" id="0"/>
+			<Node name="CutsceneZone" id="1"/>
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="A">
+		<Node name="Root" id="D">
 			<Node name="Entrances" id="1">
 				<Node name="Entry0" id="FFFFFFFF"/>
 				<Node name="Entry1" id="0"/>
@@ -116,6 +117,9 @@
 			<Node name="HeartBlock" id="7"/>
 			<Node name="SaveBlock" id="8"/>
 			<Node name="NPC_Partner_BeforeBattle" id="9"/>
+			<Node name="MarioCutscenePos" id="A"/>
+			<Node name="Cam_Pan_SpearGuyCutscene_1" id="B"/>
+			<Node name="Cam_Pan_SpearGuyCutscene_2" id="C"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -5894,8 +5898,27 @@
 	</Colliders>
 	<Zones>
 		<Zone ver="0">
-			<MapObject name="Root" id="1"/>
+			<MapObject name="Root" id="2"/>
 			<HitObject type="ROOT"/>
+		</Zone>
+		<Zone ver="0">
+			<MapObject name="CutsceneZone" id="1"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="-500,0,-200" uv="-512,512"/>
+						<Vertex xyz="-300,0,-400" uv="512,-512"/>
+						<Vertex xyz="-500,0,-400" uv="-512,-512"/>
+						<Vertex xyz="-300,0,-200" uv="512,512"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="1,0,3"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
+			<Camera type="TYPE_4" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="64,-23,25" posB="-5,-23,-45" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
 			<MapObject name="MainZone" id="0" hidden="true"/>
@@ -5919,12 +5942,23 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="A"/>
+			<MapObject name="Root" id="D"/>
+		</Marker>
+		<Marker ver="4" type="CamTarget" pos="-400,0,-300" yaw="0.000000">
+			<MapObject name="Cam_Pan_SpearGuyCutscene_2" id="C"/>
+			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
+		</Marker>
+		<Marker ver="4" type="CamTarget" pos="33,0,41" yaw="0.000000">
+			<MapObject name="Cam_Pan_SpearGuyCutscene_1" id="B"/>
+			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="-158,0,19" yaw="0.000000">
+			<MapObject name="MarioCutscenePos" id="A"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="57,0,-61" yaw="45.000000">
 			<MapObject name="NPC_Partner_BeforeBattle" id="9"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
-			<Sprite sprite="1" palette="0" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Sprite sprite="1" palette="0" animations="1,2,3,3,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="-235,60,-37" yaw="180.000000">
 			<MapObject name="SaveBlock" id="8"/>

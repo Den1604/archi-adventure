@@ -1,3 +1,19 @@
+#define .NpcID:NPC_Partner_BeforeBattle               00
+
+#new:Function $Function_ForcePartnerSwap {
+    ADDIU     SP, SP, -18
+    SW        RA, 10 (SP)
+    LW        V0, C (A0)
+    JAL       ~Func:get_variable
+    LW        A1, 0 (V0)
+    JAL       ~Func:switch_to_partner
+    DADDU     A0, V0, R0
+    LW        RA, 10 (SP)
+    ADDIU     V0, R0, 2
+    JR        RA
+    ADDIU     SP, SP, 18
+}
+
 @ $Script_Main
 {
 	Set   *GB_WorldLocation  .Location:GoombaRoad
@@ -5,10 +21,14 @@
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True )
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
 	Exec  $Script_BindFoliage
     Exec  $Script_BoatBop
+    If *MF_SpearGuy_Joined_Party == .False
+        Call MakeNpcs  ( .False $NpcGroupList_SpearGuy )
+    EndIf
 	Exec  $Script_EnterMap
     Bind  $Script_BoatLeave .Trigger:WallPressA ~Collider:BoatInteractColl 00000001 00000000
 	Return
@@ -17,6 +37,12 @@
 
 @ $Script_EnterMap
 {
+    Call  GetLoadType   ( *Var[0] )
+	If  *Var[0]  ==  1
+		Exec  EnterSavePoint
+		Exec $Script_CreateExitTriggers
+		Return
+	EndIf
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
 		Case  ==  ~Entry:Entry0
@@ -200,4 +226,63 @@
   5E8:  Wait  15`
   5F4:  Return
   5FC:  End
+}
+
+#new:NpcGroupList $NpcGroupList_SpearGuy
+{
+	00000001 $NpcGroup_SpearGuy 00000000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_SpearGuy
+{
+	.NpcID:NPC_Partner_BeforeBattle $NpcSettings_8024EC90 ~Vec3f:NPC_Partner_BeforeBattle % -150 0 -275
+	00112D09 $Script_Init_80250EE4 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC_Partner_BeforeBattle
+	~AnimationTable:NPC_Partner_BeforeBattle % .Sprite:Toad
+	00000000 00000000 00000000 001A0013 % This Toad is always standing in front of the gate. ...
+}
+
+#new:NpcSettings $NpcSettings_8024EC90
+{
+	00000000 001E0018 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_80250EE4
+{
+    Call BindNpcIdle ( .Npc:Self $Script_Find_SpearGuy )
+    Return
+    End
+}
+
+#new:Script $Script_Find_SpearGuy
+{
+    Call SetNpcYaw ( .Npc:Self 127` )
+    Loop
+        Call GetPlayerPos ( *Var0 0` 0` )
+        If *Var0 > -168`
+            BreakLoop
+        EndIf
+        Wait 1`
+    EndLoop
+    Call DisablePlayerInput ( .True )
+    ExecWait $Script_PanCamera_Cam_Pan_SpearGuyCutscene_1
+    Call SetPlayerPos ( ~Vec3D:MarioCutscenePos )
+    Call GetPlayerPos ( *Var0 *Var1 *Var2 )
+    Add *Var0 165`
+    Add *Var2 10`
+    Wait 15`
+    Thread
+        Wait 25`
+        Call PlaySoundAtNpc ( .Npc:Self 00000262 00000000 )
+        Call ShowEmote     ( .Npc:Self .Emote:Exclamation  0`  -45` .True  0`  0`  0`  0` )
+        Call NpcFacePlayer ( .Npc:Self 10` )
+    EndThread
+    Call PlayerMoveTo ( *Var0 *Var2 55` )
+    ExecWait $Script_PanCamera_Cam_Pan_SpearGuyCutscene_2
+    Call StartBossBattle ( .Song:MinibossBattle )
+    Return
+    End
 }
