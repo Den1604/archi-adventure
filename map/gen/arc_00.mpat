@@ -304,7 +304,22 @@
 #new:Script $Script_PanCamera_CamPan_WaterfallIsland
 {
 	Call  UseSettingsFrom   ( .Cam:Default 284` 43` 38` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_WaterfallIsland )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+#new:Script $Script_PanCamera_CamPan_StarShrineIsland
+{
+	Call  UseSettingsFrom   ( .Cam:Default 717` 43` 144` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_StarShrineIsland )
 	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
 	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
@@ -339,7 +354,7 @@
 		Set  *Var[2] C8
 		Set  *Var[3] FFFFFF83
 		Set  *Var[4] FA
-		Set  *Var[5] 1
+		Set  *Var[5] 0
 		Set  *Var[6] 1
 		Set  *Var[7] 1
 		Set  *Var[8] 1

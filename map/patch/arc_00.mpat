@@ -94,6 +94,17 @@
 	End
 }
 
+@ $Script_PanCamera_CamPan_StarShrineIsland
+{
+	Call  UseSettingsFrom   ( .Cam:Default 717` 43` 144` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_StarShrineIsland )
+	Call  SetCamSpeed       ( .Cam:Default *MapVar[0] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
 @ $Script_SetupMusic
 {
 	Call  SetMusicTrack ( 00000000 .Song:SeasideCity 00000000 00000008 )
@@ -121,12 +132,19 @@
     % INITIAL CAM SETUP
 
     Switch *GB_ARC_00_currentIsland
+
             Case == 0 % Tangle Island / Starting Island
                 ExecWait $Script_PanCamera_CamPan_MainIsland
                 Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
+
             Case == 1 % Waterfall Island
                 ExecWait $Script_PanCamera_CamPan_WaterfallIsland
                 Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+
+            Case == 2 % StarShrine Island
+                ExecWait $Script_PanCamera_CamPan_StarShrineIsland
+                Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
+
     EndSwitch
 
     Set *MapVar[0] .CamSpeed:changingIslands
@@ -138,37 +156,75 @@
             Case == 0 % Tangle Island / Starting Island
                 Call $Function_CheckPlayerInput ( *Var0 )
                 Switch *Var0
+
                     Case == 00080000 % RIGHT
                         Call CloseMessage ()
                         Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:WaterfallIsland_BoatMarker )
                         ExecWait $Script_PanCamera_CamPan_WaterfallIsland
                         Set *GB_ARC_00_currentIsland 00000001
                         Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+
                     Case == .Buttons:A
                         Call CloseMessage ()
                         Call GotoMap ( "arc_01" 00000001 )
+
                     Case == .Buttons:Z
                         Call CloseMessage ()
                         Call ShowMessageAtScreenPos ( 002F0001 000000A0 00000000 )
                         Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
+
                     EndSwitch
             Case == 1 % Waterfall Island
                 Call $Function_CheckPlayerInput ( *Var0 )
                 Switch *Var0
+
                     Case == 00040000 % LEFT
                         Call CloseMessage ()
                         Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:MainIsland_BoatMarker )
                         ExecWait $Script_PanCamera_CamPan_MainIsland
                         Set *GB_ARC_00_currentIsland 00000000
                         Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
+
+                    Case == 00080000 % RIGHT
+                        Call CloseMessage ()
+                        Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:StarShrineIsland_BoatMarker )
+                        ExecWait $Script_PanCamera_CamPan_StarShrineIsland
+                        Set *GB_ARC_00_currentIsland 00000002
+                        Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
+
                     Case == .Buttons:A
                         Call CloseMessage ()
                         Call GotoMap ( "arc_00" 00000000 )
+
                     Case == .Buttons:Z
                         Call CloseMessage ()
                         Call ShowMessageAtScreenPos ( 002F0003 000000A0 00000000 )
                         Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+
                     EndSwitch
+
+                Case == 2 % Star Shrine Island
+                    Call $Function_CheckPlayerInput ( *Var0 )
+                    Switch *Var0
+
+                        Case == 00040000 % LEFT
+                            Call CloseMessage ()
+                            Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:WaterfallIsland_BoatMarker )
+                            ExecWait $Script_PanCamera_CamPan_WaterfallIsland
+                            Set *GB_ARC_00_currentIsland 00000001
+                            Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+
+                        Case == .Buttons:A
+                            Call CloseMessage ()
+                            Call GotoMap ( "arc_00" 00000000 )
+
+                        Case == .Buttons:Z
+                            Call CloseMessage ()
+                            Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
+                            Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
+
+                        EndSwitch
+
         EndSwitch
     Wait 1`
     EndLoop

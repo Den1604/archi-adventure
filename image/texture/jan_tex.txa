@@ -1132,3 +1132,75 @@ tex: jan_spear
 	filter: yes
 	combine: 8
 }
+
+tex: jan_staroutline
+{
+	img: jan_staroutline.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: clamp
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: jan_startop
+{
+	img: jan_startop.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: clamp
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: jan_startopright
+{
+	img: jan_startopright.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: clamp
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: jan_startopleft
+{
+	img: jan_startopleft.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: clamp
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: jan_starbottomright
+{
+	img: jan_starbottomright.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: clamp
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: jan_starbottomleft
+{
+	img: jan_starbottomleft.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: clamp
+	}
+	filter: yes
+	combine: 8
+}
