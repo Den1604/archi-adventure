@@ -230,7 +230,7 @@
 
 #new:NpcGroupList $NpcGroupList_SpearGuy
 {
-	00000001 $NpcGroup_SpearGuy 00000000
+	00000001 $NpcGroup_SpearGuy 2F020000
 	00000000 00000000 00000000
 }
 
@@ -253,6 +253,7 @@
 #new:Script $Script_Init_80250EE4
 {
     Call BindNpcIdle ( .Npc:Self $Script_Find_SpearGuy )
+    Call BindNpcDefeat ( .Npc:Self $Script_SpearGuyDefeat )
     Return
     End
 }
@@ -282,7 +283,16 @@
     EndThread
     Call PlayerMoveTo ( *Var0 *Var2 55` )
     ExecWait $Script_PanCamera_Cam_Pan_SpearGuyCutscene_2
-    Call StartBossBattle ( .Song:MinibossBattle )
+    Call StartBossBattle ( .Song:SpecialBattle )
+    Return
+    End
+}
+
+#new:Script $Script_SpearGuyDefeat
+{
+    Call AddBadge ( .Item:HammerThrow 00000002 )
+    Call ShowGotItem ( .Item:HammerThrow .True 00260066 )
+    Call DisablePlayerInput ( .False )
     Return
     End
 }
