@@ -290,7 +290,7 @@
 
 #new:Script $Script_PanCamera_CamPan_MainIsland
 {
-	Call  UseSettingsFrom   ( .Cam:Default 0` 43` 200` )
+	Call  UseSettingsFrom   ( .Cam:Default 0` 43` 168` )
 	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
 	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_MainIsland )
@@ -303,8 +303,7 @@
 
 #new:Script $Script_PanCamera_CamPan_WaterfallIsland
 {
-	Call  UseSettingsFrom   ( .Cam:Default 284` 43` 38` )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  UseSettingsFrom   ( .Cam:Default 338` 43` 54` )
 	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_WaterfallIsland )
 	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
@@ -316,7 +315,7 @@
 
 #new:Script $Script_PanCamera_CamPan_StarShrineIsland
 {
-	Call  UseSettingsFrom   ( .Cam:Default 717` 43` 144` )
+	Call  UseSettingsFrom   ( .Cam:Default 715` 43` 74` )
 	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
 	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_StarShrineIsland )

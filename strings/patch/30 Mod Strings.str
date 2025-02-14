@@ -5,3 +5,37 @@
 	[Down 5]Would you like to leave?[BR]
 	[Yield][End]
 }
+
+#message:30:001
+{
+	[Style Postcard index=9]
+	[Color:0A]"Dear Mario, everyone at the[BR]
+	village hopes this letter finds[BR]
+	you well.[BR]
+	[Wait][Next]
+	We're once again celebrating[BR]
+	the annual hatching festival.[BR]
+	[Wait][Next]
+	We would be honored to invite[BR]
+	you as the guest of honor this[BR]
+	year![BR]
+	[Wait][Next]
+	Please come on by to discuss[BR]
+	your role and whether you wish[BR]
+	to participate or not.[BR]
+	[Wait][Next]
+	Feel free to bring your[BR]
+	brother along.[BR]
+	[Wait][Next]
+	The children always love to[BR]
+	hear about your adventures![Pause:10][BR]
+	[Right 85]The Yoshi Elder[Wait][End]
+}
+
+#message:30:002
+{
+	[Style Right]
+	You should get going right away,[Pause:5][BR]
+	I'll watch the house as per usual![BR]
+	[Wait][End]
+}

@@ -1,0 +1,20 @@
+#message:00:01F
+{
+	[Style Right]
+	Hey, Mario![BR]
+	[Pause 10]We got a letter from Princess[BR]
+	Peach![Wait][End]
+}
+
+#message:00:020
+{
+	[Style Right]
+	I'll read it to you, OK?[Wait][End]
+}
+
+#message:00:021
+{
+	[Style Right]
+	All right, let's see...[BR]
+	[Wait][End]
+}

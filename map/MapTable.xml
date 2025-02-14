@@ -573,8 +573,10 @@
 		<Map name="arc_01" nickname="Tangle Island Map #3"/>
 		<Map name="arc_02" nickname="Tangle Island Map #2"/>
 		<Map name="arc_03" nickname="Tangle Island Map #1"/>
+		<Map name="arc_04" nickname="Tangle Island Secret"/>
 		<Stage name="arc_bt00" nickname="Tangle Island Battle Map"/>
 		<Stage name="arc_bt01" nickname="Spear Guy Battle Map"/>
+		<Stage name="arc_bt02" nickname="Tangle Secret Battle Map"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
 	<Resource name="tik_tex" compressed="false"/>

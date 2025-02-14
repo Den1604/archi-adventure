@@ -873,7 +873,7 @@
 	SetGroup 0000001B
 	Call     UseExitHeading ( 60` ~Entry:Entry0 )
 	Exec     ExitWalk
-	Call  GotoMap   ( "arc_02" ~Entry:arc_02:Entry0 )
+	Call  GotoMap   ( "arc_03" ~Entry:arc_03:Entry0 )
 	Wait  100`
 	Return
 	End
@@ -895,7 +895,7 @@
 	SetGroup 0000001B
 	Call     UseExitHeading ( 60` ~Entry:Entry2 )
 	Exec     ExitWalk
-	Call  GotoMap   ( "arc_02" ~Entry:arc_02:Entry2 )
+	Call  GotoMap   ( "arc_04" ~Entry:arc_04:Entry0 )
 	Wait  100`
 	Return
 	End

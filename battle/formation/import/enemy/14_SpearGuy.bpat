@@ -4,7 +4,7 @@
 % stats
 [Index]        2Ab 
 [Level]        16`b 
-[MaxHP]         7`b 
+[MaxHP]         11`b 
 [Coins]         2`b 
 [Flags]       00000000 
 [StatusTable] $StatusTable_80218698_14 

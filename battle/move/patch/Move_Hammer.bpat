@@ -1,24 +1,24 @@
 @ $Script_UseMove0
 {
-%     0:  Call  802694A4  ( 00000001 )
-%    10:  Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
-%    28:  Switch  *Var1
-%    34:  	Case  ==  .Item:Nothing % 0
-%    40:  		Set   *VarD  0000002D
-%    50:  		Set   *VarE  00000001
-%    60:  		Set   *VarF  00000002
-%    70:  		ExecWait  $Script_802A3168
-%    7C:  	Case  ==  .Item:Jump % 1
+    0:  Call  802694A4  ( 00000001 )
+   10:  Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+   28:  Switch  *Var1
+   34:  	Case  ==  .Item:Nothing % 0
+   40:  		Set   *VarD  0000002D
+   50:  		Set   *VarE  00000001
+   60:  		Set   *VarF  00000002
+   70:  		ExecWait  $Script_802A3168
+   7C:  	Case  ==  .Item:Jump % 1
    88:  		Set   *VarD  0000002D
    98:  		Set   *VarE  00000002
    A8:  		Set   *VarF  00000003
    B8:  		ExecWait  $Script_802A3168
-%    C4:  	Case  ==  .Item:SpinJump % 2
-%    D0:  		Set   *VarD  0000002D
-%    E0:  		Set   *VarE  00000003
-%    F0:  		Set   *VarF  00000006
-%   100:  		ExecWait  $Script_802A3168
-%   10C:  EndSwitch
+   C4:  	Case  ==  .Item:SpinJump % 2
+   D0:  		Set   *VarD  0000002D
+   E0:  		Set   *VarE  00000003
+   F0:  		Set   *VarF  00000006
+  100:  		ExecWait  $Script_802A3168
+  10C:  EndSwitch
   114:  Return
   11C:  End
 }

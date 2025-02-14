@@ -33,7 +33,7 @@
 {
 	[Style Tattle][NoSkip][CustomVoice soundIDs=0x000,0x000]
 	[CenterX:FF]Star Shrine Island[BR]
-	[SetPosX 10][DelayOff][Down 3][Spacing 42][LEFT][UP][RIGHT][BR]
+	[SetPosX 18][DelayOff][Down 3][Spacing 42][LEFT][UP][RIGHT][BR]
 	[Yield][End]
 }
 

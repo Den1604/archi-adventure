@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_00" author="unnamed" textures="jan_tex">
 	<Editor>
-		<Camera pos="407.172424,414.482117,431.945831" pitch="33.319946" yaw="357.440063"/>
+		<Camera pos="388.000000,356.452667,495.576019" pitch="28.999998" yaw="0.000000"/>
 		<Camera pos="934.926392,65536.000000,169.840347"/>
 		<Camera pos="65536.000000,-25.631655,-0.427005"/>
 		<Camera pos="768.466614,17.427439,65536.000000"/>
@@ -9446,7 +9446,7 @@
 					</TriangleList>
 				</TriangleBatch>
 			</HitMesh>
-			<Camera type="TYPE_6" flag="false" boomLength="800.000000" boomPitch="35.000000" viewPitch="-6.000000" posA="-1100,10,0" posB="2500,10,0" posC="10,0,10"/>
+			<Camera type="TYPE_6" flag="false" boomLength="400.000000" boomPitch="35.000000" viewPitch="-6.000000" posA="-1100,10,0" posB="2500,10,0" posC="10,0,10"/>
 		</Zone>
 	</Zones>
 	<Markers>
@@ -9461,15 +9461,15 @@
 		<Marker ver="4" type="Group">
 			<MapObject name="CameraPan_Group" id="7"/>
 		</Marker>
-		<Marker ver="4" type="CamTarget" pos="717,43,144" yaw="0.000000">
+		<Marker ver="4" type="CamTarget" pos="715,43,74" yaw="0.000000">
 			<MapObject name="CamPan_StarShrineIsland" id="6"/>
-			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000"/>
-		</Marker>
-		<Marker ver="4" type="CamTarget" pos="284,43,38" yaw="0.000000">
-			<MapObject name="CamPan_WaterfallIsland" id="5"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
-		<Marker ver="4" type="CamTarget" pos="0,43,200" yaw="0.000000">
+		<Marker ver="4" type="CamTarget" pos="338,43,31" yaw="0.000000">
+			<MapObject name="CamPan_WaterfallIsland" id="5"/>
+			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="500.000000" overrideAngles="15.000000,-6.000000"/>
+		</Marker>
+		<Marker ver="4" type="CamTarget" pos="0,43,168" yaw="0.000000">
 			<MapObject name="CamPan_MainIsland" id="4"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>

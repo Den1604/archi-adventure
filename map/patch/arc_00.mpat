@@ -86,6 +86,7 @@
 @ $Script_PanCamera_CamPan_WaterfallIsland
 {
 	Call  UseSettingsFrom   ( .Cam:Default 284` 43` 38` )
+	Call  SetCamDistance    ( .Cam:Default 500` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_WaterfallIsland )
 	Call  SetCamSpeed       ( .Cam:Default *MapVar[0] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
@@ -301,6 +302,8 @@
             Call SetNpcPos ( .Npc:Self ~Vec3D:MainIsland_BoatMarker )
         Case == 1 % Waterfall Island
             Call SetNpcPos ( .Npc:Self ~Vec3D:WaterfallIsland_BoatMarker )
+        Case == 2 % Star Shrine Island
+            Call SetNpcPos ( .Npc:Self ~Vec3D:StarShrineIsland_BoatMarker )
     EndSwitch
     Return
     End

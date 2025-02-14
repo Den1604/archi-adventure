@@ -18,3 +18,6 @@
 011 = ARC_01_TREE_COIN7
 012 = ARC_01_SPEAR_GUY_JOINED_PARTY = MF_SpearGuy_Joined_Party
 013 = ARC_03_EGG
+014 = MF_ARC_04_VineItem
+015 = MF_ARC_04_FightCompleted
+016 = MF_Setup_Stats
