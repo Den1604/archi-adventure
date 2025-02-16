@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_04" author="unnamed" background="jan_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="100.979713,83.647682,459.120209" pitch="4.560002" yaw="2.720004"/>
+		<Camera pos="-6.823270,137.663788,691.657837" pitch="17.040001" yaw="359.839996"/>
 		<Camera pos="92.220848,65536.000000,370.826263"/>
 		<Camera pos="65536.000000,-28.651396,500.256866"/>
 		<Camera pos="56.267681,100.293945,65536.000000"/>
@@ -100,7 +100,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o105" id="1D" hidden="true"/>
+			<MapObject name="o105" id="1D"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -128,7 +128,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o125" id="1C" hidden="true"/>
+			<MapObject name="o125" id="1C"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -156,7 +156,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o124" id="1B" hidden="true"/>
+			<MapObject name="o124" id="1B"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -184,7 +184,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o124" id="1A" hidden="true"/>
+			<MapObject name="o124" id="1A"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -212,7 +212,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o105" id="19" hidden="true"/>
+			<MapObject name="o105" id="19"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -240,7 +240,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o124" id="18" hidden="true"/>
+			<MapObject name="o124" id="18"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -268,7 +268,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o105" id="17" hidden="true"/>
+			<MapObject name="o105" id="17"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -296,7 +296,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o125" id="16" hidden="true"/>
+			<MapObject name="o125" id="16"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -324,7 +324,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o125" id="15" hidden="true"/>
+			<MapObject name="o125" id="15"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -352,7 +352,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o125" id="14" hidden="true"/>
+			<MapObject name="o125" id="14"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -380,7 +380,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o111" id="13" hidden="true"/>
+			<MapObject name="o111" id="13"/>
 			<ShapeMesh ver="3" texture="jan_jan_sigemitif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -408,7 +408,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="12" hidden="true"/>
+			<MapObject name="DrawnModel" id="12"/>
 			<ShapeMesh ver="3" texture="jan_frametif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -465,7 +465,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="VineBottomR" id="10" hidden="true"/>
+			<MapObject name="VineBottomR" id="10"/>
 			<ShapeMesh ver="3" texture="jan_j_tuta06tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -493,7 +493,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="VineTopR" id="F" hidden="true"/>
+			<MapObject name="VineTopR" id="F"/>
 			<ShapeMesh ver="3" texture="jan_j_tuta06tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -521,7 +521,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="TreeRTrunk" id="E" hidden="true"/>
+			<MapObject name="TreeRTrunk" id="E"/>
 			<ShapeMesh ver="3" texture="jan_yasiki2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -717,7 +717,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="TreeRLeaf3" id="D" hidden="true"/>
+			<MapObject name="TreeRLeaf3" id="D"/>
 			<ShapeMesh ver="3" texture="jan_kinoha5tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -753,7 +753,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="TreeRLeaf2" id="C" hidden="true"/>
+			<MapObject name="TreeRLeaf2" id="C"/>
 			<ShapeMesh ver="3" texture="jan_kinoha5tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -789,7 +789,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="TreeRLeaf1" id="B" hidden="true"/>
+			<MapObject name="TreeRLeaf1" id="B"/>
 			<ShapeMesh ver="3" texture="jan_kinoha5tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -825,7 +825,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="A" hidden="true"/>
+			<MapObject name="DrawnModel" id="A"/>
 			<ShapeMesh ver="3" texture="jan_jan_jimentif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -865,7 +865,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o77" id="8" hidden="true"/>
+			<MapObject name="o77" id="8"/>
 			<ShapeMesh ver="3" texture="jan_j_tuta06tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -893,7 +893,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o76" id="7" hidden="true"/>
+			<MapObject name="o76" id="7"/>
 			<ShapeMesh ver="3" texture="jan_j_tuta06tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -921,7 +921,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o63" id="6" hidden="true"/>
+			<MapObject name="o63" id="6"/>
 			<ShapeMesh ver="3" texture="jan_kinoha5tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -957,7 +957,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o62" id="5" hidden="true"/>
+			<MapObject name="o62" id="5"/>
 			<ShapeMesh ver="3" texture="jan_kinoha5tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -993,7 +993,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o6" id="4" hidden="true"/>
+			<MapObject name="o6" id="4"/>
 			<ShapeMesh ver="3" texture="jan_kinoha5tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1029,7 +1029,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="o35" id="3" hidden="true"/>
+			<MapObject name="o35" id="3"/>
 			<ShapeMesh ver="3" texture="jan_yasiki2tif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1233,7 +1233,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ex_s_edge" id="1" hidden="true"/>
+			<MapObject name="ex_s_edge" id="1"/>
 			<ShapeMesh ver="3" texture="jan_berosaidetif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1271,7 +1271,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="ex_s_floor" id="0" hidden="true"/>
+			<MapObject name="ex_s_floor" id="0"/>
 			<ShapeMesh ver="3" texture="jan_jan_jimentif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
@@ -1303,7 +1303,7 @@
 			<HitObject type="ROOT"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="VineRCollAfter" id="F"/>
+			<MapObject name="VineRCollAfter" id="F" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1323,7 +1323,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="MeshCollider" id="E"/>
+			<MapObject name="MeshCollider" id="E" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1351,7 +1351,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="MeshCollider" id="D"/>
+			<MapObject name="MeshCollider" id="D" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1379,7 +1379,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="DrawnCollider" id="C"/>
+			<MapObject name="DrawnCollider" id="C" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1409,7 +1409,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="DrawnCollider" id="B"/>
+			<MapObject name="DrawnCollider" id="B" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1445,7 +1445,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="VineRColl" id="A"/>
+			<MapObject name="VineRColl" id="A" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1465,7 +1465,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="TreeRColl" id="9"/>
+			<MapObject name="TreeRColl" id="9" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1501,7 +1501,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="DrawnCollider" id="8"/>
+			<MapObject name="DrawnCollider" id="8" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1529,7 +1529,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="MeshCollider" id="7"/>
+			<MapObject name="MeshCollider" id="7" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1561,7 +1561,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="VineLColl" id="6"/>
+			<MapObject name="VineLColl" id="6" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1581,7 +1581,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="TreeLColl" id="5"/>
+			<MapObject name="TreeLColl" id="5" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1625,7 +1625,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Entry0GuardColl" id="2"/>
+			<MapObject name="Entry0GuardColl" id="2" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1665,7 +1665,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Entry0Coll" id="0"/>
+			<MapObject name="Entry0Coll" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1689,7 +1689,7 @@
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="MainZone" id="1"/>
+			<MapObject name="MainZone" id="1" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -1708,7 +1708,7 @@
 			<Camera type="TYPE_6" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="-114,10,500" posB="114,10,500" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="exit_s_cam" id="0"/>
+			<MapObject name="exit_s_cam" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">

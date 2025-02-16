@@ -1,0 +1,155 @@
+#define .NpcID:Toad_00              00
+#define .NpcID:Kolorado_01          01
+
+@ $Script_EnterWalk_802448C4
+{
+    0:  Call  GetLoadType   ( *Var1 )
+   10:  If  *Var1  ==  00000001
+   20:  	Exec  EnterSavePoint
+   2C:  	Exec  $Script_8024487C
+   38:  	Return
+   40:  EndIf
+   48:  Call  GetEntryID    ( *Var0 )
+   58:  Switch  *Var0
+   64:  	Case  ==  ~Entry:Entry0
+   70:  		Set   *Var0  $Script_8024487C
+   80:  		Exec  EnterWalk
+   8C:  	Case  ==  ~Entry:Entry1
+   98:  		Exec  $Script_802496FC
+   A4:  		Exec  $Script_8024487C
+   B0:  	Case  ==  ~Entry:Entry2
+   BC:  		Exec  $Script_80248878
+   C8:  		Exec  $Script_8024487C
+   D4:  	Case  ==  ~Entry:Entry3
+              Call SetPlayerPos ( ~Vec3D:Entry3 )
+              Call  UseSettingsFrom   ( .Cam:Default ~Vec3D:Pos_MarioWalkTo )
+              Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+              Call  SetCamDistance    ( .Cam:Default 450` )
+              Call  SetPanTarget      ( .Cam:Default ~Vec3d:Pos_MarioWalkTo )
+              Call  SetCamSpeed       ( .Cam:Default *Fixed[100.000000] )
+              Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+              Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+              Exec $Script_Entry3_Cutscene
+  2D4:  EndSwitch
+  2DC:  Return
+  2E4:  End
+}
+
+#new:Script $Script_Entry3_Cutscene
+{
+    Call DisablePlayerInput ( .True )
+    Exec $Script_Interact_8024ADA4
+    Return
+    End
+}
+
+@ $Script_Interact_8024ADA4
+{
+    Call SetNpcPos ( .NpcID:Kolorado_01 0` -1000` 0` )
+    Wait 30`
+%     0:  If  *GB_StoryProgress  <  .Story:Ch5_DefeatedFuzzipede % A
+%    10:  	If  *GB_StoryProgress  >=  .Story:Ch5_WhaleMouthOpen % 8
+%    20:  		If  *GB_StoryProgress  <  .Story:Ch5_EnteredWhale % 9
+%    30:  			Call  GetNpcAnimation   ( .NpcID:Toad_00 *Var0 )
+%    44:  			If  *Var0  ==  00B60002
+%    54:  				Call  SetNpcAnimation   ( .NpcID:Toad_00 00B60003 )
+%    68:  				Wait  15`
+%    74:  			EndIf
+%    7C:  			Call  SetNpcAnimation   ( .NpcID:Toad_00 00B60000 )
+%    90:  			Call  SpeakToPlayer     ( .NpcID:Toad_00 00B60004 00B60008 00000005 00070097 ) % Oh...something bouncing around in my stomach...I f ...
+%    B0:  			Call  SetNpcAnimation   ( .NpcID:Toad_00 00B60002 )
+%    C4:  			Wait  30`
+%    D0:  			Return
+%    D8:  		Else
+%    E0:  			Call  GetNpcAnimation   ( .NpcID:Toad_00 *Var0 )
+%    F4:  			If  *Var0  ==  00B60002
+%   104:  				Call  SetNpcAnimation   ( .NpcID:Toad_00 00B60003 )
+%   118:  				Wait  15`
+%   124:  			EndIf
+%   12C:  			Call  SetNpcAnimation   ( .NpcID:Toad_00 00B60000 )
+%   140:  			Call  SpeakToPlayer     ( .NpcID:Toad_00 00B60004 00B60008 00000005 00070098 ) % Did you see what's going on in my stomach? What is ...
+%   160:  			Call  SetNpcAnimation   ( .NpcID:Toad_00 00B60002 )
+%   174:  			Wait  30`
+%   180:  			Return
+%   188:  		EndIf
+%   190:  	Else
+%   198:  		Return
+%   1A0:  	EndIf
+%   1A8:  EndIf
+  1B0:  Call  DisablePlayerPhysics  ( .True )
+        Call PlayerMoveTo ( ~Vec2D:Pos_MarioWalkTo 45` )
+%   1C0:  Call  SpeakToPlayer ( .NpcID:Toad_00 00B60004 00B60000 00000005 000700B0 ) % Do you want to go to Lavalava Island?
+%   1E0:  Call  ShowChoice    ( 001E0010 ) % Yes No
+%   1F0:  If  *Var0  ==  00000001
+%   200:  	Call  ContinueSpeech        ( .NpcID:Toad_00 00B60004 00B60000 00000005 000700B2 ) % Just come speak to me when you want to go, OK?
+%   220:  	Call  DisablePlayerPhysics  ( .False )
+%   230:  	Return
+%   238:  Else
+%   240:  	Call  EndSpeech ( .NpcID:Toad_00 00B60004 00B60000 00000005 )
+%   25C:  EndIf
+        Call  SpeakToPlayer     ( .NpcID:Toad_00 00B60004 00B60000 00000005 00300004 )
+  264:  Call  SetNpcJumpscale   ( .Npc:Self 00000000 )
+  278:  Call  GetNpcPos ( .Npc:Self *Var0 *Var1 *Var2 )
+  294:  Call  NpcJump0  ( .Npc:Self  -220`  -30`  372`  20` )
+  2B4:  Call  SetNpcAnimation   ( .NpcID:Toad_00 00B6000A )
+  2C8:  Call  InterpNpcYaw      ( .NpcID:Toad_00  180`  60` )
+  2E0:  Set   *Var0  00000000
+  2F0:  Exec  $Script_802484F8
+  2FC:  Call  ModifyColliderFlags   ( 00000000 ~Collider:tt9 7FFFFE00 )
+%   314:  Call  DisablePartnerAI  ( 00000000 )
+%   324:  Call  SetNpcFlagBits    ( .Npc:Partner 00008048 .True )
+%   33C:  Call  SetNpcFlagBits    ( .Npc:Partner 00000200 .False )
+%   354:  Call  SetNpcAnimation   ( .Npc:Partner 00000106 )
+  368:  Call  GetPlayerPos      ( *Var3 *Var4 *Var5 )
+  380:  Call  $Function_80242A90    ( 00000000 *Var0 *Var1 *Var2 )
+  39C:  Exec  $Script_802496C0
+  3A8:  Call  SetPlayerJumpscale    ( *Fixed[1.0] )
+  3B8:  Call  PlayerJump        ( *Var0 *Var1 *Var2  20` )
+  3D4:  Call  SetPlayerAnimation    ( 00010002 )
+  3E4:  Call  InterpPlayerYaw   (  90`  0` )
+  3F8:  Thread
+  400:  	Call  $Function_80242C78    ( 00000000 )
+  410:  EndThread
+%   418:  Call  SetNpcAnimation   ( .Npc:Partner 00000107 )
+%   42C:  Call  NpcMoveTo ( .Npc:Partner *Var3 *Var5  10` )
+%   448:  Call  $Function_80242A90    ( 00000001 *Var0 *Var1 *Var2 )
+%   464:  Call  SetNpcJumpscale   ( .Npc:Partner *Fixed[1.0] )
+%   478:  Call  NpcJump0  ( .Npc:Partner *Var0 *Var1 *Var2  20` )
+%   498:  Call  SetNpcAnimation   ( .Npc:Partner 00000106 )
+%   4AC:  Call  InterpNpcYaw      ( .Npc:Partner  90`  0` )
+  4C4:  Thread
+  4CC:  	Call  $Function_80242C78    ( 00000001 )
+  4DC:  EndThread
+%   4E4:  If  *GB_StoryProgress  <  .Story:Ch5_ReachedLavaLavaIsland % B
+%   4F4:  	Call  SpeakToPlayer     ( .NpcID:Kolorado_01 00B60008 00B60008 00000000 000700AD ) % Ulp. Sure this is safe, then? Make some room, hm?
+%   514:  	Call  SetNpcAnimation   ( .NpcID:Kolorado_01 00B60006 )
+%   528:  	Call  NpcMoveTo ( .NpcID:Kolorado_01 *Var3 *Var5  20` )
+%   544:  	Call  $Function_80242A90    ( 00000002 *Var0 *Var1 *Var2 )
+%   560:  	Call  PlaySoundAtNpc    ( .NpcID:Kolorado_01 0000032C 00000000 )
+%   578:  	Call  SetNpcJumpscale   ( .NpcID:Kolorado_01 *Fixed[1.0] )
+%   58C:  	Call  NpcJump0  ( .NpcID:Kolorado_01 *Var0 *Var1 *Var2  20` )
+%   5AC:  	Call  SetNpcAnimation   ( .NpcID:Kolorado_01 00B60001 )
+%   5C0:  	Thread
+%   5C8:  		Call  $Function_80242C78    ( 00000002 )
+%   5D8:  	EndThread
+%   5E0:  	Call  SpeakToPlayer     ( .NpcID:Toad_00 00B60004 00B60000 00000005 000700AE ) % OK! We're off to Lavalava Island! The sea is calli ...
+%   600:  	Call  SetNpcAnimation   ( .NpcID:Toad_00 00B60009 )
+%   614:  	Wait  30`
+%   620:  	Call  SetNpcAnimation   ( .NpcID:Toad_00 00B60001 )
+%   634:  Else
+  63C:  	Call  SpeakToPlayer ( .NpcID:Toad_00 00B60004 00B60000 00000005 000700B1 ) % Let's go!
+%   65C:  EndIf
+  664:  Set   *MapFlag[01]  .False
+  674:  Thread
+  67C:  	Call  $Function_80242E84    ( 00000000 )
+  68C:  	Call  GotoMap   ( $ASCII_80252964 00000000 ) % mac_06
+  6A0:  EndThread
+%   6A8:  If  *GB_StoryProgress  <  .Story:Ch5_ReachedLavaLavaIsland % B
+%   6B8:  	Call  SpeakToPlayer ( .NpcID:Toad_00 00B60004 00B60000 00000005 000700AF ) % I can't believe we're on a tuna. Mario, do you eve ...
+%   6D8:  	Set   *MapFlag[01]  .True
+%   6E8:  Else
+  6F0:  	Set   *MapFlag[01]  .True
+%   700:  EndIf
+  708:  Return
+  710:  End
+}

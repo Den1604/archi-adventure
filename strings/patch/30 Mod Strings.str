@@ -39,3 +39,36 @@
 	I'll watch the house as per usual![BR]
 	[Wait][End]
 }
+
+#message:30:003
+{
+	[Style Right]
+	Oh... something's bouncing around[BR]
+	in my stomach... I feel queasy...[BR]
+	[Wait][Next]
+	I'm not sure I can get you to[BR]
+	Lavalava Island, Mario...[Pause:15][BR]
+	I'm so sorry...[BR]
+	[Wait][End]
+}
+
+#message:30:004
+{
+	[Style Right]
+	On your way to Lavalava Island?[Pause:10][BR]
+	Haven't heard you ask me for a[BR]
+	trip there in a long while...[BR]
+	[Wait][Next]
+	I just had that new dish Tayce[BR]
+	T. offers...[Pause:10][BR]
+	I'm not sure how well I'll stomach[BR]
+	it but I'm sure it'll be fine![BR]
+	[Wait][End]
+}
+
+#message:30:005
+{
+	[Style Tattle]
+	[Z] Tattle
+	[Yield][End]
+}

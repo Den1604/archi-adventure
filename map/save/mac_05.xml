@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="mac_05" author="unnamed" background="nok_bg" textures="mac_tex">
 	<Editor>
-		<Camera pos="760.863892,61.624939,-188.889053" pitch="11.040031" yaw="321.279785"/>
-		<Camera pos="134.331909,65536.000000,62.000000"/>
+		<Camera pos="-345.000000,98.861786,681.170227" pitch="12.160000" yaw="0.000000"/>
+		<Camera pos="-278.565674,65536.000000,317.589294"/>
 		<Camera pos="65536.000000,54.000000,62.000000"/>
 		<Camera pos="-262.197510,-13.505616,65536.000000"/>
 	</Editor>
@@ -234,7 +234,7 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="19">
+		<Node name="Root" id="1A">
 			<Node name="Entrances" id="3">
 				<Node name="Entry0" id="FFFFFFFF"/>
 				<Node name="Entry1" id="0"/>
@@ -264,6 +264,7 @@
 				<Node name="Entity80244424" id="16"/>
 				<Node name="Entity8024445C" id="17"/>
 			</Node>
+			<Node name="Pos_MarioWalkTo" id="19"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -6951,7 +6952,7 @@
 			<HitObject type="GROUP"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="o186" id="C" hidden="true" dumped="true" fileOffset="18D4"/>
+			<MapObject name="o186" id="C" dumped="true" fileOffset="18D4"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -6974,7 +6975,7 @@
 			<HitObject type="GROUP"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="west" id="A" hidden="true" dumped="true" fileOffset="18BC"/>
+			<MapObject name="west" id="A" dumped="true" fileOffset="18BC"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7021,7 +7022,7 @@
 			<HitObject type="GROUP"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="o85" id="7" hidden="true" dumped="true" fileOffset="1898"/>
+			<MapObject name="o85" id="7" dumped="true" fileOffset="1898"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7048,7 +7049,7 @@
 			<HitObject type="GROUP"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="kaimen" id="5" hidden="true" dumped="true" fileOffset="1880"/>
+			<MapObject name="kaimen" id="5" dumped="true" fileOffset="1880"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7068,7 +7069,7 @@
 			</HitMesh>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="o50" id="4" hidden="true" dumped="true" fileOffset="1874"/>
+			<MapObject name="o50" id="4" dumped="true" fileOffset="1874"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7086,7 +7087,7 @@
 			</HitMesh>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="o48" id="3" hidden="true" dumped="true" fileOffset="1868"/>
+			<MapObject name="o48" id="3" dumped="true" fileOffset="1868"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7108,7 +7109,7 @@
 			<HitObject type="GROUP"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="o106" id="1" hidden="true" dumped="true" fileOffset="1850"/>
+			<MapObject name="o106" id="1" dumped="true" fileOffset="1850"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7127,7 +7128,7 @@
 			<Camera type="TYPE_0" flag="false" boomLength="400.000000" boomPitch="18.000000" viewPitch="-6.000000" posA="0,0,0" posB="0,0,-100" posC="0,0,0"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="bero" id="0" hidden="true" dumped="true" fileOffset="1844"/>
+			<MapObject name="bero" id="0" dumped="true" fileOffset="1844"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7148,7 +7149,10 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="19"/>
+			<MapObject name="Root" id="1A"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="-280,-10,371" yaw="0.000000">
+			<MapObject name="Pos_MarioWalkTo" id="19"/>
 		</Marker>
 		<Marker ver="4" type="Group">
 			<MapObject name="Entities" id="18"/>
@@ -7251,7 +7255,7 @@
 		<Marker ver="4" type="Group">
 			<MapObject name="Entrances" id="3"/>
 		</Marker>
-		<Marker ver="4" type="Entry" pos="-280,-10,371" yaw="270.000000">
+		<Marker ver="4" type="Entry" pos="-465,-10,358" yaw="480.000000">
 			<MapObject name="Entry3" id="2"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="-120,24,375" yaw="0.000000">

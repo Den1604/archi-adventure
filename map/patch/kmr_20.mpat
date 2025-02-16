@@ -215,7 +215,7 @@
         Call SetPlayerAnimation ( 00010029 )
         Wait  10`
         Call SetPlayerAnimation ( 00010002 )
-        Call GotoMapSpecial ( "mac_05" 00000000 00000008 )
+        Call GotoMapSpecial ( "mac_05" 00000003 00000008 )
         Return
   EE4:  End
 }
@@ -306,7 +306,7 @@
   3DC:  End
 }
 
-@ #new:Script $Script_80242C40
+@ $Script_80242C40
 {
 %     0:  Switch  *GB_StoryProgress
 %     C:  	Case  ==  .Story:Intro % FFFFFF80

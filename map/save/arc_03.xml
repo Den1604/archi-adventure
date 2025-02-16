@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_03" author="unnamed" background="yos_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="-192.463470,113.888100,455.942871" pitch="10.000000" yaw="0.000000"/>
-		<Camera pos="468.588867,65536.000000,168.708496"/>
-		<Camera pos="65536.000000,-9.792167,180.439423"/>
-		<Camera pos="123.185715,-3.588404,65536.000000"/>
+		<Camera pos="-158.567795,94.907303,503.292877" pitch="11.080002" yaw="0.960011"/>
+		<Camera pos="-299.027313,65536.000000,-134.042877"/>
+		<Camera pos="65536.000000,-49.277874,-263.085052"/>
+		<Camera pos="-182.253784,-26.939486,65536.000000"/>
 	</Editor>
 	<ModelTree>
-		<Node name="Root" id="21">
+		<Node name="Root" id="23">
 			<Node name="Stage" id="0"/>
 			<Node name="Exit_North" id="1"/>
 			<Node name="Exit_East" id="4">
@@ -42,16 +42,19 @@
 			<Node name="BGLeaves3" id="1E"/>
 			<Node name="BGLeaves4" id="1F"/>
 			<Node name="BGLeaves5" id="20"/>
+			<Node name="DrawnModel" id="21"/>
+			<Node name="DrawnModel" id="22"/>
 		</Node>
 	</ModelTree>
 	<ColliderTree>
 		<Node name="Root" id="10">
-			<Node name="Stage" id="0"/>
-			<Node name="Exits" id="2">
-				<Node name="Entry0Coll" id="1"/>
-			</Node>
-			<Node name="ExitGuards" id="4">
-				<Node name="Entry0GuardColl" id="3"/>
+			<Node name="Stage" id="4">
+				<Node name="Exits" id="1">
+					<Node name="Entry0Coll" id="0"/>
+				</Node>
+				<Node name="ExitGuards" id="3">
+					<Node name="Entry0GuardColl" id="2"/>
+				</Node>
 			</Node>
 			<Node name="MeshCollider" id="5"/>
 			<Node name="MeshCollider" id="6"/>
@@ -72,14 +75,18 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="5">
-			<Node name="Entrances" id="0">
+		<Node name="Root" id="9">
+			<Node name="Entrances" id="1">
 				<Node name="Entry0" id="FFFFFFFF"/>
+				<Node name="Entry1" id="0"/>
 			</Node>
-			<Node name="Tree2_Drop1" id="1"/>
-			<Node name="TreeFX_Tree2_0" id="2"/>
-			<Node name="TreeFX_Tree2_1" id="3"/>
-			<Node name="TreeBombPos" id="4"/>
+			<Node name="Tree2_Drop1" id="2"/>
+			<Node name="TreeFX_Tree2_0" id="3"/>
+			<Node name="TreeFX_Tree2_1" id="4"/>
+			<Node name="TreeBombPos" id="5"/>
+			<Node name="CamPan_EntryCutscene" id="6"/>
+			<Node name="Pos_MarioWalkTo_EntryCutscene" id="7"/>
+			<Node name="CamPan_EntryCutsceneEnd" id="8"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -88,9 +95,77 @@
 	</LightSets>
 	<Models>
 		<Model ver="2" type="ROOT" lightset="0">
-			<MapObject name="Root" id="21"/>
+			<MapObject name="Root" id="23"/>
 			<BoundingBox empty="false" min="-500,-74,-200" max="600,192,500"/>
 			<PropertyList>
+			</PropertyList>
+		</Model>
+		<Model ver="2" type="MODEL" lightset="0">
+			<MapObject name="DrawnModel" id="22"/>
+			<ShapeMesh ver="3" texture="jan_jan_mizukabetif">
+				<DisplayList>
+					<F3DEX2 cmd="E7000000,0"/>
+					<F3DEX2 cmd="D9FDFFFF,0"/>
+					<F3DEX2 cmd="D9FFFFFF,200400"/>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="500,-29,400" uv="1600,512" rgba="64,129,191,255"/>
+							<Vertex xyz="500,-74,500" uv="0,-256" rgba="0,78,153,255"/>
+							<Vertex xyz="500,-29,500" uv="0,512" rgba="64,129,191,255"/>
+							<Vertex xyz="500,-74,400" uv="1600,-256" rgba="0,78,153,255"/>
+							<Vertex xyz="500,-29,300" uv="3200,512" rgba="64,129,191,255"/>
+							<Vertex xyz="500,-74,300" uv="3200,-256" rgba="0,78,153,255"/>
+							<Vertex xyz="500,-29,200" uv="4800,512" rgba="64,129,191,255"/>
+							<Vertex xyz="500,-74,200" uv="4800,-256" rgba="0,78,153,255"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="1,0,3"/>
+							<Triangle ijk="4,3,0"/>
+							<Triangle ijk="3,4,5"/>
+							<Triangle ijk="6,5,4"/>
+							<Triangle ijk="5,6,7"/>
+						</TriangleList>
+					</TriangleBatch>
+				</DisplayList>
+			</ShapeMesh>
+			<PropertyList>
+				<Property v="5C,0,1"/>
+				<Property v="5F,0,0"/>
+			</PropertyList>
+		</Model>
+		<Model ver="2" type="MODEL" lightset="0">
+			<MapObject name="DrawnModel" id="21"/>
+			<ShapeMesh ver="3" texture="jan_jan_mizukabetif">
+				<DisplayList>
+					<F3DEX2 cmd="E7000000,0"/>
+					<F3DEX2 cmd="D9FDFFFF,0"/>
+					<F3DEX2 cmd="D9FFFFFF,200400"/>
+					<TriangleBatch ver="0">
+						<VertexTable>
+							<Vertex xyz="-400,-24,-200" uv="1600,512" rgba="64,129,191,255"/>
+							<Vertex xyz="-500,-29,-200" uv="0,512" rgba="64,129,191,255"/>
+							<Vertex xyz="-500,-74,-200" uv="0,-256" rgba="0,78,153,255"/>
+							<Vertex xyz="-400,-74,-200" uv="1600,-256" rgba="0,78,153,255"/>
+							<Vertex xyz="-300,-29,-200" uv="3200,512" rgba="64,129,191,255"/>
+							<Vertex xyz="-300,-74,-200" uv="3200,-256" rgba="0,78,153,255"/>
+							<Vertex xyz="-200,-24,-200" uv="4800,512" rgba="64,129,191,255"/>
+							<Vertex xyz="-200,-74,-200" uv="4800,-256" rgba="55,78,153,255"/>
+						</VertexTable>
+						<TriangleList>
+							<Triangle ijk="0,1,2"/>
+							<Triangle ijk="2,3,0"/>
+							<Triangle ijk="4,0,3"/>
+							<Triangle ijk="3,5,4"/>
+							<Triangle ijk="6,4,5"/>
+							<Triangle ijk="5,7,6"/>
+						</TriangleList>
+					</TriangleBatch>
+				</DisplayList>
+			</ShapeMesh>
+			<PropertyList>
+				<Property v="5C,0,1"/>
+				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
@@ -3082,11 +3157,15 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="ExitGuards" id="4"/>
+			<MapObject name="Stage" id="4"/>
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Entry0GuardColl" id="3" hidden="true"/>
+			<MapObject name="ExitGuards" id="3"/>
+			<HitObject type="GROUP"/>
+		</Collider>
+		<Collider ver="0" flags="0" surface="0">
+			<MapObject name="Entry0GuardColl" id="2" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3122,11 +3201,11 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Exits" id="2"/>
+			<MapObject name="Exits" id="1"/>
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Entry0Coll" id="1" hidden="true"/>
+			<MapObject name="Entry0Coll" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3142,10 +3221,6 @@
 					</TriangleList>
 				</TriangleBatch>
 			</HitMesh>
-		</Collider>
-		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Stage" id="0"/>
-			<HitObject type="GROUP"/>
 		</Collider>
 	</Colliders>
 	<Zones>
@@ -3175,23 +3250,37 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="5"/>
+			<MapObject name="Root" id="9"/>
+		</Marker>
+		<Marker ver="4" type="CamTarget" pos="-132,-5,-17" yaw="0.000000">
+			<MapObject name="CamPan_EntryCutsceneEnd" id="8"/>
+			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="-132,-5,-17" yaw="0.000000">
+			<MapObject name="Pos_MarioWalkTo_EntryCutscene" id="7"/>
+		</Marker>
+		<Marker ver="4" type="CamTarget" pos="-278,-61,-84" yaw="0.000000">
+			<MapObject name="CamPan_EntryCutscene" id="6"/>
+			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="Trigger" pos="67,0,-155" yaw="0.000000">
-			<MapObject name="TreeBombPos" id="4"/>
+			<MapObject name="TreeBombPos" id="5"/>
 			<BombTrigger radius="0.000000"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="53,111,-119" yaw="180.000000">
-			<MapObject name="TreeFX_Tree2_1" id="3"/>
+			<MapObject name="TreeFX_Tree2_1" id="4"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="138,111,-129" yaw="180.000000">
-			<MapObject name="TreeFX_Tree2_0" id="2"/>
+			<MapObject name="TreeFX_Tree2_0" id="3"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="36,97,-119" yaw="180.000000">
-			<MapObject name="Tree2_Drop1" id="1"/>
+			<MapObject name="Tree2_Drop1" id="2"/>
 		</Marker>
 		<Marker ver="4" type="Group">
-			<MapObject name="Entrances" id="0"/>
+			<MapObject name="Entrances" id="1"/>
+		</Marker>
+		<Marker ver="4" type="Entry" pos="-189,-11,44" yaw="270.000000">
+			<MapObject name="Entry1" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="475,0,0" yaw="270.000000">
 			<MapObject name="Entry0" id="FFFFFFFF"/>
@@ -3218,6 +3307,7 @@
 		</TexPanners>
 		<Generators>
 			<Entrance type="Walk" hasCallback="false" entry="Entry0"/>
+			<Entrance type="Teleport" hasCallback="false" entry="Entry1"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry0" destMap="arc_02" destEntry="Entry0" trigger="Entry0Coll"/>
 			<Tree hasCallback="false" collider="TreeColl" bombPos="TreeBombPos">
 				<TrunkModel name="BG_Tree1_Wood"/>
@@ -3233,7 +3323,7 @@
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="0,10,10,10,255,950,1000" entity="0,10,10,10,255,950,1000"/>
-		<Options location="1F" hasMusic="false" hasSounds="false" sounds="1" hasShading="false" shadingName="None"/>
+		<Options location="1F" hasMusic="true" song="7D" hasSounds="false" sounds="1" hasShading="false" shadingName="None"/>
 		<Override tex="true"/>
 	</ScriptData>
 </Map>

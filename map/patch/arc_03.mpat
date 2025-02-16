@@ -1,0 +1,82 @@
+@ $Script_EnterMap
+{
+	Call  GetEntryID    ( *Var[0] )
+	Switch  *Var[0]
+		Case  ==  ~Entry:Entry0
+			Set   *Var[0] $Script_CreateExitTriggers
+			Exec  EnterWalk
+		Case  ==  ~Entry:Entry1
+			Exec  $Script_CreateExitTriggers
+            Exec  $Script_Starting_Cutscene
+		Default
+			Exec  $Script_CreateExitTriggers
+	EndSwitch
+	Return
+	End
+}
+
+#new:Script $Script_Starting_Cutscene
+{
+    Call DisablePlayerInput ( .True )
+	Call SetCamLeadPlayer ( .Cam:Default .False )
+	Exec $Script_PanCamera_CamPan_EntryCutscene
+	Call SetPlayerAnimation ( 0001000F )
+	Wait 45`
+	Call SetPlayerAnimation ( 00010030 )
+	Wait 25`
+	Thread
+        Call  PlaySoundAtPlayer ( 00000172 00000000 )
+        Wait 10`
+        Call  PlaySoundAtPlayer ( 00000172 00000000 )
+    EndThread
+	Call SetPlayerAnimation ( 00010031 )
+	Wait 25`
+	Call FadeInMusic ( 00000000 .Song:LakilesterTheme 00000000 00000BB8 00000000 0000007F )
+	Thread
+		Exec $Script_PanCamera_CamPan_EntryCutsceneEnd
+	EndThread
+	Wait 10`
+	Call PlayerMoveTo ( ~Vec2D:Pos_MarioWalkTo_EntryCutscene 30` )
+	Wait 10`
+	Call SetPlayerAnimation ( 0001002A )
+	Wait 5`
+	Call InterpPlayerYaw ( -227` 15` )
+	Wait 15`
+	Call InterpPlayerYaw ( -127` 15` )
+	Wait 10`
+	Call InterpPlayerYaw ( -227` 15` )
+	Wait 10`
+	Call InterpPlayerYaw ( -127` 15` )
+	Wait 5`
+	Call SetPlayerAnimation ( 00010002 )
+	Call ResetCam ( .Cam:Default *Fixed[2.00] )
+	Call SetCamLeadPlayer ( .Cam:Default .True	 )
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+@ $Script_PanCamera_CamPan_EntryCutscene
+{
+	Call  UseSettingsFrom   ( .Cam:Default -400` -11` -300` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_EntryCutscene )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[100.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+@ $Script_SetupMusic
+{
+	Call GetEntryID ( *Var0 )
+	If *Var0 == 00000001
+		Return
+	EndIf
+	Call  SetMusicTrack ( 00000000 .Song:LakilesterTheme 00000000 00000008 )
+	Call  ClearAmbientSounds ( 250` )
+	Return
+	End
+}
