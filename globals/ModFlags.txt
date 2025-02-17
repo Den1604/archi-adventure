@@ -21,3 +21,4 @@
 014 = MF_ARC_04_VineItem
 015 = MF_ARC_04_FightCompleted
 016 = MF_Setup_Stats
+017 = MF_DrawMenuStuff

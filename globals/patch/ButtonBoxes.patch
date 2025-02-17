@@ -1,0 +1,119 @@
+@Hook:Global 800E92B8 {
+    JAL $Function_MenuCheck
+    NOP
+    LW ra, 008C (sp)
+    LW s7, 0084 (sp)
+    LW s6, 0080 (sp)
+    LW s5, 007C (sp)
+    LW s4, 0078 (sp)
+    J 800E92C0
+    NOP
+}
+
+#new:Function $Function_MenuCheck
+{
+    PUSH[20] rA
+
+    ADDU a0, r0, r0
+    LI a1, *MF_DrawMenuStuff
+    JAL ~Func:get_variable
+    NOP
+    BEQ r0, v0, .DontDrawMenuStuff %Branch if Equal to Zero -> If v0 is False, go to branch
+    NOP
+    JAL $Function_DrawZBox
+    NOP
+    JAL $Function_DrawABox
+    NOP
+    .DontDrawMenuStuff
+
+    POP[20] rA
+    JR rA
+    NOP
+}
+
+#new:Function $Function_DrawZBox
+{
+    ADDIU     SP, SP, FF90
+    SW        RA, 6C (SP)
+
+    LI A0, 10 % A0 = posX
+    LI A1, A7 % A1 = posY
+    LI A2, 4B % A2 = width
+    LI A3, 16 % A3 = height   
+    LI T0, 11 % T0 = style
+    JAL $Function_DrawBoxWrapper
+    LI T1, FF % T1 = opacity
+
+    LI a0, 00300005
+    ORI a1, r0, 16 %x pos
+    ORI a2, r0, AA %y pos
+    ORI a3, r0, 00FF %opacity
+    SW r0, 0010 (sp)
+    SW r0, 0014 (sp)
+    JAL ~Func:draw_string
+    SW r0, 0018 (sp)
+
+    LW        RA, 6C (SP)
+    ADDIU     SP, SP, 70
+
+    JR rA
+    NOP
+}
+
+#new:Function $Function_DrawABox
+{
+    ADDIU     SP, SP, FF90
+    SW        RA, 6C (SP)
+
+    LI A0, 10 % A0 = posX
+    LI A1, C1 % A1 = posY
+    LI A2, 88 % A2 = width
+    LI A3, 16 % A3 = height   
+    LI T0, 11 % T0 = style
+    JAL $Function_DrawBoxWrapper
+    LI T1, FF % T1 = opacity
+
+    LI a0, 00300006
+    ORI a1, r0, 16 %x pos
+    ORI a2, r0, C4 %y pos
+    ORI a3, r0, 00FF %opacity
+    SW r0, 0010 (sp)
+    SW r0, 0014 (sp)
+    JAL ~Func:draw_string
+    SW r0, 0018 (sp)
+
+    LW        RA, 6C (SP)
+    ADDIU     SP, SP, 70
+
+    JR rA
+    NOP
+}
+
+% #new:Function $Function_DrawABox
+% {
+%     ADDIU     SP, SP, FF90
+%     SW        RA, 6C (SP)
+
+%     LI A0, A7 % A0 = posX
+%     LI A1, C1 % A1 = posY
+%     LI A2, 88 % A2 = width
+%     LI A3, 16 % A3 = height   
+%     LI T0, 11 % T0 = style
+%     JAL $Function_DrawBoxWrapper
+%     LI T1, FF % T1 = opacity
+
+%     LI a0, 00300006
+%     ORI a1, r0, AC %x pos
+%     ORI a2, r0, C4 %y pos
+%     ORI a3, r0, 00FF %opacity
+%     SW r0, 0010 (sp)
+%     SW r0, 0014 (sp)
+%     JAL ~Func:draw_string
+%     SW r0, 0018 (sp)
+
+%     LW        RA, 6C (SP)
+%     ADDIU     SP, SP, 70
+
+%     JR rA
+%     NOP
+% }

@@ -68,7 +68,12 @@
 
 #message:30:005
 {
-	[Style Tattle]
 	[Z] Tattle
-	[Yield][End]
+	[End]
+}
+
+#message:30:006
+{
+	[A] Dock at Island
+	[End]
 }

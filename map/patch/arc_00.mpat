@@ -148,6 +148,8 @@
 
     EndSwitch
 
+    Set *MF_DrawMenuStuff .True
+
     Set *MapVar[0] .CamSpeed:changingIslands
 
     % ISLAND MOVEMENT
@@ -159,20 +161,25 @@
                 Switch *Var0
 
                     Case == 00080000 % RIGHT
+                        Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:WaterfallIsland_BoatMarker )
                         ExecWait $Script_PanCamera_CamPan_WaterfallIsland
                         Set *GB_ARC_00_currentIsland 00000001
                         Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                        Set *MF_DrawMenuStuff .True
 
                     Case == .Buttons:A
+                        Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call GotoMap ( "arc_01" 00000001 )
 
                     Case == .Buttons:Z
+                        Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call ShowMessageAtScreenPos ( 002F0001 000000A0 00000000 )
                         Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
+                        Set *MF_DrawMenuStuff .True
 
                     EndSwitch
             Case == 1 % Waterfall Island
@@ -180,27 +187,34 @@
                 Switch *Var0
 
                     Case == 00040000 % LEFT
+                        Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:MainIsland_BoatMarker )
                         ExecWait $Script_PanCamera_CamPan_MainIsland
                         Set *GB_ARC_00_currentIsland 00000000
                         Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
+                        Set *MF_DrawMenuStuff .True
 
                     Case == 00080000 % RIGHT
+                        Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:StarShrineIsland_BoatMarker )
                         ExecWait $Script_PanCamera_CamPan_StarShrineIsland
                         Set *GB_ARC_00_currentIsland 00000002
                         Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
+                        Set *MF_DrawMenuStuff .True
 
                     Case == .Buttons:A
+                        Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call GotoMap ( "arc_00" 00000000 )
 
                     Case == .Buttons:Z
+                        Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call ShowMessageAtScreenPos ( 002F0003 000000A0 00000000 )
                         Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                        Set *MF_DrawMenuStuff .True
 
                     EndSwitch
 
@@ -209,20 +223,25 @@
                     Switch *Var0
 
                         Case == 00040000 % LEFT
+                            Set *MF_DrawMenuStuff .False
                             Call CloseMessage ()
                             Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:WaterfallIsland_BoatMarker )
                             ExecWait $Script_PanCamera_CamPan_WaterfallIsland
                             Set *GB_ARC_00_currentIsland 00000001
                             Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                            Set *MF_DrawMenuStuff .True
 
                         Case == .Buttons:A
+                            Set *MF_DrawMenuStuff .False
                             Call CloseMessage ()
                             Call GotoMap ( "arc_00" 00000000 )
 
                         Case == .Buttons:Z
+                            Set *MF_DrawMenuStuff .False
                             Call CloseMessage ()
                             Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
                             Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
+                            Set *MF_DrawMenuStuff .True
 
                         EndSwitch
 

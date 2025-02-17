@@ -1,0 +1,18 @@
+@Data:Global 800982C0 {
+    %cases 0, 1, 2 %First Logo (Nintendo / Den)
+    800344A8
+    800344A8
+    800344A8
+
+    %cases 3, 4, 5 %Second Logo (N64 / Contributors 1)
+    800347A8
+    800347A8
+    800347A8    
+
+    %cases 6, 7, 8, 9 %Third Logo (Intelligent Systems / Contributors 2 (in the future))
+    80034628
+    80034628
+    80034628
+    80034628
+
+}

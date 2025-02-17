@@ -1,3 +1,5 @@
+% Turns the status bar into a single draw_box, "removing" the SE bar bump it usually has
+
 @Hook:Pause 800E8634
 {
     580:  LI        A1, 5
