@@ -524,3 +524,12 @@
     Return
     End
 }
+
+@ $Header
+{
+	[MainScript] $Script_Main
+	[Background] 80200000
+	[EntryList] $EntryList
+	[EntryCount] 1
+	[MapTattle]  00190003
+}

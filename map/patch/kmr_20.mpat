@@ -271,6 +271,10 @@
                     Call AddBadge ( .Item:SlowGo 00000000 )
                     Call AddBadge ( .Item:PowerJump 00000001 )
                     Set *GB_StoryProgress 0A
+                    Set *GF_Tutorial_SaveBlock .True
+                    Set *GF_Tutorial_HeartBlock .True
+                    Set *GF_Tutorial_GotItem .True
+                    Set *GF_Tutorial_SwapTurnOrder .True
                     Call $GivePlayerStartingStats
                 EndIf
   26C:  		Wait  5`

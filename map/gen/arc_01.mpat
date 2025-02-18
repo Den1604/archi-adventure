@@ -568,8 +568,6 @@
 #new:Script $Script_PanCamera_Cam_Pan_SpearGuyCutscene_1
 {
 	Call  UseSettingsFrom   ( .Cam:Default 33` 0` 41` )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
-	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:Cam_Pan_SpearGuyCutscene_1 )
 	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
@@ -581,9 +579,18 @@
 #new:Script $Script_PanCamera_Cam_Pan_SpearGuyCutscene_2
 {
 	Call  UseSettingsFrom   ( .Cam:Default -400` 0` -300` )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
-	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:Cam_Pan_SpearGuyCutscene_2 )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+#new:Script $Script_PanCamera_Cam_Pan_SpearGuyCutscene_3
+{
+	Call  UseSettingsFrom   ( .Cam:Default 250` -19` 251` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:Cam_Pan_SpearGuyCutscene_3 )
 	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
 	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )

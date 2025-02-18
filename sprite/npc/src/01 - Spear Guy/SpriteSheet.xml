@@ -84,6 +84,7 @@
 		<Raster id="49" palette="0" src="Raster_49.png"/>
 		<Raster id="4A" palette="0" src="Raster_4A.png"/>
 		<Raster id="4B" palette="0" src="Raster_4B.png"/>
+		<Raster id="4C" palette="0" src="Raster_4C.png"/>
 	</RasterList>
 	<AnimationList>
 		<Animation name="Anim_00">
@@ -202,14 +203,17 @@
 		</Animation>
 		<Animation name="Anim_08">
 			<Component name="Comp_00" xyz="0,0,0">
-				<Command val="1005"/>
-				<Command val="4"/>
-				<Command val="1008"/>
-				<Command val="2"/>
-				<Command val="1009"/>
-				<Command val="4"/>
-				<Command val="1008"/>
-				<Command val="2"/>
+				<Command val="1001"/>
+				<Command val="8"/>
+				<Command val="104C"/>
+				<Command val="8"/>
+				<Command val="2000"/>
+			</Component>
+			<Component name="Comp_01" xyz="8,0,-2">
+				<Command val="1014"/>
+				<Command val="8"/>
+				<Command val="1015"/>
+				<Command val="8"/>
 				<Command val="2000"/>
 			</Component>
 		</Animation>

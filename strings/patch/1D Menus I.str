@@ -1,0 +1,38 @@
+#message:1D:12E
+{
+	???[End]
+}
+
+#message:1D:12F
+{
+	Unknown archipelago somewhere[BR]
+	in the Mushroom Kingdom.[BR]
+	What adventures could await[BR]
+	our plumber here...?[End]
+}
+
+#message:1D:130
+{
+	Unknown archipelago somewhere[BR]
+	in the Mushroom Kingdom.[BR]
+	What adventures could await[BR]
+	our plumber here...?[End]
+}
+
+#message:1D:189
+{
+	[Style Narrate]
+	[InputOff]Javelin Guy joined your party!![BR]
+	[InputOn][Wait][Next]
+	[Image index=0 pos=85,97 hasBorder=1 alpha=255 fadeAmount=52]Press [C-DOWN] to have him tell you[BR]
+	about everything and anything[BR]
+	involving the secret archipelago.[BR]
+	[Wait][Next]
+	Javelin Guy is also helpful during[BR]
+	battles![BR]
+	[Wait][Next]
+	He can attack with Javelin Throw[BR]
+	or he can tell you about an[BR]
+	enemy's features and HP using his[BR]
+	Tattle ability![Wait][End]
+}

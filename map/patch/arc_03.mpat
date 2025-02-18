@@ -50,7 +50,6 @@
 	Wait 5`
 	Call SetPlayerAnimation ( 00010002 )
 	Call ResetCam ( .Cam:Default *Fixed[2.00] )
-	Call SetCamLeadPlayer ( .Cam:Default .True	 )
     Call DisablePlayerInput ( .False )
     Return
     End
@@ -79,4 +78,29 @@
 	Call  ClearAmbientSounds ( 250` )
 	Return
 	End
+}
+
+@ $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:YoshisVillage
+    Set   *GF_Map_YoshisVillage .True
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
+	Exec  $Script_BindFoliage
+	Exec  $Script_EnterMap
+	Return
+	End
+}
+
+@ $Header
+{
+	[MainScript] $Script_Main
+	[Background] 80200000
+	[EntryList] $EntryList
+	[EntryCount] 2
+	[MapTattle]  00190000
 }

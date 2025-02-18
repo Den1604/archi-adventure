@@ -13,8 +13,10 @@
 	Exec  $Script_SetupTexturePan
     Call  MakeNpcs  ( .False $NpcGroupList_8024580C )
     Call  DisablePlayerInput ( .True )
+    Call  DisablePartnerAI ( 00000000 )
+    Call  SetNpcPos ( .Npc:Partner ~Vec3D:Pos_HidePartner )
     Exec  $Script_SetupModels
-    Set *MapVar[0] .CamSpeed:initialEntry
+    Set   *MapVar[0] .CamSpeed:initialEntry
     Exec  $Script_SetupIslandChoosing
 	Exec  $Script_EnterMap
 	Return

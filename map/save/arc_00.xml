@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_00" author="unnamed" textures="jan_tex">
 	<Editor>
-		<Camera pos="388.000000,356.452667,495.576019" pitch="28.999998" yaw="0.000000"/>
+		<Camera pos="299.628448,155.664505,227.963928" pitch="18.120005" yaw="343.359863"/>
 		<Camera pos="934.926392,65536.000000,169.840347"/>
 		<Camera pos="65536.000000,-25.631655,-0.427005"/>
 		<Camera pos="768.466614,17.427439,65536.000000"/>
@@ -79,7 +79,7 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="9">
+		<Node name="Root" id="A">
 			<Node name="Entrances" id="0">
 				<Node name="Entry0" id="FFFFFFFF"/>
 			</Node>
@@ -92,6 +92,7 @@
 				<Node name="CamPan_StarShrineIsland" id="6"/>
 			</Node>
 			<Node name="BoatNPC" id="8"/>
+			<Node name="Pos_HidePartner" id="9"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -9404,7 +9405,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Floor" id="0" hidden="true"/>
+			<MapObject name="Floor" id="0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9451,7 +9452,10 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="9"/>
+			<MapObject name="Root" id="A"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="297,0,-247" yaw="0.000000">
+			<MapObject name="Pos_HidePartner" id="9"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="75,0,76" yaw="0.000000">
 			<MapObject name="BoatNPC" id="8"/>

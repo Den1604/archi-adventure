@@ -59,10 +59,10 @@
 	Haven't heard you ask me for a[BR]
 	trip there in a long while...[BR]
 	[Wait][Next]
-	I just had that new dish Tayce[BR]
-	T. offers...[Pause:10][BR]
+	I just had that new dish[BR]
+	Tayce T. offers...[Pause:10][BR]
 	I'm not sure how well I'll stomach[BR]
-	it but I'm sure it'll be fine![BR]
+	it, but I'm sure it'll be fine![BR]
 	[Wait][End]
 }
 
@@ -76,4 +76,153 @@
 {
 	[A] Dock at Island
 	[End]
+}
+
+#message:30:007
+{
+	[Style Right]
+	[Wave][Size 32]S[Pause:1]l[Pause:1]u[Pause:1]r[Pause:1]p[Pause:1]...[Pause:15] G[Pause:1]u[Pause:1]l[Pause:1]p[Pause:1]...[Pause:15][SizeReset][BR]
+	[BR]
+	[Down 6]Deli[Pause:1]i[Pause:1]i[Pause:1]iciiioooouuusss as always![BR]
+	[Wait][End]
+}
+
+#message:30:008
+{
+	[Style Right]
+	[Shake][Size 32]Mario?![SizeReset][Pause:10][BR]
+	[BR]
+	[Down 8]What are YOU doing here?![BR]
+	[Wait][End]
+}
+
+#message:30:009
+{
+	[Style Right]
+	Have you come to take these[BR]
+	islands from me?[Pause:10] After I stayed[BR]
+	hidden with them for so long?[BR]
+	[Wait][Next]
+	Well...[Pause:5] if that's what you're[BR]
+	here for...[Pause:10][BR]
+	[PrintRising]You're gonna have to go through[BR]
+	me first!![/fx][BR]
+	[Wait][End]
+}
+
+#message:30:00A
+{
+	[Style Right]
+	Ugh...[Pause:10][BR]
+	Do what you have to, I suppose...[Pause:10][BR]
+	I delayed the inevitable as long[BR]
+	as I possibly could...[BR]
+	[Wait][End]
+}
+
+#message:30:00B
+{
+	[Style Right]
+	Wait...[Pause:10][BR]
+	You're NOT here to take over[BR]
+	these islands?[BR]
+	[Wait][Next]
+	You wanted to go to another[BR]
+	island and your...[Pause:10] whale gave in?[Pause:10][BR]
+	If it's that same whale that[BR]
+	used to visit then...[BR]
+	[Wait][End]
+}
+
+#message:30:00C
+{
+	[Style Right]
+	Fine.[Pause:10] I'll help you out of this[BR]
+	strange situation.[Pause:10][BR]
+	Any friend of that whale[BR]
+	is a friend of mine![BR]
+	[Wait][Next]
+	He used to come visit all the[BR]
+	time...[BR]
+	[Wait][Next]
+	If memory serves right, he[BR]
+	stopped visiting to not share[BR]
+	the secret of these islands[BR]
+	existing.[BR]
+	[Wait][Next]
+	He respected my wish to live[BR]
+	in peace and to protect this[BR]
+	beautiful archipelago.[BR]
+	[Wait][End]
+}
+
+#message:30:00D
+{
+	[Style Right]
+	We can probably get you out of[BR]
+	this by restoring the broken[BR]
+	[Color:26]Star Shrine[Color:0A] near the center[BR]
+	of all islands.[BR]
+	[Wait][Next]
+	A [Wave]lo[Pause:1]o[Pause:1]o[Pause:1]o[Pause:1]ong[/fx] time ago, the[BR]
+	[Color:26]Star Shrine[Color:0A] got broken by...[Pause:10][BR]
+	someone.[BR]
+	[Wait][Next]
+	The center crystal got broken[BR]
+	into [Color:26]five pieces[Color:0A].[Pause:10][BR]
+	It's what fueled the shrine, it[BR]
+	connected it to Star Haven.[BR]
+	[Wait][Next]
+	The pieces of what made it work[BR]
+	got spread across the islands.[Pause:10][BR]
+	I'm not sure which islands have[BR]
+	pieces of it and which don't.[BR]
+	[Wait][Next]
+	We will have to explore and find[BR]
+	them if we want you to get[BR]
+	outta here safely.[BR]
+	[Wait][Next]
+	My boat's reliable but I would[BR]
+	prefer staying hidden[Pause:10] [PrintGrowing]and[/fx][Pause:10] keep[BR]
+	my boat safely with me.[BR]
+	[Wait][Next]
+	Speaking of which...[Pause:10][BR]
+	We'll use said boat to search the[BR]
+	islands and look for the[BR]
+	[Color:26]Star Shards[Color:0A]!
+	[Wait][End]
+}
+
+#message:30:00E
+{
+	[Style Right]
+	Let me just get ready[BR]
+	real quick...[BR]
+	[Wait][End]
+}
+
+#message:30:00F
+{
+	[Style Right]
+	I guess I should ask.[Pause:10][BR]
+	You do want me to come along,[BR]
+	right?[BR]
+	[Wait][End]
+}
+
+#message:30:010
+{
+	[Style Right]
+	Great![Pause:10] You should take this,[BR]
+	I have no need for it as I've[BR]
+	already mastered the art of...[Pause:10][BR]
+	throwing things.[BR]
+	[Wait][End]
+}
+
+#message:30:011
+{
+	[Style Right]
+	Cue the fanfare![BR]
+	[Wait][End]
 }

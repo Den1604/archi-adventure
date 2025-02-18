@@ -1,0 +1,81 @@
+#string:28:000
+{
+	Press [C-DOWN] to have him tell you[BR]
+	about everything nearby.[End]
+}
+
+#string:28:001
+{
+	He can describe enemies.[BR]
+	His specialty are his javelins.[End]
+}
+
+#string:28:002
+{
+	Throws his spear at the enemy.[End]
+}
+
+#string:28:003
+{
+	See enemy description and make[BR]
+	HP visible.[End]
+}
+
+#string:28:004
+{
+	Charge attack power. It goes up[BR]
+	by 2 then returns to normal.[End]
+}
+
+#string:28:005
+{
+	Headbonk continuously until[BR]
+	you miss an action command.[End]
+}
+
+#string:28:006
+{
+	Javelin Guy is the[BR]
+	safe-keeper of the archipelago.[BR]
+	Press[C-DOWN] to have him tell[BR]
+	you about the surroundings.[BR]
+	His specialty is throwing his[BR]
+	javelins at the enemy.[BR]
+	[End]
+}
+
+#string:28:007
+{
+	Throws his spear at the enemy.[End]
+}
+
+#string:28:008
+{
+	Throws his spear at the enemy.[End]
+}
+
+#string:28:009
+{
+	Throws his spear at the enemy.[End]
+}
+
+#string:28:00A
+{
+	See enemies' descriptions and[BR]
+	see their HP during battle.[End]
+}
+
+#string:28:00B
+{
+	Charge to raise attack power[BR]
+	by 2.[BR]
+	You can charge unlimited times,[BR]
+	but power fades after attack.[BR]
+	[End]
+}
+
+#string:28:00C
+{
+	Headbonk continuously until[BR]
+	you miss the action command.[End]
+}

@@ -1,0 +1,60 @@
+#message:19:000
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	This is the west coast of Tangle[BR]
+	Island.[Pause:5] Not much to find here[BR]
+	except a salty breeze.[BR]
+	[Wait][Next]
+	You told me this is where you[BR]
+	woke up?[Pause:5] You're lucky you[BR]
+	washed up on this island...[BR]
+	[Wait][Next]
+	There's significantly more[BR]
+	dangerous islands around here.[BR]
+	[Wait][End]
+}
+
+#message:19:001
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	This is the pathway in this jungle[BR]
+	that connects each coasts of the[BR]
+	island safely.[BR]
+	[Wait][Next]
+	Watch out for the sneaky[BR]
+	M. Bush's hiding in plain sight![BR]
+	[Wait][Next]
+	One moment you think you're gonna[BR]
+	get some shiny stuff from a bush,[BR]
+	the next you get ambushed...[BR]
+	[Wait][End]
+}
+
+#message:19:002
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	Ah...[Pause:10] my humble abode![Pause:10][BR]
+	It's not much but it's cozy,[BR]
+	what more could you want?[BR]
+	[Wait][Next]
+	Additionally, this is where[BR]
+	the boat is right now.[BR]
+	[Wait][Next]
+	Yknow, incase we want to leave.[BR]
+	[Wait][End]
+}
+
+#message:19:003
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	I...[Pause:10] I don't think I've ever seen[BR]
+	this part of the island![BR]
+	[Wait][Next]
+	Be cautious Mario, I have a bad[BR]
+	feeling about these vines...[BR]
+	[Wait][End]
+}

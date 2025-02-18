@@ -222,3 +222,12 @@
   140:  Return
   148:  End
 }
+
+@ $Header
+{
+	[MainScript] $Script_Main
+	[Background] 80200000
+	[EntryList] $EntryList
+	[EntryCount] 3
+	[MapTattle]  00190001
+}
