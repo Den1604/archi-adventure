@@ -1,1 +1,2 @@
 000 = GB_ARC_00_currentIsland = currentIsland
+001 = GB_ARC_00_unlockedIslands = MB_unlockedIslands

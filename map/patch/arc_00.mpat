@@ -3,9 +3,13 @@
 #define .CamSpeed:initialEntry *Fixed[100.00]
 #define .CamSpeed:changingIslands *Fixed[4.50]
 
+#define .Island:Tangle_Island       00
+#define .Island:Waterfall_Island    01
+#define .Island:StarShrine_Island   02
+
 @ $Script_Main
 {
-	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Set   *GB_WorldLocation  .Location:YoshisVillage
 	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
@@ -17,7 +21,7 @@
     Call  SetNpcPos ( .Npc:Partner ~Vec3D:Pos_HidePartner )
     Exec  $Script_SetupModels
     Set   *MapVar[0] .CamSpeed:initialEntry
-    Exec  $Script_SetupIslandChoosing
+    Exec  $Script_OverworldSetup
 	Exec  $Script_EnterMap
 	Return
 	End
@@ -129,25 +133,39 @@
     ORI v0, r0, 2 %funcs return into v0, value "2" to signal that it is done
 }
 
-#new:Script $Script_SetupIslandChoosing
+#new:Script $Script_OverworldSetup
 {
-
     % INITIAL CAM SETUP
 
     Switch *GB_ARC_00_currentIsland
 
-            Case == 0 % Tangle Island / Starting Island
+            Case == .Island:Tangle_Island % Tangle Island / Starting Island
                 ExecWait $Script_PanCamera_CamPan_MainIsland
-                Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
-
-            Case == 1 % Waterfall Island
+                If *MF_BeatTangleIsland == .True
+                    Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
+                EndIf
+            Case == .Island:Waterfall_Island % Waterfall Island
                 ExecWait $Script_PanCamera_CamPan_WaterfallIsland
-                Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
-
-            Case == 2 % StarShrine Island
+                If *MF_BeatWaterfallIsland == .True
+                    Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                Else
+                    Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
+                EndIf
+            Case == .Island:StarShrine_Island % StarShrine Island
                 ExecWait $Script_PanCamera_CamPan_StarShrineIsland
-                Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
+                Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
 
+    EndSwitch
+
+    % CHECK FOR ANY UNLOCKS
+
+    Switch *MB_unlockedIslands
+        Case == 0` % First Entry
+            If *MF_BeatTangleIsland == .False
+                Call ShowMessageAtScreenPos ( 00300014 000000A0 00000000 )
+                Set *MF_BeatTangleIsland .True
+                Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
+            EndIf
     EndSwitch
 
     Set *MF_DrawMenuStuff .True
@@ -158,7 +176,7 @@
 
     Loop
         Switch *GB_ARC_00_currentIsland
-            Case == 0 % Tangle Island / Starting Island
+            Case == .Island:Tangle_Island % 0
                 Call $Function_CheckPlayerInput ( *Var0 )
                 Switch *Var0
 
@@ -167,8 +185,12 @@
                         Call CloseMessage ()
                         Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:WaterfallIsland_BoatMarker )
                         ExecWait $Script_PanCamera_CamPan_WaterfallIsland
-                        Set *GB_ARC_00_currentIsland 00000001
-                        Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                        Set *GB_ARC_00_currentIsland .Island:Waterfall_Island
+                        If *MF_BeatWaterfallIsland == .True
+                            Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                        Else
+                            Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
+                        EndIf
                         Set *MF_DrawMenuStuff .True
 
                     Case == .Buttons:A
@@ -184,7 +206,7 @@
                         Set *MF_DrawMenuStuff .True
 
                     EndSwitch
-            Case == 1 % Waterfall Island
+            Case == .Island:Waterfall_Island % 1
                 Call $Function_CheckPlayerInput ( *Var0 )
                 Switch *Var0
 
@@ -193,18 +215,20 @@
                         Call CloseMessage ()
                         Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:MainIsland_BoatMarker )
                         ExecWait $Script_PanCamera_CamPan_MainIsland
-                        Set *GB_ARC_00_currentIsland 00000000
+                        Set *GB_ARC_00_currentIsland .Island:Tangle_Island
                         Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
                         Set *MF_DrawMenuStuff .True
 
                     Case == 00080000 % RIGHT
-                        Set *MF_DrawMenuStuff .False
-                        Call CloseMessage ()
-                        Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:StarShrineIsland_BoatMarker )
-                        ExecWait $Script_PanCamera_CamPan_StarShrineIsland
-                        Set *GB_ARC_00_currentIsland 00000002
-                        Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
-                        Set *MF_DrawMenuStuff .True
+                        If *MF_BeatWaterfallIsland == .True
+                            Set *MF_DrawMenuStuff .False
+                            Call CloseMessage ()
+                            Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:StarShrineIsland_BoatMarker )
+                            ExecWait $Script_PanCamera_CamPan_StarShrineIsland
+                            Set *GB_ARC_00_currentIsland .Island:StarShrine_Island
+                            Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
+                            Set *MF_DrawMenuStuff .True
+                        EndIf
 
                     Case == .Buttons:A
                         Set *MF_DrawMenuStuff .False
@@ -220,7 +244,7 @@
 
                     EndSwitch
 
-                Case == 2 % Star Shrine Island
+                Case == .Island:StarShrine_Island % 2
                     Call $Function_CheckPlayerInput ( *Var0 )
                     Switch *Var0
 
@@ -229,7 +253,7 @@
                             Call CloseMessage ()
                             Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:WaterfallIsland_BoatMarker )
                             ExecWait $Script_PanCamera_CamPan_WaterfallIsland
-                            Set *GB_ARC_00_currentIsland 00000001
+                            Set *GB_ARC_00_currentIsland .Island:Waterfall_Island
                             Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
                             Set *MF_DrawMenuStuff .True
 
@@ -241,8 +265,8 @@
                         Case == .Buttons:Z
                             Set *MF_DrawMenuStuff .False
                             Call CloseMessage ()
+                            Call ShowMessageAtScreenPos ( 002F0006 000000A0 00000000 )
                             Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
-                            Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
                             Set *MF_DrawMenuStuff .True
 
                         EndSwitch
@@ -319,11 +343,11 @@
 #new:Script $Script_BoatNPC_currentIsland
 {
     Switch *GB_ARC_00_currentIsland
-        Case == 0 % Tangle Island / Starting Island
+        Case == .Island:Tangle_Island % 0
             Call SetNpcPos ( .Npc:Self ~Vec3D:MainIsland_BoatMarker )
-        Case == 1 % Waterfall Island
+        Case == .Island:Waterfall_Island % 1
             Call SetNpcPos ( .Npc:Self ~Vec3D:WaterfallIsland_BoatMarker )
-        Case == 2 % Star Shrine Island
+        Case == .Island:StarShrine_Island % 2
             Call SetNpcPos ( .Npc:Self ~Vec3D:StarShrineIsland_BoatMarker )
     EndSwitch
     Return

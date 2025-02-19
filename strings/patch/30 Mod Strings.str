@@ -1,6 +1,6 @@
 #message:30:000
 {
-	[Style Narrate]
+	[Style Inspect]
 	[CenterX:FF][BR]
 	[Down 5]Would you like to leave?[BR]
 	[Yield][End]
@@ -224,5 +224,59 @@
 {
 	[Style Right]
 	Cue the fanfare![BR]
+	[Wait][End]
+}
+
+#message:30:012
+{
+	[Style Inspect]
+	[CenterX:FF][BR]
+	[Down 5][Color:26]New islands are now reachable![BR]
+	[Wait][Next]
+	[CenterX:FF][BR]
+	[Up 5][Color:00]Check the arrows for where[BR]
+	to go next![BR]
+	[Wait][End]
+}
+
+#message:30:013
+{
+	[Style Inspect]
+	[CenterX:FF][BR]
+	[Down 5][Color:26]A new island is now reachable![BR]
+	[BR]
+	[Wait][Next]
+	[CenterX:FF][BR]
+	[Up 5][Color:00]Check the arrow for where[BR]
+	to go next![BR]
+	[Wait][End]
+}
+
+#message:30:014
+{
+	[Style Inspect]
+	[BR]
+	[Right 25][Down 5][Wave][Color:26]Welcome to the world map![BR][/fx]
+	[BR]
+	[Wait][Next]
+	[Up 5][CenterX:00][BR]
+	[Color:0A]Here you can choose which island[BR]
+	you would like to visit.[BR]
+	[Wait][Next]
+	[BR]
+	Use your Control Stick to move[BR]
+	the boat inbetween the islands.[BR]
+	[Wait][Next]
+	[BR]
+	Then, press [A] to dock at[BR]
+	your selected island.[BR]
+	[Wait][Next]
+	[BR]
+	[Right 8][Down 5][Color:24][Wave]Don't forget about Javelin guy![Color:0A][/fx][BR]
+	[BR]
+	[Wait][Next]
+	[BR]
+	[Up 5]Press [Z] to have him share his[BR]
+	knowledge of the island you're at.[BR]
 	[Wait][End]
 }

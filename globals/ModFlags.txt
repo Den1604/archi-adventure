@@ -22,3 +22,11 @@
 015 = MF_ARC_04_FightCompleted
 016 = MF_Setup_Stats
 017 = MF_DrawMenuStuff
+018 = MF_IslandUnlock_1 = MF_BeatTangleIsland
+019 = MF_IslandUnlock_2 = MF_BeatWaterfallIsland
+01A = MF_IslandUnlock_3_UNUSED
+01B = MF_IslandUnlock_4_UNUSED
+01C = MF_IslandUnlock_5_UNUSED
+01D = MF_IslandUnlock_6_UNUSED
+01E = MF_IslandUnlock_7_UNUSED
+01F = MF_IslandUnlock_8_UNUSED

@@ -32,13 +32,21 @@
 #message:2F:004
 {
 	[Style Tattle][NoSkip][CustomVoice soundIDs=0x000,0x000]
+	[CenterX:FF]Waterfall Island[BR]
+	[SetPosX 10][DelayOff][Down 3][Spacing 42][LEFT]??[BR]
+	[Yield][End]
+}
+
+#message:2F:005
+{
+	[Style Tattle][NoSkip][CustomVoice soundIDs=0x000,0x000]
 	[CenterX:FF]Star Shrine Island[BR]
 	[SetPosX 18][DelayOff][Down 3][Spacing 42][LEFT][UP][RIGHT][BR]
 	[Yield][End]
 }
 
 
-#message:2F:005
+#message:2F:006
 {
 	[Style Right]
 	Star Shrine Island Tattle[BR]
