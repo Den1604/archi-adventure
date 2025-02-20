@@ -1264,3 +1264,63 @@ tex: sam_yane_yukitif
 	filter: yes
 	combine: 8
 }
+
+tex: sam_hasira1tif
+{
+	img: sam_hasira1tif.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: repeat
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: sam_s_mafuretif
+{
+	img: sam_s_mafuretif.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: repeat
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: sam_s_metif
+{
+	img: sam_s_metif.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: repeat
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: sam_s_sakutif
+{
+	img: sam_s_sakutif.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: clamp
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: sam_s_treetif
+{
+	img: sam_s_treetif.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: mirror
+	}
+	filter: yes
+	combine: 8
+}
