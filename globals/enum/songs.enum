@@ -3,7 +3,7 @@ songID	% library name
 false	% reversed
 
 00 = ToadTown
-% 01 = GoombaVillageCopy
+01 = YoshiMountain
 02 = NormalBattle
 03 = SpecialBattle
 04 = JrTroopaBattle

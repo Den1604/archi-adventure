@@ -5,11 +5,12 @@
 	[MainScript] $Script_Main
 	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 1
+	[EntryCount] 2
 }
 
 #new:EntryList $EntryList
 {
+	~Vec4f:Entry0
 	~Vec4f:Entry1
 }
 
@@ -300,6 +301,9 @@
 {
 	Call     802C9000 	( ~Model:Mushroom_Water_Cover 0 )
 	Call     802C9000 	( ~Model:Mushroom_Water_Offshoot 0 )
+	Call     802C9000 	( ~Model:Mushroom_WaterFall 1 )
+	Call     802C9000 	( ~Model:Water 3 )
+	Call     802C9000 	( ~Model:WaterOutsideRim 2 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] FFFFFF83
@@ -316,12 +320,68 @@
 		Set  *Var[C] 0
 		Exec $Script_TexturePan_Update
 	EndThread
+	Thread
+		Set  *Var[0] 1
+		Set  *Var[1] 0
+		Set  *Var[2] 1F4
+		Set  *Var[3] 0
+		Set  *Var[4] 15E
+		Set  *Var[5] 0
+		Set  *Var[6] 1
+		Set  *Var[7] 0
+		Set  *Var[8] 1
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Thread
+		Set  *Var[0] 2
+		Set  *Var[1] FA
+		Set  *Var[2] 0
+		Set  *Var[3] 0
+		Set  *Var[4] 0
+		Set  *Var[5] 1
+		Set  *Var[6] 0
+		Set  *Var[7] 0
+		Set  *Var[8] 0
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Thread
+		Set  *Var[0] 3
+		Set  *Var[1] 7D
+		Set  *Var[2] FFFFFF06
+		Set  *Var[3] FFFFFF06
+		Set  *Var[4] FFFFFF83
+		Set  *Var[5] 1
+		Set  *Var[6] 1
+		Set  *Var[7] 1
+		Set  *Var[8] 1
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
 	Return
 	End
 }
 
 #new:Script $Script_EnterMap
 {
+	Call  GetEntryID    ( *Var[0] )
+	Switch  *Var[0]
+		Case  ==  ~Entry:Entry1
+			Set   *Var[0] $Script_CreateExitTriggers
+			Exec  EnterWalk
+		Default
+			Exec  $Script_CreateExitTriggers
+	EndSwitch
 	Return
 	End
 }

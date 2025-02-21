@@ -265,7 +265,7 @@
 
 #new:Script_Main $Script_Main
 {
-	Set   *GB_WorldLocation  .Location:YoshisVillage
+	Set   *GB_WorldLocation  .Location:GoombaRoad
 	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
@@ -303,8 +303,7 @@
 
 #new:Script $Script_PanCamera_CamPan_WaterfallIsland
 {
-	Call  UseSettingsFrom   ( .Cam:Default 338` 43` 54` )
-	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  UseSettingsFrom   ( .Cam:Default 338` 43` 31` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_WaterfallIsland )
 	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
@@ -326,6 +325,19 @@
 	End
 }
 
+#new:Script $Script_PanCamera_CamPan_WinterIsland
+{
+	Call  UseSettingsFrom   ( .Cam:Default 562` 43` 322` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_WinterIsland )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
 #new:Script $Script_SetupMusic
 {
 	Call  SetMusicTrack ( 00000000 .Song:WhaleTheme 00000000 00000008 )
@@ -336,7 +348,6 @@
 
 #new:Script $Script_SetupTexturePan
 {
-	Call     802C9000 	( ~Model:Water 0 )
 	Call     802C9000 	( ~Model:WaterfallIsland_WaterfallStart 1 )
 	Call     802C9000 	( ~Model:WaterfallIsland_WaterfallSlither 1 )
 	Call     802C9000 	( ~Model:WaterfallIsland_Waterfall2Start 1 )
@@ -347,6 +358,7 @@
 	Call     802C9000 	( ~Model:WaterfallIsland_MushroomWaterfall 1 )
 	Call     802C9000 	( ~Model:WaterfallIsland_MushroomWaterfallOffshoot 1 )
 	Call     802C9000 	( ~Model:WaterfallIsland_WaterfallExit2 1 )
+	Call     802C9000 	( ~Model:Water 0 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] 64

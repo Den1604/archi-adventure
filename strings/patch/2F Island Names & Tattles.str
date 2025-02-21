@@ -9,7 +9,25 @@
 #message:2F:001
 {
 	[Style Right]
-	Tangle Island Tattle[BR]
+	Ahh, Tangle Island![Pause:5][BR]
+	This is where I live![Pause:10][BR]
+	And where you washed up![BR]
+	[Wait][Next]
+	This is a small jungle island,[BR]
+	for it's size it has a[BR]
+	surprisingly dense jungle.[BR]
+	[Wait][Next]
+	I haven't ever explored the[BR]
+	jungle too deeply, those M Bush[BR]
+	are too scary for me...[Pause:15][BR]
+	[Wait][Next]
+	As much as I get lonely on it,[BR]
+	I do appreciate the solitude.[Pause:10][BR]
+	I'm sure exploring with you is[BR]
+	going to be fun though![BR]
+	[Wait][Next]
+	[Pause:15]Maybe you could tell the whale[BR]
+	to show up again once in a while...[BR]
 	[Wait][End]
 }
 

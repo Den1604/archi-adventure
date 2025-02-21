@@ -532,7 +532,7 @@
 
 #new:Script_Main $Script_Main
 {
-	Set   *GB_WorldLocation  .Location:YoshisVillage
+	Set   *GB_WorldLocation  .Location:GoombaRoad
 	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
@@ -568,6 +568,8 @@
 #new:Script $Script_PanCamera_Cam_Pan_SpearGuyCutscene_1
 {
 	Call  UseSettingsFrom   ( .Cam:Default 33` 0` 41` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:Cam_Pan_SpearGuyCutscene_1 )
 	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
@@ -579,6 +581,8 @@
 #new:Script $Script_PanCamera_Cam_Pan_SpearGuyCutscene_2
 {
 	Call  UseSettingsFrom   ( .Cam:Default -400` 0` -300` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:Cam_Pan_SpearGuyCutscene_2 )
 	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
@@ -589,7 +593,9 @@
 
 #new:Script $Script_PanCamera_Cam_Pan_SpearGuyCutscene_3
 {
-	Call  UseSettingsFrom   ( .Cam:Default 250` -19` 251` )
+	Call  UseSettingsFrom   ( .Cam:Default 250` -19` 157` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:Cam_Pan_SpearGuyCutscene_3 )
 	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
@@ -611,6 +617,7 @@
 	Call     802C9000 	( ~Model:Campfire_Smoke 0 )
 	Call     802C9000 	( ~Model:Water 1 )
 	Call     802C9000 	( ~Model:WaterReflection 2 )
+	Call     802C9000 	( ~Model:WaterOutsideRim 3 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] FFFFFF06
@@ -653,6 +660,22 @@
 		Set  *Var[6] 1
 		Set  *Var[7] 0
 		Set  *Var[8] 1
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Thread
+		Set  *Var[0] 3
+		Set  *Var[1] FFFFFF06
+		Set  *Var[2] 0
+		Set  *Var[3] 0
+		Set  *Var[4] 0
+		Set  *Var[5] 1
+		Set  *Var[6] 0
+		Set  *Var[7] 0
+		Set  *Var[8] 0
 		Set  *Var[9] 0
 		Set  *Var[A] 0
 		Set  *Var[B] 0
