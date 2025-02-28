@@ -70,3 +70,19 @@
 	Star Shrine Island Tattle[BR]
 	[Wait][End]
 }
+
+#message:2F:007
+{
+	[Style Tattle][NoSkip][CustomVoice soundIDs=0x000,0x000]
+	[CenterX:FF]Flood Island[BR]
+	[SetPosX 10][DelayOff][Down 3][Spacing 42] [UP][BR]
+	[Yield][End]
+}
+
+
+#message:2F:008
+{
+	[Style Right]
+	Flood Island Tattle[BR]
+	[Wait][End]
+}

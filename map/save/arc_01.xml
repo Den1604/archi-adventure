@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_01" author="unnamed" background="yos_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="183.441040,223.788849,795.687988" pitch="36.520054" yaw="355.519653"/>
-		<Camera pos="-453.182159,65536.000000,196.324982"/>
-		<Camera pos="65536.000000,-18.366085,322.605957"/>
+		<Camera pos="-444.765656,168.357773,219.708450" pitch="26.639990" yaw="356.960114"/>
+		<Camera pos="-552.932007,65536.000000,-13.865688"/>
+		<Camera pos="65536.000000,77.281212,137.507813"/>
 		<Camera pos="244.235321,-20.440737,65536.000000"/>
 	</Editor>
 	<ModelTree>
@@ -92,10 +92,11 @@
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
-		<Node name="Root" id="3">
+		<Node name="Root" id="4">
 			<Node name="MainZone" id="0"/>
 			<Node name="CutsceneZone" id="1"/>
 			<Node name="Cutscene2Zone" id="2"/>
+			<Node name="Entry0LeaveZone" id="3"/>
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
@@ -138,10 +139,10 @@
 					<F3DEX2 cmd="D9FFFFFF,200400"/>
 					<TriangleBatch ver="0">
 						<VertexTable>
-							<Vertex xyz="-500,-29,100" uv="4816,512" rgba="64,-127,-65,-1"/>
-							<Vertex xyz="-500,-29,500" uv="0,512" rgba="64,-127,-65,-1"/>
-							<Vertex xyz="-500,-74,500" uv="0,-256" rgba="17,78,-120,-1"/>
-							<Vertex xyz="-500,-74,100" uv="4816,-256" rgba="17,78,-120,-1"/>
+							<Vertex xyz="-500,-29,100" uv="4816,512" rgba="64,129,191,255"/>
+							<Vertex xyz="-500,-29,500" uv="0,512" rgba="64,129,191,255"/>
+							<Vertex xyz="-500,-74,500" uv="0,-256" rgba="17,78,136,255"/>
+							<Vertex xyz="-500,-74,100" uv="4816,-256" rgba="17,78,136,255"/>
 						</VertexTable>
 						<TriangleList>
 							<Triangle ijk="0,1,2"/>
@@ -4598,7 +4599,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="BoatColl" id="F" hidden="true"/>
+			<MapObject name="BoatColl" id="F"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -4939,27 +4940,6 @@
 						<Vertex xyz="-71,30,50" uv="-3312,-1184" rgba="106,63,63,255"/>
 						<Vertex xyz="-57,42,24" uv="-3456,-944" rgba="136,92,80,255"/>
 						<Vertex xyz="-71,42,50" uv="-3072,-944" rgba="136,92,80,255"/>
-						<Vertex xyz="-13,30,0" uv="-624,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-13,30,12" uv="-624,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-13,123,0" uv="-624,2992"/>
-						<Vertex xyz="-13,123,0" uv="-624,2992"/>
-						<Vertex xyz="-13,30,12" uv="-624,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-13,123,12" uv="-624,2992"/>
-						<Vertex xyz="-13,30,12" uv="-624,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-1,30,12" uv="-48,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-13,123,12" uv="-624,2992"/>
-						<Vertex xyz="-13,123,12" uv="-624,2992"/>
-						<Vertex xyz="-1,30,12" uv="-48,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-1,123,12" uv="-48,2992"/>
-						<Vertex xyz="-13,30,0" uv="-624,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-1,30,0" uv="-48,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-13,30,12" uv="-624,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-13,30,12" uv="-624,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-1,30,0" uv="-48,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-1,30,12" uv="-48,-1568" rgba="106,63,63,255"/>
-						<Vertex xyz="-1,123,12" uv="-48,2992"/>
-						<Vertex xyz="-13,123,0" uv="-48,2560"/>
-						<Vertex xyz="-13,123,12" uv="-624,2992"/>
 						<Vertex xyz="15,42,28" uv="672,-992"/>
 						<Vertex xyz="-17,4,50" uv="-864,-2816" rgba="158,106,93,255"/>
 						<Vertex xyz="9,0,22" uv="432,-3008" rgba="158,106,93,255"/>
@@ -5098,13 +5078,6 @@
 						<Triangle ijk="345,346,347"/>
 						<Triangle ijk="348,349,350"/>
 						<Triangle ijk="351,352,353"/>
-						<Triangle ijk="354,355,356"/>
-						<Triangle ijk="357,358,359"/>
-						<Triangle ijk="360,361,362"/>
-						<Triangle ijk="363,364,365"/>
-						<Triangle ijk="366,367,368"/>
-						<Triangle ijk="369,370,371"/>
-						<Triangle ijk="372,373,374"/>
 					</TriangleList>
 				</TriangleBatch>
 			</HitMesh>
@@ -5822,11 +5795,32 @@
 	</Colliders>
 	<Zones>
 		<Zone ver="0">
-			<MapObject name="Root" id="3"/>
+			<MapObject name="Root" id="4"/>
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="Cutscene2Zone" id="2" hidden="true"/>
+			<MapObject name="Entry0LeaveZone" id="3"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="-600,0,50" uv="-9734,-6754"/>
+						<Vertex xyz="-500,0,50" uv="-8609,-5629"/>
+						<Vertex xyz="-500,0,-50" uv="-7479,-6758"/>
+						<Vertex xyz="-600,0,50" uv="-9734,-6754"/>
+						<Vertex xyz="-500,0,-50" uv="-7479,-6758"/>
+						<Vertex xyz="-600,0,-50" uv="-8605,-7884"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="3,4,5"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
+			<Camera type="TYPE_2" flag="true" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="0,10,50" posB="0,10,-50" posC="10,0,10"/>
+		</Zone>
+		<Zone ver="0">
+			<MapObject name="Cutscene2Zone" id="2"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5847,7 +5841,7 @@
 			<Camera type="TYPE_4" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="250,-19,251" posB="250,-19,157" posC="-23,0,-23"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="CutsceneZone" id="1" hidden="true"/>
+			<MapObject name="CutsceneZone" id="1"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5866,7 +5860,7 @@
 			<Camera type="TYPE_4" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="42,-27,-28" posB="-25,-27,-97" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="MainZone" id="0" hidden="true"/>
+			<MapObject name="MainZone" id="0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -5921,7 +5915,7 @@
 			<MapObject name="Tree_2_BombPos" id="6"/>
 			<BombTrigger radius="0.000000"/>
 		</Marker>
-		<Marker ver="4" type="Position" pos="210,-6,106" yaw="0.000000">
+		<Marker ver="4" type="Position" pos="180,-3,96" yaw="0.000000">
 			<MapObject name="MarioLeaveBoatJump" id="5"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-350,114,-48" yaw="0.000000">

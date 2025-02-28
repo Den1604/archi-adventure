@@ -1324,3 +1324,39 @@ tex: sam_s_treetif
 	filter: yes
 	combine: 8
 }
+
+tex: jan_yellow_mushroom
+{
+	img: jan_yellow_mushroom.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: repeat
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: jan_blue_mushroom
+{
+	img: jan_blue_mushroom.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: repeat
+	}
+	filter: yes
+	combine: 8
+}
+
+tex: jan_purple_mushroom
+{
+	img: jan_purple_mushroom.png
+	{
+		format: CI-4
+		hwrap: repeat
+		vwrap: repeat
+	}
+	filter: yes
+	combine: 8
+}

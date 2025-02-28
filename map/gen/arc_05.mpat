@@ -1,24 +1,16 @@
-% Auto-generated script for arc_06
+% Auto-generated script for arc_05
 
 #new:Header $Header
 {
 	[MainScript] $Script_Main
 	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 2
+	[EntryCount] 1
 }
 
 #new:EntryList $EntryList
 {
 	~Vec4f:EntryBoat
-	~Vec4f:Entry1
-}
-
-#new:Script $Script_BreakBlock_StoneBlock_1
-{
-	Set   *MF_ARC_06_STONEBLOCK  .True
-	Return
-	End
 }
 
 #new:Script $Script_TexturePan_Update
@@ -278,7 +270,6 @@
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
-	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
 	Exec  $Script_EnterMap
@@ -297,18 +288,6 @@
 	JPOP   RA
 }
 
-#new:Script $Script_MakeEntities
-{
-	Call  MakeEntity    ( .Entity:RedBlock ~Vec4d:Hidden_Red_Block .Item:AttackFXB 80000000 )
-	Call  AssignBlockFlag   ( *MF_ARC_06_REDHIDDENBLOCK )
-	If  *MF_ARC_06_STONEBLOCK  ==  .False
-		Call  MakeEntity    ( .Entity:Hammer2Block ~Vec4d:StoneBlock_1 80000000 )
-		Call  AssignScript  ( $Script_BreakBlock_StoneBlock_1 )
-	EndIf
-	Return
-	End
-}
-
 #new:Script $Script_SetupMusic
 {
 	Call  FadeOutMusic  ( 00000000 500` ) % usually between 500-1000
@@ -319,61 +298,9 @@
 
 #new:Script $Script_SetupTexturePan
 {
-	Call     802C9000 	( ~Model:Mushroom_Water_Cover 0 )
-	Call     802C9000 	( ~Model:Mushroom_Water_Offshoot 0 )
-	Call     802C9000 	( ~Model:Mushroom_WaterFall 1 )
-	Call     802C9000 	( ~Model:Water 3 )
-	Call     802C9000 	( ~Model:WaterOutsideRim 2 )
+	Call     802C9000 	( ~Model:Water 0 )
 	Thread
 		Set  *Var[0] 0
-		Set  *Var[1] FFFFFF83
-		Set  *Var[2] FFFFFF6A
-		Set  *Var[3] FFFFFFB5
-		Set  *Var[4] FFFFFFD3
-		Set  *Var[5] 1
-		Set  *Var[6] 1
-		Set  *Var[7] 1
-		Set  *Var[8] 1
-		Set  *Var[9] 0
-		Set  *Var[A] 0
-		Set  *Var[B] 0
-		Set  *Var[C] 0
-		Exec $Script_TexturePan_Update
-	EndThread
-	Thread
-		Set  *Var[0] 1
-		Set  *Var[1] 0
-		Set  *Var[2] 1F4
-		Set  *Var[3] 0
-		Set  *Var[4] 15E
-		Set  *Var[5] 0
-		Set  *Var[6] 1
-		Set  *Var[7] 0
-		Set  *Var[8] 1
-		Set  *Var[9] 0
-		Set  *Var[A] 0
-		Set  *Var[B] 0
-		Set  *Var[C] 0
-		Exec $Script_TexturePan_Update
-	EndThread
-	Thread
-		Set  *Var[0] 2
-		Set  *Var[1] FA
-		Set  *Var[2] 0
-		Set  *Var[3] 0
-		Set  *Var[4] 0
-		Set  *Var[5] 1
-		Set  *Var[6] 0
-		Set  *Var[7] 0
-		Set  *Var[8] 0
-		Set  *Var[9] 0
-		Set  *Var[A] 0
-		Set  *Var[B] 0
-		Set  *Var[C] 0
-		Exec $Script_TexturePan_Update
-	EndThread
-	Thread
-		Set  *Var[0] 3
 		Set  *Var[1] 7D
 		Set  *Var[2] FFFFFF06
 		Set  *Var[3] FFFFFF06
@@ -394,32 +321,12 @@
 
 #new:Script $Script_EnterMap
 {
-	Call  GetEntryID    ( *Var[0] )
-	Switch  *Var[0]
-		Case  ==  ~Entry:Entry1
-			Set   *Var[0] $Script_CreateExitTriggers
-			Exec  EnterWalk
-		Default
-			Exec  $Script_CreateExitTriggers
-	EndSwitch
-	Return
-	End
-}
-
-#new:Script $Script_Exit_Entry1
-{
-	SetGroup 0000001B
-	Call     UseExitHeading ( 60` ~Entry:Entry1 )
-	Exec     ExitWalk
-	Call  GotoMap   ( "arc_06" ~Entry:arc_06:Entry1 )
-	Wait  100`
 	Return
 	End
 }
 
 #new:Script $Script_CreateExitTriggers
 {
-	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:Entry1ExitColl 00000001 00000000
 	Return
 	End
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_03" author="unnamed" background="yos_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="-158.567795,94.907303,503.292877" pitch="11.080002" yaw="0.960011"/>
-		<Camera pos="-299.027313,65536.000000,-134.042877"/>
+		<Camera pos="400.000000,124.036812,468.552307" pitch="10.000000" yaw="0.000000"/>
+		<Camera pos="-309.155273,65536.000000,-119.883423"/>
 		<Camera pos="65536.000000,-49.277874,-263.085052"/>
 		<Camera pos="-182.253784,-26.939486,65536.000000"/>
 	</Editor>
@@ -70,8 +70,9 @@
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
-		<Node name="Root" id="1">
+		<Node name="Root" id="2">
 			<Node name="MainZone" id="0"/>
+			<Node name="Entry0LeaveZone" id="1"/>
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
@@ -3225,8 +3226,29 @@
 	</Colliders>
 	<Zones>
 		<Zone ver="0">
-			<MapObject name="Root" id="1"/>
+			<MapObject name="Root" id="2"/>
 			<HitObject type="ROOT"/>
+		</Zone>
+		<Zone ver="0">
+			<MapObject name="Entry0LeaveZone" id="1"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="500,0,50" uv="-9734,-6754"/>
+						<Vertex xyz="600,0,50" uv="-8609,-5629"/>
+						<Vertex xyz="600,0,-50" uv="-7479,-6758"/>
+						<Vertex xyz="500,0,50" uv="-9734,-6754"/>
+						<Vertex xyz="600,0,-50" uv="-7479,-6758"/>
+						<Vertex xyz="500,0,-50" uv="-8605,-7884"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="3,4,5"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
+			<Camera type="TYPE_2" flag="true" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="0,10,50" posB="0,10,-50" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
 			<MapObject name="MainZone" id="0"/>

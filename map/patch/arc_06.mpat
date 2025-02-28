@@ -5,3 +5,134 @@
 	Return
 	End
 }
+
+@ $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True )
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_MakeEntities
+	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
+    Exec  $Script_BoatBop
+	Exec  $Script_EnterMap
+    Bind  $Script_BoatLeave .Trigger:WallPressA ~Collider:BoatInteractColl 00000001 00000000
+	Call PlaySoundAtModel ( ~Model:Mushroom_Water_Cover 00000273 00000000 )
+	Return
+	End
+}
+
+#new:Script $Script_BoatBop {
+    Call ParentColliderToModel ( ~Collider:BoatColl ~Model:Boat_Body )
+    Loop
+        Set   *Var0  00000000
+            Loop  5` %Change this and the other loop to the amount of units you want the boat to move Y
+                Add   *Var0  00000001
+                Call  TranslateGroup    ( ~Model:Boat_Group 00000000 *Var0 00000000 ) %Change these models to your models
+                Call UpdateColliderTransform ( ~Collider:BoatColl )
+                Wait  3`
+            EndLoop
+            Wait 6`
+            Set *Var1 *Var0
+            Loop  5` %Change this and the other loop to the amount of units you want the boat to move Y
+                Sub   *Var1  00000001
+                Call  TranslateGroup    ( ~Model:Boat_Group 00000000 *Var1 00000000 ) %Change these models to your models
+                Call UpdateColliderTransform ( ~Collider:BoatColl )
+                Wait  3`
+              EndLoop
+            Wait 8`
+        EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_BoatLeave
+{
+    Call DisablePlayerInput ( .True )
+    Call ShowMessageAtScreenPos ( 00300000 000000A0 00000000 )
+    Call ShowChoice ( 001E0004 )
+    Switch *Var0
+        Case == 0 % Yes
+            Call CloseChoice ()
+            Call CloseMessage ()
+            Call SetPlayerJumpscale ( *Fixed[1.0] )
+            Thread
+                Call GotoMap ( "arc_00" 00000000 )
+            EndThread
+            Call StopSound ( 00000273 )
+            Call PlayerJump ( ~Vec3D:EntryBoat 15` )
+        Case == 1 % No
+            Call CloseChoice ()
+            Call CloseMessage ()
+            Call DisablePlayerInput ( .False )
+    EndSwitch
+    Return
+    End
+}
+
+@ $Script_EnterMap
+{
+	Call  GetEntryID    ( *Var[0] )
+	Switch  *Var[0]
+		Case == ~Entry:EntryBoat
+            Exec  $Script_EntryFromBoat
+			Exec  $Script_CreateExitTriggers
+		Case  ==  ~Entry:Entry1
+			Set   *Var[0] $Script_CreateExitTriggers
+			Exec  EnterWalk
+		Default
+			Exec  $Script_CreateExitTriggers
+	EndSwitch
+	Return
+	End
+}
+
+#new:Script $Script_EntryFromBoat
+{
+    Call DisablePlayerInput ( .True )
+	Call DisablePartnerAI ( 00000000 )
+    Wait 5`
+    Call SetPlayerJumpscale ( *Fixed[1.0] )
+    Call PlayerJump ( ~Vec3D:MarioLeaveBoatJump 15` )
+	Call GetPlayerPos ( *VarA *VarB *VarC )
+	Add *VarA 30`
+	Add *VarC 10`
+	Call PlaySoundAtNpc ( .Npc:Partner 000003E2 00000000 )
+	Thread
+		Call SetNpcAnimation ( .Npc:Partner 00010004 )
+		Wait 7`
+		Call SetNpcAnimation ( .Npc:Partner 00010005 )
+	EndThread
+	Call NpcJump0 ( .Npc:Partner *VarA *VarB *VarC 15` )
+	Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+@ $Script_MakeEntities
+{
+	Call  MakeEntity    ( .Entity:RedBlock ~Vec4d:Hidden_Red_Block .Item:AttackFXB 80000000 )
+	Call  AssignBlockFlag   ( *MF_ARC_06_REDHIDDENBLOCK )
+	If  *MF_ARC_06_STONEBLOCK  ==  .False
+		Call  MakeEntity    ( .Entity:Hammer2Block ~Vec4d:StoneBlock_1 80000000 )
+		Call  AssignScript  ( $Script_BreakBlock_StoneBlock_1 )
+	EndIf
+	Call  MakeItemEntity    ( .Item:Pebble ~Vec3D:Pos_Item_StoneBlock_1 .ItemSpawnMode:Fixed_NeverVanish *MF_ARC_06_PEBBLE )
+  	 Return
+	End
+}
+
+@ $Script_Exit_Entry1
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry1 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "arc_06" ~Entry:arc_06:Entry1 )
+    Call StopSound ( 00000273 )
+	Wait  100`
+	Return
+	End
+}

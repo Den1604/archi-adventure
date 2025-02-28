@@ -304,6 +304,8 @@
 #new:Script $Script_PanCamera_CamPan_WaterfallIsland
 {
 	Call  UseSettingsFrom   ( .Cam:Default 338` 43` 31` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_WaterfallIsland )
 	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
@@ -327,7 +329,7 @@
 
 #new:Script $Script_PanCamera_CamPan_WinterIsland
 {
-	Call  UseSettingsFrom   ( .Cam:Default 562` 43` 322` )
+	Call  UseSettingsFrom   ( .Cam:Default 661` 43` 502` )
 	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
 	Call  SetCamDistance    ( .Cam:Default 450` )
 	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_WinterIsland )

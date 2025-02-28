@@ -6,6 +6,7 @@
 #define .Island:Tangle_Island       00
 #define .Island:Waterfall_Island    01
 #define .Island:StarShrine_Island   02
+#define .Island:Flood_Island        03 % TEMPORARY NUMBER
 
 @ $Script_Main
 {
@@ -31,6 +32,7 @@
 {
     % Exec $Script_BoatBop
     Exec $Script_MarioMovement
+    Exec $Script_FloodIslandMovement
     Return
     End
 }
@@ -112,6 +114,17 @@
 	End
 }
 
+@ $Script_PanCamera_CamPan_WinterIsland
+{
+	Call  UseSettingsFrom   ( .Cam:Default 661` 43` 436` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_WinterIsland )
+	Call  SetCamSpeed       ( .Cam:Default *MapVar[0] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
 @ $Script_SetupMusic
 {
 	Call  SetMusicTrack ( 00000000 .Song:SeasideCity 00000000 00000008 )
@@ -183,9 +196,8 @@
                     Case == 00080000 % RIGHT
                         Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
-                        Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:WaterfallIsland_BoatMarker )
-                        ExecWait $Script_PanCamera_CamPan_WaterfallIsland
                         Set *GB_ARC_00_currentIsland .Island:Waterfall_Island
+                        ExecWait $Script_PanCamera_CamPan_WaterfallIsland
                         If *MF_BeatWaterfallIsland == .True
                             Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
                         Else
@@ -213,19 +225,28 @@
                     Case == 00040000 % LEFT
                         Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
-                        Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:MainIsland_BoatMarker )
-                        ExecWait $Script_PanCamera_CamPan_MainIsland
                         Set *GB_ARC_00_currentIsland .Island:Tangle_Island
+                        ExecWait $Script_PanCamera_CamPan_MainIsland
                         Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
                         Set *MF_DrawMenuStuff .True
+
+
+                    Case == 00020000 % DOWN
+                        % If *MF_BeatWaterfallIsland == .True
+                            Set *MF_DrawMenuStuff .False
+                            Call CloseMessage ()
+                            Set *GB_ARC_00_currentIsland .Island:Flood_Island
+                            ExecWait $Script_PanCamera_CamPan_WinterIsland
+                            Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
+                            Set *MF_DrawMenuStuff .True
+                        % EndIf
 
                     Case == 00080000 % RIGHT
                         If *MF_BeatWaterfallIsland == .True
                             Set *MF_DrawMenuStuff .False
                             Call CloseMessage ()
-                            Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:StarShrineIsland_BoatMarker )
-                            ExecWait $Script_PanCamera_CamPan_StarShrineIsland
                             Set *GB_ARC_00_currentIsland .Island:StarShrine_Island
+                            ExecWait $Script_PanCamera_CamPan_StarShrineIsland
                             Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
                             Set *MF_DrawMenuStuff .True
                         EndIf
@@ -233,13 +254,17 @@
                     Case == .Buttons:A
                         Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
-                        Call GotoMap ( "arc_00" 00000000 )
+                        Call GotoMap ( "arc_06" 00000000 )
 
                     Case == .Buttons:Z
                         Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call ShowMessageAtScreenPos ( 002F0003 000000A0 00000000 )
-                        Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                        If *MF_BeatWaterfallIsland == .True
+                            Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                        Else
+                            Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
+                        EndIf
                         Set *MF_DrawMenuStuff .True
 
                     EndSwitch
@@ -251,9 +276,8 @@
                         Case == 00040000 % LEFT
                             Set *MF_DrawMenuStuff .False
                             Call CloseMessage ()
-                            Call SetNpcPos ( .NpcID:BoatNPC ~Vec3D:WaterfallIsland_BoatMarker )
-                            ExecWait $Script_PanCamera_CamPan_WaterfallIsland
                             Set *GB_ARC_00_currentIsland .Island:Waterfall_Island
+                            ExecWait $Script_PanCamera_CamPan_WaterfallIsland
                             Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
                             Set *MF_DrawMenuStuff .True
 
@@ -311,8 +335,8 @@
 {
     Call EnableNpcShadow ( .NpcID:BoatNPC .False )
     Call SetNpcFlagBits ( .NpcID:BoatNPC 00000002 .True )
-    Exec $Script_BoatNpc_BoatBop
     Exec $Script_BoatNPC_currentIsland
+    Exec $Script_BoatNpc_BoatBop
     Return
     End
 }
@@ -342,14 +366,40 @@
 
 #new:Script $Script_BoatNPC_currentIsland
 {
-    Switch *GB_ARC_00_currentIsland
-        Case == .Island:Tangle_Island % 0
-            Call SetNpcPos ( .Npc:Self ~Vec3D:MainIsland_BoatMarker )
-        Case == .Island:Waterfall_Island % 1
-            Call SetNpcPos ( .Npc:Self ~Vec3D:WaterfallIsland_BoatMarker )
-        Case == .Island:StarShrine_Island % 2
-            Call SetNpcPos ( .Npc:Self ~Vec3D:StarShrineIsland_BoatMarker )
-    EndSwitch
+    Loop
+        Switch *GB_ARC_00_currentIsland
+            Case == .Island:Tangle_Island % 0
+                Call SetNpcPos ( .Npc:Self ~Vec3D:MainIsland_BoatMarker )
+            Case == .Island:Waterfall_Island % 1
+                Call SetNpcPos ( .Npc:Self ~Vec3D:WaterfallIsland_BoatMarker )
+            Case == .Island:StarShrine_Island % 2
+                Call SetNpcPos ( .Npc:Self ~Vec3D:StarShrineIsland_BoatMarker )
+            Case == .Island:Flood_Island % 3
+                Call SetNpcPos ( .Npc:Self ~Vec3D:WinterIsland_BoatMarker )
+        EndSwitch
+    Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_FloodIslandMovement
+{
+    Set *Var0 0`
+    Loop
+        Loop 5`
+            Sub *Var0 1`
+            Call TranslateGroup ( ~Model:FloodIsland_Group 0` *Var0 0` )
+            Wait 3`
+        EndLoop
+        Wait 90`
+        Loop 5`
+            Add *Var0 1`
+            Call TranslateGroup ( ~Model:FloodIsland_Group 0` *Var0 0` )
+            Wait 3`
+        EndLoop
+        Wait 90`
+    EndLoop
     Return
     End
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_02" author="unnamed" background="jan_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="10.138268,229.875427,358.437439" pitch="23.120007" yaw="359.840149"/>
-		<Camera pos="37.667877,65536.000000,122.523674"/>
+		<Camera pos="362.998993,124.036812,432.567749" pitch="10.000000" yaw="0.000000"/>
+		<Camera pos="563.010010,65536.000000,14.026855"/>
 		<Camera pos="65536.000000,59.000000,100.000000"/>
 		<Camera pos="0.000000,59.000000,65536.000000"/>
 	</Editor>
@@ -127,8 +127,11 @@
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
-		<Node name="Root" id="1">
+		<Node name="Root" id="4">
 			<Node name="MainZone" id="0"/>
+			<Node name="Entry0LeaveZone" id="1"/>
+			<Node name="Entry1LeaveZone" id="2"/>
+			<Node name="Entry2LeaveZone" id="3"/>
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
@@ -5669,11 +5672,74 @@
 	</Colliders>
 	<Zones>
 		<Zone ver="0">
-			<MapObject name="Root" id="1"/>
+			<MapObject name="Root" id="4"/>
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="MainZone" id="0" hidden="true"/>
+			<MapObject name="Entry2LeaveZone" id="3"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="300,0,-200" uv="-9734,-6754"/>
+						<Vertex xyz="400,0,-200" uv="-8609,-5629"/>
+						<Vertex xyz="400,0,-300" uv="-7479,-6758"/>
+						<Vertex xyz="300,0,-200" uv="-9734,-6754"/>
+						<Vertex xyz="400,0,-300" uv="-7479,-6758"/>
+						<Vertex xyz="300,0,-300" uv="-8605,-7884"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="3,4,5"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
+			<Camera type="TYPE_2" flag="true" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="0,10,50" posB="0,10,-50" posC="10,0,10"/>
+		</Zone>
+		<Zone ver="0">
+			<MapObject name="Entry1LeaveZone" id="2"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="500,0,50" uv="-9734,-6754"/>
+						<Vertex xyz="600,0,50" uv="-8609,-5629"/>
+						<Vertex xyz="600,0,-50" uv="-7479,-6758"/>
+						<Vertex xyz="500,0,50" uv="-9734,-6754"/>
+						<Vertex xyz="600,0,-50" uv="-7479,-6758"/>
+						<Vertex xyz="500,0,-50" uv="-8605,-7884"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="3,4,5"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
+			<Camera type="TYPE_2" flag="true" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="0,10,50" posB="0,10,-50" posC="10,0,10"/>
+		</Zone>
+		<Zone ver="0">
+			<MapObject name="Entry0LeaveZone" id="1"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="-600,0,50" uv="-9734,-6754"/>
+						<Vertex xyz="-500,0,50" uv="-8609,-5629"/>
+						<Vertex xyz="-500,0,-50" uv="-7479,-6758"/>
+						<Vertex xyz="-600,0,50" uv="-9734,-6754"/>
+						<Vertex xyz="-500,0,-50" uv="-7479,-6758"/>
+						<Vertex xyz="-600,0,-50" uv="-8605,-7884"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="3,4,5"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
+			<Camera type="TYPE_2" flag="true" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="0,10,50" posB="0,10,-50" posC="10,0,10"/>
+		</Zone>
+		<Zone ver="0">
+			<MapObject name="MainZone" id="0"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
