@@ -3,36 +3,42 @@
 	Set   *GB_WorldLocation  .Location:GoombaRoad
 	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
-	Call  SetCamEnabled      ( .Cam:Default .True
+	Call  SetCamEnabled      ( .Cam:Default .True )
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
 	Exec  $Script_EnterMap
     Exec  $Script_BoatBop
     Exec  $Script_SetupMovingWater
+    Exec  $Script_SetupWaterReset
+    Bind  $Script_BoatLeave .Trigger:WallPressA ~Collider:BoatLeaveColl 00000001 00000000
+	Exec  $Script_BindFoliage
+    Exec  $Script_SetupVineR
+    Set *MapFlag[00] .True
 	Return
 	End
 }
 
 #new:Script $Script_BoatBop {
     Call ParentColliderToModel ( ~Collider:BoatColl ~Model:Boat_Body )
-    Loop
-        Set   *Var0  00000000
-            Loop  5` %Change this and the other loop to the amount of units you want the boat to move Y
-                Add   *Var0  00000001
-                Call  TranslateGroup    ( ~Model:Boat_Group 00000000 *Var0 00000000 ) %Change these models to your models
+        Loop
+            Loop 5`
+                Set *MapVar[1] *MapVar[0]
+                Add *MapVar[1]  00000001
+                Call TranslateGroup    ( ~Model:Boat_Group 00000000 *MapVar[1] 00000000 )
                 Call UpdateColliderTransform ( ~Collider:BoatColl )
-                Wait  3`
+                Wait 3`
             EndLoop
-            Wait 6`
-            Set *Var1 *Var0
-            Loop  5` %Change this and the other loop to the amount of units you want the boat to move Y
-                Sub   *Var1  00000001
-                Call  TranslateGroup    ( ~Model:Boat_Group 00000000 *Var1 00000000 ) %Change these models to your models
+            Wait 1`
+            Loop 5`
+                Set *MapVar[2] *MapVar[0]
+                Sub *MapVar[2]  00000001
+                Call TranslateGroup    ( ~Model:Boat_Group 00000000 *MapVar[2] 00000000 )
                 Call UpdateColliderTransform ( ~Collider:BoatColl )
-                Wait  3`
+                Wait 3`
               EndLoop
-            Wait 8`
+            Wait 1`
         EndLoop
     Return
     End
@@ -51,7 +57,7 @@
             Thread
                 Call GotoMap ( "arc_00" 00000000 )
             EndThread
-            Call PlayerJump ( ~Vec3D:EntryBoat 15` )
+            Call PlayerJump ( ~Vec3D:EntryBoat 25` )
         Case == 1 % No
             Call CloseChoice ()
             Call CloseMessage ()
@@ -81,7 +87,7 @@
 	Call DisablePartnerAI ( 00000000 )
     Wait 5`
     Call SetPlayerJumpscale ( *Fixed[1.0] )
-    Call PlayerJump ( ~Vec3D:MarioLeaveBoatJump 15` )
+    Call PlayerJump ( ~Vec3D:MarioLeaveBoatJump 25` )
 	Call GetPlayerPos ( *VarA *VarB *VarC )
 	Add *VarA 30`
 	Add *VarC 10`
@@ -91,7 +97,7 @@
 		Wait 7`
 		Call SetNpcAnimation ( .Npc:Partner 00010005 )
 	EndThread
-	Call NpcJump0 ( .Npc:Partner *VarA *VarB *VarC 15` )
+	Call NpcJump0 ( .Npc:Partner *VarA *VarB *VarC 25` )
 	Call EnablePartnerAI ()
     Call DisablePlayerInput ( .False )
     Return
@@ -100,8 +106,349 @@
 
 #new:Script $Script_SetupMovingWater
 {
-    Call ParentColliderToModel ( ~Collider:WaterColl ~Model:Water )
-    %Make water move up and down in a cycle, not too forgiving, not too hard
+    Loop 
+        Call MakeLerp ( 0` -25` 40` .Easing:CubicIn )
+        Loop
+            Call UpdateLerp ( )
+            Call TranslateGroup ( ~Model:Water_Group 0` *Var0 0` )
+            Set *MapVar[0] *Var0
+            If  *Var1  ==  00000000
+                BreakLoop
+            EndIf
+            Wait 1`
+        EndLoop
+        Set *MapFlag[00] .False
+        Wait 1`
+        Call MakeLerp ( -25` -50` 40` .Easing:CubicOut )
+        Loop
+            Call UpdateLerp ( )
+            Call TranslateGroup ( ~Model:Water_Group 0` *Var0 0` )
+            Set *MapVar[0] *Var0
+            If  *Var1  ==  00000000
+                BreakLoop
+            EndIf
+            Wait 1`
+        EndLoop
+        Wait 60`
+        Call MakeLerp ( -50` -25` 40` .Easing:CubicIn )
+        Loop
+            Call UpdateLerp ( )
+            Call TranslateGroup ( ~Model:Water_Group 0` *Var0 0` )
+            Set *MapVar[0] *Var0
+            If  *Var1  ==  00000000
+                BreakLoop
+            EndIf
+            Wait 1`
+        EndLoop
+        Set *MapFlag[00] .True
+        Wait 1`
+        Call MakeLerp ( -25` 0` 40` .Easing:CubicOut )
+        Loop
+            Call UpdateLerp ( )
+            Call TranslateGroup ( ~Model:Water_Group 0` *Var0 0` )
+            Set *MapVar[0] *Var0
+            If  *Var1  ==  00000000
+                BreakLoop
+            EndIf
+            Wait 1`
+        EndLoop
+        Wait 60`
+    EndLoop
     Return
     End
+}
+
+#new:Script $Script_SetupWaterReset
+{
+    Loop
+        Call GetPlayerPos ( 0` *Var0 0` )
+        If *Var0 < 20`
+            If *MapFlag[00] == .True
+                Call DisablePlayerInput ( .True )
+                Call DisablePlayerPhysics ( .True )
+                Call SetPlayerAnimation ( 00010012 )
+                Call GotoMap ( "arc_05" 00000001 )
+                Wait 300`
+            EndIf
+        EndIf
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_SetupVineR
+{
+    Set   *MapVar[A]  $Script_80242044
+    Set   *VarF  0000000A
+    Set   *VarC  00000000
+    Set   *VarD  00000027
+    Set   *VarE  00000028
+    Set   *Var9  00000008
+    Set   *VarA  00000000
+    Set   *VarB  00000000
+    Set   *Var5  00000000
+    Exec  $Script_Vine_R_Pull
+    Return
+    End
+}
+
+#new:Script $Script_80242044
+{
+    0:  Call  GetModelCenter    ( *Var9 )
+   10:  Add   *Var2  0000000A
+   20:  Call  MakeItemEntity    ( .Item:Apple ~Vec3D:TreeL_Drop1 .ItemSpawnMode:Fall *MF_ARC_05_TREELOOT )
+   44:  Return
+   4C:  End
+}
+
+
+#new:Script $Script_Vine_R_Pull
+{
+    0:  Call  GetModelCenter        ( *VarE )
+   10:  Set   *Var6  *Var0
+   20:  Set   *Var7  *Var1
+   30:  Set   *Var8  *Var2
+   40:  Add   *Var7  FFFFFFEC
+   50:  Label  0
+   5C:  Call  GetPlayerPos  ( *Var0 *Var1 *Var2 )
+   74:  Call  $Function_80240000    ( *Var6 *Var7 *Var8 00000014 )
+   90:  Call  GetPlayerActionState  ( *Var1 )
+   A0:  If  *Var1  !=  .ActionState:Jump % 3
+   B0:  	Set   *Var0  00000000
+   C0:  EndIf
+   C8:  If  *Var0  ==  00000001
+   D8:  	Call  DisablePlayerInput    ( .True )
+   E8:  	Call  DisablePlayerPhysics  ( .True )
+   F8:  	Call  GetModelCenter        ( *VarD )
+  108:  	Call  PlaySoundAt   ( 00002089 00000000 *Var0 *Var1 *Var2 )
+  128:  	SetF  *Var0  *Fixed[0.0]
+  138:  	SetF  *Var1  *Fixed[0.0]
+  148:  	Thread
+  150:  		Loop  00000003
+  15C:  			If  *Var9  !=  00000000
+  16C:  				Call  TranslateModel    ( *Var9 FFFFFFFE 00000000 00000000 )
+  188:  			EndIf
+  190:  			If  *VarA  !=  00000000
+  1A0:  				Call  TranslateModel    ( *VarA FFFFFFFF 00000000 00000000 )
+  1BC:  			EndIf
+  1C4:  			If  *VarB  !=  00000000
+  1D4:  				Call  TranslateModel    ( *VarB 00000002 00000000 00000000 )
+  1F0:  			EndIf
+  1F8:  			Wait  1`
+  204:  			If  *Var9  !=  00000000
+  214:  				Call  TranslateModel    ( *Var9 00000002 00000000 00000000 )
+  230:  			EndIf
+  238:  			If  *VarA  !=  00000000
+  248:  				Call  TranslateModel    ( *VarA 00000001 00000000 00000000 )
+  264:  			EndIf
+  26C:  			If  *VarB  !=  00000000
+  27C:  				Call  TranslateModel    ( *VarB FFFFFFFE 00000000 00000000 )
+  298:  			EndIf
+  2A0:  			Wait  1`
+  2AC:  		EndLoop
+  2B4:  		If  *Var9  !=  00000000
+  2C4:  			Call  TranslateModel    ( *Var9 00000000 00000000 00000000 )
+  2E0:  		EndIf
+  2E8:  		If  *VarA  !=  00000000
+  2F8:  			Call  TranslateModel    ( *VarA 00000000 00000000 00000000 )
+  314:  		EndIf
+  31C:  		If  *VarB  !=  00000000
+  32C:  			Call  TranslateModel    ( *VarB 00000000 00000000 00000000 )
+  348:  		EndIf
+  350:  	EndThread
+  358:  	If  *Var5  ==  00000000
+  368:  		Exec  *MapVar[A]
+  374:  	Else
+  37C:  		Thread
+  384:  			Wait  *Var5
+  390:  			Exec  *MapVar[A]
+  39C:  		EndThread
+  3A4:  	EndIf
+  3AC:  	Call  SetPlayerActionState  ( .ActionState:Land )
+  3BC:  	Wait  1`
+  3C8:  	Call  SetPlayerAnimation    ( 0008000D )
+  3D8:  	Loop  00000032
+  3E4:  		Call  $Function_802400F8    ( *Var0 *Fixed[-15.0] *Var2 )
+  3FC:  		AddF  *Var1  *Var2
+  40C:  		MulF  *Var1  *Fixed[0.93]
+  41C:  		AddF  *Var0  *Var1
+  42C:  		Call  TranslateModel    ( *VarD 00000000 *Var0 00000000 )
+  448:  		Call  TranslateModel    ( *VarE 00000000 *Var0 00000000 )
+  464:  		Set   *Var3  *Var7
+  474:  		Add   *Var3  *Var0
+  484:  		Set   *Var4  *Var8
+  494:  		Add   *Var4  00000002
+  4A4:  		Add   *Var3  00000005
+  4B4:  		Call  SetPlayerPos      ( *Var6 *Var3 *Var4 )
+  4CC:  		Wait  1`
+  4D8:  	EndLoop
+  4E0:  	Call  GetModelCenter    ( *VarF )
+  4F0:  	Call  SetPlayerJumpscale    (  1` )
+  500:  	Call  PlayerJump        ( *Var6 30` *Var4  10` )
+  51C:  	Call  SetPlayerActionState  ( .ActionState:Idle )
+  52C:  	Call  GetModelCenter    ( *VarD )
+  53C:  	Call  PlaySoundAt       ( 00002089 00000000 *Var0 *Var1 *Var2 )
+  55C:  	Thread
+  564:  		Wait  10`
+  570:  		Loop  00000005
+  57C:  			If  *Var9  !=  00000000
+  58C:  				Call  TranslateModel    ( *Var9 FFFFFFFE 00000000 00000000 )
+  5A8:  			EndIf
+  5B0:  			If  *VarA  !=  00000000
+  5C0:  				Call  TranslateModel    ( *VarA FFFFFFFF 00000000 00000000 )
+  5DC:  			EndIf
+  5E4:  			If  *VarB  !=  00000000
+  5F4:  				Call  TranslateModel    ( *VarB 00000002 00000000 00000000 )
+  610:  			EndIf
+  618:  			Wait  1`
+  624:  			If  *Var9  !=  00000000
+  634:  				Call  TranslateModel    ( *Var9 00000002 00000000 00000000 )
+  650:  			EndIf
+  658:  			If  *VarA  !=  00000000
+  668:  				Call  TranslateModel    ( *VarA 00000001 00000000 00000000 )
+  684:  			EndIf
+  68C:  			If  *VarB  !=  00000000
+  69C:  				Call  TranslateModel    ( *VarB FFFFFFFE 00000000 00000000 )
+  6B8:  			EndIf
+  6C0:  			Wait  1`
+  6CC:  		EndLoop
+  6D4:  		If  *Var9  !=  00000000
+  6E4:  			Call  TranslateModel    ( *Var9 00000000 00000000 00000000 )
+  700:  		EndIf
+  708:  		If  *VarA  !=  00000000
+  718:  			Call  TranslateModel    ( *VarA 00000000 00000000 00000000 )
+  734:  		EndIf
+  73C:  		If  *VarB  !=  00000000
+  74C:  			Call  TranslateModel    ( *VarB 00000000 00000000 00000000 )
+  768:  		EndIf
+  770:  	EndThread
+  778:  	Thread
+  780:  		SetF  *Var0  *Fixed[-15.0]
+  790:  		SetF  *Var1  *Fixed[0.0]
+  7A0:  		Loop  00000064
+  7AC:  			Call  $Function_802400F8    ( *Var0 *Fixed[20.0] *Var2 )
+  7C4:  			AddF  *Var1  *Var2
+  7D4:  			MulF  *Var1  *Fixed[0.93]
+  7E4:  			AddF  *Var0  *Var1
+  7F4:  			Call  TranslateModel        ( *VarD 00000000 *Var0 00000000 )
+  810:  			Call  TranslateModel        ( *VarE 00000000 *Var0 00000000 )
+  82C:  			Wait  1`
+  838:  		EndLoop
+  840:  	EndThread
+  848:  	Call  DisablePlayerPhysics  ( .False )
+  858:  	Call  DisablePlayerInput    ( .False )
+  868:  	Return
+  870:  EndIf
+  878:  Wait  1`
+  884:  Goto  0
+  890:  Return
+  898:  End
+}
+
+#new:Function $Function_80240000
+{
+    0:  ADDIU     SP, SP, FFC8
+    4:  SW        S1, 14 (SP)
+    8:  COPY      S1, A0
+    C:  SW        RA, 18 (SP)
+   10:  SW        S0, 10 (SP)
+   14:  SDC1      F24, 30 (SP)
+   18:  SDC1      F22, 28 (SP)
+   1C:  SDC1      F20, 20 (SP)
+   20:  LW        S0, C (S1)
+   24:  LW        A1, 0 (S0)
+   28:  JAL       ~Func:get_float_variable
+   2C:  ADDIU     S0, S0, 4
+   30:  LW        A1, 0 (S0)
+   34:  ADDIU     S0, S0, 4
+   38:  COPY      A0, S1
+   3C:  JAL       ~Func:get_float_variable
+   40:  MOV.S     F24, F0
+   44:  LW        A1, 0 (S0)
+   48:  ADDIU     S0, S0, 4
+   4C:  LIF       F2, 15.0
+   54:  COPY      A0, S1
+   58:  JAL       ~Func:get_float_variable
+   5C:  ADD.S     F22, F0, F2
+   60:  COPY      A0, S1
+   64:  LW        A1, 0 (S0)
+   68:  JAL       ~Func:get_float_variable
+   6C:  MOV.S     F20, F0
+   70:  MUL.S     F0, F0, F0
+   74:  NOP
+   78:  LWC1      F4, 84 (S1)
+   7C:  CVT.S.W   F4, F4
+   80:  SUB.S     F4, F4, F24
+   84:  MUL.S     F4, F4, F4
+   88:  NOP
+   8C:  LWC1      F2, 8C (S1)
+   90:  CVT.S.W   F2, F2
+   94:  SUB.S     F2, F2, F20
+   98:  MUL.S     F2, F2, F2
+   9C:  NOP
+   A0:  LWC1      F6, 88 (S1)
+   A4:  CVT.S.W   F6, F6
+   A8:  SUB.S     F6, F6, F22
+   AC:  MUL.S     F6, F6, F6
+   B0:  NOP
+   B4:  ADD.S     F4, F4, F6
+   B8:  ADD.S     F4, F4, F2
+   BC:  C.LT.S    F4, F0
+   C0:  NOP
+   C4:  BC1T      .oD0
+   C8:  LI        V0, 1
+   CC:  CLEAR     V0
+        .oD0
+   D0:  SW        V0, 84 (S1)
+   D4:  LW        RA, 18 (SP)
+   D8:  LW        S1, 14 (SP)
+   DC:  LW        S0, 10 (SP)
+   E0:  LDC1      F24, 30 (SP)
+   E4:  LDC1      F22, 28 (SP)
+   E8:  LDC1      F20, 20 (SP)
+   EC:  LI        V0, 2
+   F0:  JR        RA
+   F4:  ADDIU     SP, SP, 38
+}
+
+#new:Function $Function_802400F8
+{
+    0:  ADDIU     SP, SP, FFD8
+    4:  SW        S1, 14 (SP)
+    8:  COPY      S1, A0
+    C:  SW        RA, 18 (SP)
+   10:  SW        S0, 10 (SP)
+   14:  SDC1      F20, 20 (SP)
+   18:  LW        S0, C (S1)
+   1C:  LW        A1, 0 (S0)
+   20:  JAL       ~Func:get_float_variable
+   24:  ADDIU     S0, S0, 4
+   28:  LW        A1, 0 (S0)
+   2C:  ADDIU     S0, S0, 4
+   30:  COPY      A0, S1
+   34:  JAL       ~Func:get_float_variable
+   38:  MOV.S     F20, F0
+   3C:  SUB.S     F0, F0, F20
+   40:  LIF       F2, 10.0
+   48:  LW        A1, 0 (S0)
+   4C:  DIV.S     F0, F0, F2
+   50:  MFC1      A2, F0
+   54:  JAL       ~Func:set_float_variable
+   58:  COPY      A0, S1
+   5C:  LW        RA, 18 (SP)
+   60:  LW        S1, 14 (SP)
+   64:  LW        S0, 10 (SP)
+   68:  LDC1      F20, 20 (SP)
+   6C:  LI        V0, 2
+   70:  JR        RA
+   74:  ADDIU     SP, SP, 28
+}
+
+@ $Script_SetupMusic
+{
+	Call  SetMusicTrack ( 00000000 .Song:YoshiMountain 00000000 00000008 )
+	Call  ClearAmbientSounds ( 250` )
+	Return
+	End
 }
