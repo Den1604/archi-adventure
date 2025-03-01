@@ -107,7 +107,7 @@
 #new:Script $Script_SetupMovingWater
 {
     Loop 
-        Call MakeLerp ( 0` -25` 40` .Easing:CubicIn )
+        Call MakeLerp ( 0` -25` 50` .Easing:CubicIn )
         Loop
             Call UpdateLerp ( )
             Call TranslateGroup ( ~Model:Water_Group 0` *Var0 0` )
@@ -119,7 +119,7 @@
         EndLoop
         Set *MapFlag[00] .False
         Wait 1`
-        Call MakeLerp ( -25` -50` 40` .Easing:CubicOut )
+        Call MakeLerp ( -25` -50` 50` .Easing:CubicOut )
         Loop
             Call UpdateLerp ( )
             Call TranslateGroup ( ~Model:Water_Group 0` *Var0 0` )
@@ -130,7 +130,7 @@
             Wait 1`
         EndLoop
         Wait 60`
-        Call MakeLerp ( -50` -25` 40` .Easing:CubicIn )
+        Call MakeLerp ( -50` -25` 50` .Easing:CubicIn )
         Loop
             Call UpdateLerp ( )
             Call TranslateGroup ( ~Model:Water_Group 0` *Var0 0` )
@@ -142,7 +142,7 @@
         EndLoop
         Set *MapFlag[00] .True
         Wait 1`
-        Call MakeLerp ( -25` 0` 40` .Easing:CubicOut )
+        Call MakeLerp ( -25` 0` 50` .Easing:CubicOut )
         Loop
             Call UpdateLerp ( )
             Call TranslateGroup ( ~Model:Water_Group 0` *Var0 0` )

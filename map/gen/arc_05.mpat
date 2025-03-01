@@ -674,6 +674,58 @@
 	End
 }
 
+#new:TreeModelList $TrunkModels_Tree_PalmTree1Coll
+{
+	1`
+	~Model:PalmTree1Trunk
+}
+
+#new:TreeModelList $LeafModels_Tree_PalmTree1Coll
+{
+	1`
+	~Model:PalmTree1Leaves
+}
+
+#new:ShakeTreeEvent $ShakeTreeData_Tree_PalmTree1Coll
+{
+	$TrunkModels_Tree_PalmTree1Coll
+	$LeafModels_Tree_PalmTree1Coll
+	00000000
+	00000000
+	00000000
+}
+
+#new:TriggerCoord $TriggerCoord_Tree_PalmTree1Coll
+{
+	~BombPos:PalmTree1BombPos
+}
+
+#new:TreeModelList $TrunkModels_Tree_PalmTree2Coll
+{
+	1`
+	~Model:PalmTree2Trunk
+}
+
+#new:TreeModelList $LeafModels_Tree_PalmTree2Coll
+{
+	1`
+	~Model:PalmTree2Leaves
+}
+
+#new:ShakeTreeEvent $ShakeTreeData_Tree_PalmTree2Coll
+{
+	$TrunkModels_Tree_PalmTree2Coll
+	$LeafModels_Tree_PalmTree2Coll
+	00000000
+	00000000
+	00000000
+}
+
+#new:TriggerCoord $TriggerCoord_Tree_PalmTree2Coll
+{
+	~BombPos:PalmTree2BombPos
+}
+
 #new:TreeModelList $TrunkModels_Tree_TreeHitColl
 {
 	1`
@@ -871,6 +923,12 @@
 
 #new:Script $Script_BindFoliage
 {
+	Set   *Var[0]  $ShakeTreeData_Tree_PalmTree1Coll
+	Bind  $Script_Foliage_ShakeTree .Trigger:WallHammer ~Collider:PalmTree1Coll 00000001 00000000
+	Bind  $Script_Foliage_ShakeTree .Trigger:PointBomb $TriggerCoord_Tree_PalmTree1Coll 00000001 00000000
+	Set   *Var[0]  $ShakeTreeData_Tree_PalmTree2Coll
+	Bind  $Script_Foliage_ShakeTree .Trigger:WallHammer ~Collider:PalmTree2Coll 00000001 00000000
+	Bind  $Script_Foliage_ShakeTree .Trigger:PointBomb $TriggerCoord_Tree_PalmTree2Coll 00000001 00000000
 	Set   *Var[0]  $ShakeTreeData_Tree_TreeHitColl
 	Bind  $Script_Foliage_ShakeTree .Trigger:WallHammer ~Collider:TreeHitColl 00000001 00000000
 	Bind  $Script_Foliage_ShakeTree .Trigger:PointBomb $TriggerCoord_Tree_TreeHitColl 00000001 00000000

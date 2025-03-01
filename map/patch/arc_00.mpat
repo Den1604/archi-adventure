@@ -6,7 +6,7 @@
 #define .Island:Tangle_Island       00
 #define .Island:Waterfall_Island    01
 #define .Island:StarShrine_Island   02
-% #define .Island:Flood_Island        0X
+#define .Island:Flood_Island        03
 
 @ $Script_Main
 {
@@ -152,21 +152,27 @@
 
     Switch *GB_ARC_00_currentIsland
 
-            Case == .Island:Tangle_Island % Tangle Island / Starting Island
+            Case == .Island:Tangle_Island % 0
                 ExecWait $Script_PanCamera_CamPan_MainIsland
                 If *MF_BeatTangleIsland == .True
                     Call ShowMessageAtScreenPos ( 002F0000 000000A0 00000000 )
                 EndIf
-            Case == .Island:Waterfall_Island % Waterfall Island
+
+            Case == .Island:Waterfall_Island % 1
                 ExecWait $Script_PanCamera_CamPan_WaterfallIsland
                 If *MF_BeatWaterfallIsland == .True
                     Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
                 Else
                     Call ShowMessageAtScreenPos ( 002F0004 000000A0 00000000 )
                 EndIf
-            Case == .Island:StarShrine_Island % StarShrine Island
+
+            Case == .Island:StarShrine_Island % 2
                 ExecWait $Script_PanCamera_CamPan_StarShrineIsland
                 Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
+
+            Case == .Island:Flood_Island % 3
+                ExecWait $Script_PanCamera_CamPan_WinterIsland
+                Call ShowMessageAtScreenPos ( 002F0007 000000A0 00000000 )
 
     EndSwitch
 
@@ -232,14 +238,14 @@
 
 
                     Case == 00020000 % DOWN
-                        % If *MF_BeatWaterfallIsland == .True
+                        If *MF_BeatWaterfallIsland == .True
                             Set *MF_DrawMenuStuff .False
                             Call CloseMessage ()
-                            %Set *GB_ARC_00_currentIsland .Island:Flood_Island
+                            Set *GB_ARC_00_currentIsland .Island:Flood_Island
                             ExecWait $Script_PanCamera_CamPan_WinterIsland
-                            Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
+                            Call ShowMessageAtScreenPos ( 002F0007 000000A0 00000000 )
                             Set *MF_DrawMenuStuff .True
-                        % EndIf
+                        EndIf
 
                     Case == 00080000 % RIGHT
                         If *MF_BeatWaterfallIsland == .True
@@ -295,6 +301,31 @@
 
                         EndSwitch
 
+                Case == .Island:Flood_Island % 3
+                    Call $Function_CheckPlayerInput ( *Var0 )
+                    Switch *Var0
+
+                    Case == 00010000 % UP
+                        Set *MF_DrawMenuStuff .False
+                        Call CloseMessage ()
+                        Set *GB_ARC_00_currentIsland .Island:Waterfall_Island
+                        ExecWait $Script_PanCamera_CamPan_WaterfallIsland
+                        Call ShowMessageAtScreenPos ( 002F0002 000000A0 00000000 )
+                        Set *MF_DrawMenuStuff .True
+
+                    Case == .Buttons:A
+                        Set *MF_DrawMenuStuff .False
+                        Call CloseMessage ()
+                        Call GotoMap ( "arc_05" 00000000 )
+
+                    Case == .Buttons:Z
+                        Set *MF_DrawMenuStuff .False
+                        Call CloseMessage ()
+                        Call ShowMessageAtScreenPos ( 002F0008 000000A0 00000000 )
+                        Call ShowMessageAtScreenPos ( 002F0007 000000A0 00000000 )
+                        Set *MF_DrawMenuStuff .True
+
+                    EndSwitch
         EndSwitch
     Wait 1`
     EndLoop
@@ -374,6 +405,8 @@
                 Call SetNpcPos ( .Npc:Self ~Vec3D:WaterfallIsland_BoatMarker )
             Case == .Island:StarShrine_Island % 2
                 Call SetNpcPos ( .Npc:Self ~Vec3D:StarShrineIsland_BoatMarker )
+            Case == .Island:Flood_Island % 3
+                Call SetNpcPos ( .Npc:Self ~Vec3D:WinterIsland_BoatMarker )
         EndSwitch
     Wait 1`
     EndLoop
