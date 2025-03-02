@@ -1205,126 +1205,6 @@ tex: jan_starbottomleft
 	combine: 8
 }
 
-tex: sam_ice3tif
-{
-	img: sam_ice3tif.png
-	{
-		format: CI-8
-		hwrap: repeat
-		vwrap: repeat
-	}
-	filter: yes
-	combine: 8
-}
-
-tex: sam_pen_snowtif
-{
-	img: sam_pen_snowtif.png
-	{
-		format: CI-4
-		hwrap: repeat
-		vwrap: repeat
-	}
-	filter: yes
-	combine: 8
-}
-
-tex: sam_s_turara2tif
-{
-	img: sam_s_turara2tif.png
-	{
-		format: CI-4
-		hwrap: mirror
-		vwrap: mirror
-	}
-	filter: yes
-	combine: 8
-}
-
-tex: sam_yamatif
-{
-	img: sam_yamatif.png
-	{
-		format: CI-4
-		hwrap: repeat
-		vwrap: repeat
-	}
-	filter: yes
-	combine: 10
-}
-
-tex: sam_yane_yukitif
-{
-	img: sam_yane_yukitif.png
-	{
-		format: CI-4
-		hwrap: repeat
-		vwrap: clamp
-	}
-	filter: yes
-	combine: 8
-}
-
-tex: sam_hasira1tif
-{
-	img: sam_hasira1tif.png
-	{
-		format: CI-4
-		hwrap: repeat
-		vwrap: repeat
-	}
-	filter: yes
-	combine: 8
-}
-
-tex: sam_s_mafuretif
-{
-	img: sam_s_mafuretif.png
-	{
-		format: CI-4
-		hwrap: repeat
-		vwrap: repeat
-	}
-	filter: yes
-	combine: 8
-}
-
-tex: sam_s_metif
-{
-	img: sam_s_metif.png
-	{
-		format: CI-4
-		hwrap: repeat
-		vwrap: repeat
-	}
-	filter: yes
-	combine: 8
-}
-
-tex: sam_s_sakutif
-{
-	img: sam_s_sakutif.png
-	{
-		format: CI-4
-		hwrap: repeat
-		vwrap: clamp
-	}
-	filter: yes
-	combine: 8
-}
-
-tex: sam_s_treetif
-{
-	img: sam_s_treetif.png
-	{
-		format: CI-4
-		hwrap: repeat
-		vwrap: mirror
-	}
-	filter: yes
-	combine: 8
-}
-
 tex: jan_yellow_mushroom
 {
 	img: jan_yellow_mushroom.png
@@ -1358,5 +1238,23 @@ tex: jan_purple_mushroom
 		vwrap: repeat
 	}
 	filter: yes
+	combine: 8
+}
+
+tex: nok_kirakiratif
+{
+	img: nok_kirakiratif.png
+	{
+		format: IA-8
+		hwrap: mirror
+		vwrap: mirror
+	}
+	aux: nok_kirakiratif_AUX.png
+	{
+		format: shared
+		hwrap: repeat
+		vwrap: repeat
+	}
+	filter: no
 	combine: 8
 }

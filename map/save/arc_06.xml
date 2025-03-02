@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Map name="arc_06" author="unnamed" background="kmr_bg" textures="jan_tex">
+<Map name="arc_06" author="unnamed" background="yos_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="-440.145264,88.798141,196.177032" pitch="5.840002" yaw="356.960205"/>
-		<Camera pos="-417.133484,65536.000000,-137.922150"/>
+		<Camera pos="-242.000000,156.682663,618.317017" pitch="10.000000" yaw="0.000000"/>
+		<Camera pos="-461.327911,65536.000000,-832.393860"/>
 		<Camera pos="65536.000000,55.228397,16.079739"/>
-		<Camera pos="-272.162048,11.537706,65536.000000"/>
+		<Camera pos="-309.787811,360.316010,65536.000000"/>
 	</Editor>
 	<ModelTree>
-		<Node name="Root" id="2C">
+		<Node name="Root" id="2A">
 			<Node name="Stage" id="0"/>
 			<Node name="Exit_North" id="1"/>
 			<Node name="Exit_East" id="2"/>
@@ -52,8 +52,6 @@
 			<Node name="Planar GridModel" id="27"/>
 			<Node name="DrawnModel" id="28"/>
 			<Node name="DrawnModel" id="29"/>
-			<Node name="CylinderModel" id="2A"/>
-			<Node name="DrawnModel" id="2B"/>
 		</Node>
 	</ModelTree>
 	<ColliderTree>
@@ -102,77 +100,9 @@
 	</LightSets>
 	<Models>
 		<Model ver="2" type="ROOT" lightset="0">
-			<MapObject name="Root" id="2C"/>
+			<MapObject name="Root" id="2A"/>
 			<BoundingBox empty="false" min="-600,-200,-353" max="800,472,500"/>
 			<PropertyList>
-			</PropertyList>
-		</Model>
-		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="2B"/>
-			<ShapeMesh ver="3" texture="jan_j_iwatif">
-				<DisplayList>
-					<F3DEX2 cmd="E7000000,0"/>
-					<F3DEX2 cmd="D9FDFFFF,0"/>
-					<F3DEX2 cmd="D9FFFFFF,200400"/>
-					<TriangleBatch ver="0">
-						<VertexTable>
-							<Vertex xyz="-466,200,-184" uv="233,922" rgba="127,118,84,255"/>
-							<Vertex xyz="-417,0,-191" uv="1023,3584" rgba="160,150,112,255"/>
-							<Vertex xyz="-417,200,-191" uv="1024,922" rgba="127,118,84,255"/>
-							<Vertex xyz="-466,0,-184" uv="232,3584" rgba="160,150,112,255"/>
-							<Vertex xyz="-500,200,-170" uv="-356,922" rgba="127,118,84,255"/>
-							<Vertex xyz="-500,0,-170" uv="-357,3584" rgba="160,150,112,255"/>
-						</VertexTable>
-						<TriangleList>
-							<Triangle ijk="0,1,2"/>
-							<Triangle ijk="1,0,3"/>
-							<Triangle ijk="4,3,0"/>
-							<Triangle ijk="3,4,5"/>
-						</TriangleList>
-					</TriangleBatch>
-				</DisplayList>
-			</ShapeMesh>
-			<PropertyList>
-				<Property v="5C,0,1"/>
-				<Property v="5F,0,0"/>
-			</PropertyList>
-		</Model>
-		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="CylinderModel" id="2A"/>
-			<ShapeMesh ver="3" texture="jan_j_iwatif">
-				<DisplayList>
-					<F3DEX2 cmd="E7000000,0"/>
-					<F3DEX2 cmd="D9FDFFFF,0"/>
-					<F3DEX2 cmd="D9FFFFFF,200400"/>
-					<TriangleBatch ver="0">
-						<VertexTable>
-							<Vertex xyz="-317,0,-191" uv="3072,3584" rgba="160,150,112,255"/>
-							<Vertex xyz="-317,200,-191" uv="3072,924" rgba="127,118,84,255"/>
-							<Vertex xyz="-332,0,-156" uv="2560,3584" rgba="160,150,112,255"/>
-							<Vertex xyz="-332,200,-156" uv="2560,924" rgba="127,118,84,255"/>
-							<Vertex xyz="-367,0,-141" uv="2047,3584" rgba="160,150,112,255"/>
-							<Vertex xyz="-367,200,-141" uv="2048,922" rgba="127,118,84,255"/>
-							<Vertex xyz="-402,0,-156" uv="1536,3584" rgba="160,150,112,255"/>
-							<Vertex xyz="-402,200,-156" uv="1536,922" rgba="127,118,84,255"/>
-							<Vertex xyz="-417,0,-191" uv="1023,3584" rgba="160,150,112,255"/>
-							<Vertex xyz="-417,200,-191" uv="1024,922" rgba="127,118,84,255"/>
-						</VertexTable>
-						<TriangleList>
-							<Triangle ijk="0,1,2"/>
-							<Triangle ijk="2,1,3"/>
-							<Triangle ijk="2,3,4"/>
-							<Triangle ijk="4,3,5"/>
-							<Triangle ijk="4,5,6"/>
-							<Triangle ijk="6,5,7"/>
-							<Triangle ijk="6,7,8"/>
-							<Triangle ijk="8,7,9"/>
-						</TriangleList>
-					</TriangleBatch>
-				</DisplayList>
-			</ShapeMesh>
-			<PropertyList>
-				<Property v="5C,0,1"/>
-				<Property v="5F,0,0"/>
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
@@ -6739,7 +6669,7 @@
 			<MapObject name="Pos_Item_StoneBlock_1" id="4"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="336,-17,-112" yaw="-15.000000">
-			<MapObject name="StoneBlock_1" id="3" hidden="true"/>
+			<MapObject name="StoneBlock_1" id="3"/>
 			<Entity type="802EA19C" flag="*MF_ARC_06_STONEBLOCK" collider=""/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-91,120,-192" yaw="0.000000">

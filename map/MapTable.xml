@@ -576,6 +576,7 @@
 		<Map name="arc_04" nickname="Tangle Island Secret"/>
 		<Map name="arc_05" nickname="Flood Island"/>
 		<Map name="arc_06" nickname="Waterfall Island #1"/>
+		<Map name="arc_07" nickname="Waterfall Island #2"/>
 		<Stage name="arc_bt00" nickname="Tangle Island Battle Map"/>
 		<Stage name="arc_bt01" nickname="Spear Guy Battle Map"/>
 		<Stage name="arc_bt02" nickname="Tangle Secret Battle Map"/>
