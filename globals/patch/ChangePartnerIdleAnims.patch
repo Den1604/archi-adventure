@@ -1,0 +1,19 @@
+@Data:Battle 802AB520
+{
+    00000000
+
+    0009000F % Goombario
+    000A001A % Kooper
+    000B001C % Bombette
+    000C0017 % Parakarry
+    009D0001 % Goompa
+    000E000B % Watt
+    000F0012 % Sushie
+    00100003 % Lakilester
+    000D0000 % Bow
+    
+    00000000 % Goombario [Unused]
+    00000000 % Twink [Unused]
+    
+    00000000 00000000
+}

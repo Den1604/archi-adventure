@@ -215,6 +215,7 @@
                         Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call GotoMap ( "arc_01" 00000001 )
+                        Wait 300`
 
                     Case == .Buttons:Z
                         Set *MF_DrawMenuStuff .False
@@ -261,6 +262,7 @@
                         Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call GotoMap ( "arc_06" 00000000 )
+                        Wait 300`
 
                     Case == .Buttons:Z
                         Set *MF_DrawMenuStuff .False
@@ -291,6 +293,7 @@
                             Set *MF_DrawMenuStuff .False
                             Call CloseMessage ()
                             Call GotoMap ( "arc_00" 00000000 )
+                            Wait 300`
 
                         Case == .Buttons:Z
                             Set *MF_DrawMenuStuff .False
@@ -317,6 +320,7 @@
                         Set *MF_DrawMenuStuff .False
                         Call CloseMessage ()
                         Call GotoMap ( "arc_05" 00000000 )
+                        Wait 300`
 
                     Case == .Buttons:Z
                         Set *MF_DrawMenuStuff .False

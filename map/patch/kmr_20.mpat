@@ -207,8 +207,8 @@
   DF0:  Call  SetNpcAnimation   ( 00000001 00820018 )
   E04:  Wait  20`
   E10:  Call  SetNpcAnimation   ( 00000001 00820006 )
-  E64:  Call  SetMusicTrack     ( 00000000 .Song:WhaleTheme 00000000 00000008 )
   E24:  Call  SpeakToPlayer     ( 00000001 00820016 00820006 00000000 00000021 ) % All right, let's see...
+  E64:  Call  SetMusicTrack     ( 00000000 .Song:WhaleTheme 00000000 00000008 )
         Call  SpeakToPlayer     ( 00000001 00820016 00820006 00000000 00300001 )
         Wait  10`
         Call  SpeakToPlayer     ( 00000001 00820015 00820005 00000000 00300002 )

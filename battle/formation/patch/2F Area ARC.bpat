@@ -1,12 +1,15 @@
 #import enemy/14_MBush.bpat
 #import enemy/14_SpearGuy.bpat
+#import enemy/09_Cleft.bpat
+#import enemy/00_Goomba.bpat
 
 #new:FormationTable $FormationTable_ARC
 {
-    00000000 00000001 $Formation_00 $Stage_arc_bt00 00000000
-    00000000 00000002 $Formation_01 $Stage_arc_bt00 00000000
-    00000000 00000001 $Formation_02 $Stage_arc_bt01 00000000
-    00000000 00000001 $Formation_00 $Stage_arc_bt02 00000000
+    00000000 00000001 $Formation_00 $Stage_arc_bt00 00000000 % arc_02
+    00000000 00000002 $Formation_01 $Stage_arc_bt00 00000000 % arc_02
+    00000000 00000001 $Formation_02 $Stage_arc_bt01 00000000 % arc_01
+    00000000 00000001 $Formation_00 $Stage_arc_bt02 00000000 % arc_04
+    00000000 00000002 $Formation_03 $Stage_arc_bt03 00000000 % arc_07
 	00000000 00000000 00000000 00000000 00000000
 }
 
@@ -24,6 +27,12 @@
 #new:Formation $Formation_02
 {
 	$14_SpearGuy 00000002 0000000A 00000000 00000000 00000000 00000000
+}
+
+#new:Formation $Formation_03
+{
+	$09_Cleft 00000001 0000000A 00000000 00000000 00000000 00000000
+	$00_Goomba 00000002 00000009 00000000 00000000 00000000 00000000
 }
 
 #new:StageTable $StageTable_ARC
@@ -69,6 +78,20 @@
 	00000000
 	00000000
 	"jan_bg"
+	00000000
+	00000000
+	00000000
+	00000000
+}
+
+#new:Stage $Stage_arc_bt03
+{
+	"jan_tex" % jan_tex
+	"arc_bt03_shape"
+	"arc_bt03_hit"
+	00000000
+	00000000
+	"iwa_bg"
 	00000000
 	00000000
 	00000000

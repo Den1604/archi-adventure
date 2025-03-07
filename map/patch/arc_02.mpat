@@ -113,9 +113,9 @@
 
 #new:NpcGroup $NpcGroup_MBush_00
 {
-	.NpcID:MBush_00 $NpcSettings_80244EA0 ~Vec3f:NPC_MBush_0 % 335 0 -40
+	.NpcID:MBush_00 $NpcSettings_80244EA0 ~Vec3f:NPC_MBush_0 % 415 0 -65
 	00408D01 00000000 00000000 00000000 0000005A
-	~Items:10:StrangeLeaf:5:DriedShroom:5
+	~Items:10:TastyTonic:5:SuperSoda:5
 	~HP:Standard:3 ~FP:Standard:2 ~CoinBonus:0:2
 	~Movement:NPC_MBush_0
 	~AnimationTable:NPC_MBush_0 % .Sprite:MBush
@@ -126,7 +126,7 @@
 {
 	.NpcID:MBush_01 $NpcSettings_80244EA0 ~Vec3f:NPC_MBush_1 % 415 0 -65
 	00408D01 00000000 00000000 00000000 0000005A
-	~Items:10:StrangeLeaf:5:DriedShroom:5
+	~Items:10:TastyTonic:5:SuperSoda:5
 	~HP:Standard:3 ~FP:Standard:2 ~CoinBonus:0:2
 	~Movement:NPC_MBush_1
 	~AnimationTable:NPC_MBush_1 % .Sprite:MBush
@@ -135,8 +135,15 @@
 
 #new:NpcSettings $NpcSettings_80244EA0
 {
-	00000000 001E001E 00000000 $Script_NpcAI_802449A0[38C] $Script_NpcAI_802449A0 00000000 00000000 $Script_80244D50
+	00000000 001E001E 00000000 $Script_Npc_SetVar $Script_NpcAI_802449A0 00000000 00000000 $Script_80244D50
 	00000000 00000000 00100000
+}
+
+#new:Script $Script_Npc_SetVar
+{
+    Call  SetSelfVar        ( 00000000 00000001 )
+    Return
+    End
 }
 
 #new:Script $Script_NpcAI_802449A0
@@ -194,7 +201,6 @@
   360:  Call  SetTimeFreezeMode ( 00000000 )
   370:  Call  DisablePlayerInput    ( .False )
   380:  Call  StartBattle ( )
-  38C:  Call  SetSelfVar        ( 00000000 00000001 )
   3A0:  Return
   3A8:  End
 }

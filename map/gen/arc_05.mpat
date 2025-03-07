@@ -633,6 +633,8 @@
 {
 	Call  MakeEntity    ( .Entity:YellowBlock ~Vec4d:Entity_YellowBlock .Item:SpecialShake 80000000 )
 	Call  AssignBlockFlag   ( *MF_ARC_05_YELLOWBLOCK )
+	Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:Pos_HiddenYellowBlock .Item:FireFlower 80000000 )
+	Call  AssignBlockFlag   ( *MF_ARC_05_YELLOWHIDDENBLOCK )
 	Call  MakeEntity    ( .Entity:RedBlock ~Vec4d:Entity_RedBlock .Item:SpeedySpin 80000000 )
 	Call  AssignBlockFlag   ( *MF_ARC_05_REDBLOCK )
 	If  *MF_ARC_05_STONEBLOCK  ==  .False

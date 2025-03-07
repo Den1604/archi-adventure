@@ -130,8 +130,8 @@
 	SetGroup 0000001B
 	Call     UseExitHeading ( 60` ~Entry:Entry1 )
 	Exec     ExitWalk
-	Call  GotoMap   ( "arc_06" ~Entry:arc_06:Entry1 )
-    Call StopSound ( 00000273 )
+	Call  GotoMap   ( "arc_07" ~Entry:arc_07:Entry0 )
+	Call StopSound ( 00000273 )
 	Wait  100`
 	Return
 	End

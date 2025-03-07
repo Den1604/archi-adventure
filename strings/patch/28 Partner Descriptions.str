@@ -1,39 +1,39 @@
-#string:28:000
+#message:28:000
 {
 	Press [C-DOWN] to have him tell you[BR]
 	about everything nearby.[End]
 }
 
-#string:28:001
+#message:28:001
 {
 	He can describe enemies.[BR]
 	His specialty are his javelins.[End]
 }
 
-#string:28:002
+#message:28:002
 {
 	Throws his spear at the enemy.[End]
 }
 
-#string:28:003
+#message:28:003
 {
 	See enemy description and make[BR]
-	HP visible.[End]
+	HP visible. [Color:02](Free Turn)[End]
 }
 
-#string:28:004
+#message:28:004
 {
 	Charge attack power. It goes up[BR]
 	by 2 then returns to normal.[End]
 }
 
-#string:28:005
+#message:28:005
 {
 	Headbonk continuously until[BR]
 	you miss an action command.[End]
 }
 
-#string:28:006
+#message:28:006
 {
 	Javelin Guy is the[BR]
 	safe-keeper of the archipelago.[BR]
@@ -44,28 +44,28 @@
 	[End]
 }
 
-#string:28:007
+#message:28:007
 {
 	Throws his spear at the enemy.[End]
 }
 
-#string:28:008
+#message:28:008
 {
 	Throws his spear at the enemy.[End]
 }
 
-#string:28:009
+#message:28:009
 {
 	Throws his spear at the enemy.[End]
 }
 
-#string:28:00A
+#message:28:00A
 {
 	See enemies' descriptions and[BR]
 	see their HP during battle.[End]
 }
 
-#string:28:00B
+#message:28:00B
 {
 	Charge to raise attack power[BR]
 	by 2.[BR]
@@ -74,7 +74,7 @@
 	[End]
 }
 
-#string:28:00C
+#message:28:00C
 {
 	Headbonk continuously until[BR]
 	you miss the action command.[End]
