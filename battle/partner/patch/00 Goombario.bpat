@@ -154,24 +154,10 @@
           4B4:  EndIf
           %4BC:  Call  PlaySoundAtActor  ( .Actor:Partner 0000201B )
           4D0:  Switch  *VarF
-          4DC:  	Case  ==  FFFFFFFF % miss
+          4DC:  	Case  ==  FFFFFFFF
 
           580:  	Case  ==  00000000
 
-                  % 6D8:  Call  SetAnimation  ( .Actor:Self FFFFFFFF 0001000C )
-                  % 6F0:  Wait  5`
-                  % 6FC:  Thread
-                  % % 704:  	Call  SetAnimation  ( .Actor:Self FFFFFFFF 00010011 )
-                  % 71C:  	Call  SetActorJumpGravity   ( .Actor:Self *Fixed[0.5] )
-                  % 730:  	Call  GetActorPos   ( .Actor:Self *Var0 *Var1 *Var2 )
-                  % 74C:  	Sub   *Var0  00000014 
-                  % 75C:  	Call  SetGoalPos    ( .Actor:Self *Var0 *Var1 *Var2 )
-                  % 778:  	Call  JumpToGoal    ( .Actor:Self  10` .False .True .False )
-                  % 798:  	Sub   *Var0  0000000A 
-                  % 7A8:  	Call  SetGoalPos    ( .Actor:Self *Var0 *Var1 *Var2 )
-                  % 7C4:  	Call  JumpToGoal    ( .Actor:Self  5` .False .True .False )
-                  % % 7E4:  	Call  SetAnimation  ( .Actor:Self FFFFFFFF 00010012 )
-                  % 7FC:  EndThread
                   804:  Call  GetActorPos       ( .Actor:Self *Var0 *Var1 *Var2 )
                   820:  Call  SetPartPos        ( .Actor:Self 00000002 *Var0  20` *Var2 )
                   840:  Call  SetPartRotation   ( .Actor:Self 00000002 00000000 00000000 FFFFFFE2 )
@@ -191,6 +177,7 @@
                   948:  Call  SetGoalToTarget   ( .Actor:Self )
                   958:  Call  GetGoalPos        ( .Actor:Self *Var0 *Var1 *Var2 )
                   974:  Sub   *Var2  00000002 
+                        Add *Var0 150`
                   984:  Call  SetPartJumpGravity    ( .Actor:Self 00000002 *Fixed[0.7] )
                   99C:  Call  JumpPartTo        ( .Actor:Self 00000002 *Var0 *Var1 *Var2  20` .True )
                   9C4:  Wait  2`
@@ -198,20 +185,6 @@
 
           624:  	Default
 
-                  % 6D8:  Call  SetAnimation  ( .Actor:Self FFFFFFFF 0001000C )
-                  % 6F0:  Wait  5`
-                  % 6FC:  Thread
-                  % % 704:  	Call  SetAnimation  ( .Actor:Self FFFFFFFF 00010011 )
-                  % 71C:  	Call  SetActorJumpGravity   ( .Actor:Self *Fixed[0.5] )
-                  % 730:  	Call  GetActorPos   ( .Actor:Self *Var0 *Var1 *Var2 )
-                  % 74C:  	Sub   *Var0  00000014 
-                  % 75C:  	Call  SetGoalPos    ( .Actor:Self *Var0 *Var1 *Var2 )
-                  % 778:  	Call  JumpToGoal    ( .Actor:Self  10` .False .True .False )
-                  % 798:  	Sub   *Var0  0000000A 
-                  % 7A8:  	Call  SetGoalPos    ( .Actor:Self *Var0 *Var1 *Var2 )
-                  % 7C4:  	Call  JumpToGoal    ( .Actor:Self  5` .False .True .False )
-                  % % 7E4:  	Call  SetAnimation  ( .Actor:Self FFFFFFFF 00010012 )
-                  % 7FC:  EndThread
                   804:  Call  GetActorPos       ( .Actor:Self *Var0 *Var1 *Var2 )
                   820:  Call  SetPartPos        ( .Actor:Self 00000002 *Var0  20` *Var2 )
                   840:  Call  SetPartRotation   ( .Actor:Self 00000002 00000000 00000000 FFFFFFE2 )
