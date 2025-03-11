@@ -581,7 +581,8 @@
 		<Stage name="arc_bt00" nickname="Tangle Island Battle Map"/>
 		<Stage name="arc_bt01" nickname="Spear Guy Battle Map"/>
 		<Stage name="arc_bt02" nickname="Tangle Secret Battle Map"/>
-		<Stage name="arc_bt03" nickname="Outer Waterfall Island Battle Map"/>
+		<Stage name="arc_bt03" nickname="Outer Waterfall Island Battle Map #1"/>
+		<Stage name="arc_bt04" nickname="Outer Waterfall Island Battle Map #2"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
 	<Resource name="tik_tex" compressed="false"/>

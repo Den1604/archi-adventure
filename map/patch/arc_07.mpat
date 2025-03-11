@@ -1,4 +1,4 @@
-#define .NpcID:Cleft_02             02
+#define .NpcID:Cleft_02             00
 
 @ $Script_Main
 {
