@@ -221,7 +221,7 @@
       %     7A4:  EndSwitch
           7AC:  Switch  *VarF
           7B8:  	Case  >  00000000
-          7C4:  		Call  PartnerDamageEnemy    ( *Var0 ~Flags:DamageType:NoContact|Magic 00000000 00000000 00000003 00000070 )
+          7C4:  		Call  PartnerDamageEnemy    ( *Var0 ~Flags:DamageType:NoContact|Smash 00000019 00000000 00000003 00000070 )
           7E8:  	Default
           7F0:  		Set   *Var0  00000002
           800:  EndSwitch

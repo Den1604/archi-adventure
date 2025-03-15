@@ -1,4 +1,4 @@
-% Auto-generated script for arc_08
+% Auto-generated script for arc_09
 
 #new:Header $Header
 {
@@ -266,7 +266,7 @@
 
 #new:Script_Main $Script_Main
 {
-	Set   *GB_WorldLocation  .Location:YoshisVillage
+	Set   *GB_WorldLocation  .Location:GoombaRoad
 	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
@@ -292,11 +292,10 @@
 
 #new:Script $Script_MakeEntities
 {
-	Call  MakeEntity    ( .Entity:YellowBlock ~Vec4d:Pos_YellowBlock .Item:VoltShroom 80000000 )
-	Call  AssignBlockFlag   ( *MF_ARC_08_YELLOWBLOCK )
-	Call  MakeEntity    ( .Entity:HiddenYellowBlock ~Vec4d:Pos_HiddenBlock .Item:SuperShroom 80000000 )
-	Call  AssignBlockFlag   ( *MF_ARC_08_YELLOWHIDDENBLOCK )
-	Call  MakeEntity    ( .Entity:SimpleSpring ~Vec4d:Pos_Spring 60` 80000000 )
+	Call  MakeEntity    ( .Entity:YellowBlock ~Vec4d:Pos_YellowBlock .Item:MapleShroom 80000000 )
+	Call  AssignBlockFlag   ( *MF_ARC_09_YELLOWBLOCK )
+	Call  MakeEntity    ( .Entity:HiddenRedBlock ~Vec4d:Pos_HiddenRedBlock .Item:DoubleDip 80000000 )
+	Call  AssignBlockFlag   ( *MF_ARC_09_HIDDENREDBLOCK )
 	Return
 	End
 }
@@ -311,50 +310,18 @@
 
 #new:Script $Script_SetupTexturePan
 {
-	Call     802C9000 	( ~Model:WaterStream 0 )
-	Call     802C9000 	( ~Model:Water 1 )
-	Call     802C9000 	( ~Model:WaterStreamBottomFX 2 )
+	Call     802C9000 	( ~Model:BG_Waterfall1 0 )
+	Call     802C9000 	( ~Model:BG_Waterfall2 0 )
+	Call     802C9000 	( ~Model:BG_Waterfall3 0 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] 0
-		Set  *Var[2] FFFFFF06
-		Set  *Var[3] FFFFFF06
-		Set  *Var[4] FFFFFF83
+		Set  *Var[2] 2EE
+		Set  *Var[3] 0
+		Set  *Var[4] 271
 		Set  *Var[5] 0
 		Set  *Var[6] 1
-		Set  *Var[7] 1
-		Set  *Var[8] 1
-		Set  *Var[9] 0
-		Set  *Var[A] 0
-		Set  *Var[B] 0
-		Set  *Var[C] 0
-		Exec $Script_TexturePan_Update
-	EndThread
-	Thread
-		Set  *Var[0] 1
-		Set  *Var[1] 7D
-		Set  *Var[2] FFFFFF06
-		Set  *Var[3] FFFFFF06
-		Set  *Var[4] FFFFFF83
-		Set  *Var[5] 1
-		Set  *Var[6] 1
-		Set  *Var[7] 1
-		Set  *Var[8] 1
-		Set  *Var[9] 0
-		Set  *Var[A] 0
-		Set  *Var[B] 0
-		Set  *Var[C] 0
-		Exec $Script_TexturePan_Update
-	EndThread
-	Thread
-		Set  *Var[0] 2
-		Set  *Var[1] 0
-		Set  *Var[2] FFFFFE57
-		Set  *Var[3] FFFFFE57
-		Set  *Var[4] FFFFFEED
-		Set  *Var[5] 0
-		Set  *Var[6] 1
-		Set  *Var[7] 1
+		Set  *Var[7] 0
 		Set  *Var[8] 1
 		Set  *Var[9] 0
 		Set  *Var[A] 0
@@ -387,7 +354,7 @@
 	SetGroup 0000001B
 	Call     UseExitHeading ( 60` ~Entry:Entry0 )
 	Exec     ExitWalk
-	Call  GotoMap   ( "arc_07" ~Entry:arc_07:Entry1 )
+	Call  GotoMap   ( "arc_08" ~Entry:arc_08:Entry1 )
 	Wait  100`
 	Return
 	End
@@ -398,7 +365,7 @@
 	SetGroup 0000001B
 	Call     UseExitHeading ( 60` ~Entry:Entry1 )
 	Exec     ExitWalk
-	Call  GotoMap   ( "arc_09" ~Entry:arc_09:Entry0 )
+	Call  GotoMap   ( "arc_09" ~Entry:arc_09:Entry1 )
 	Wait  100`
 	Return
 	End

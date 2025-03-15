@@ -81,7 +81,7 @@
 }
 
 #new:DefenseTable $DefenseTable_80218710_09 {
-.Element:Normal 00000002
+.Element:Normal 00000001
 .Element:Fire   00000063
 .Element:Magic  00000000
 .Element:End
