@@ -1,5 +1,14 @@
 #define .NpcID:Cleft_02             00
 
+@ $Header
+{
+	[MainScript] $Script_Main
+	[Background] 80200000
+	[EntryList] $EntryList
+	[EntryCount] 2
+	[MapTattle]  00190006
+}
+
 @ $Script_Main
 {
 	Set   *GB_WorldLocation  .Location:YoshisVillage

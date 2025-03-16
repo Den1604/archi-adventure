@@ -1,3 +1,62 @@
+#string:1C:000
+{
+	[Style Right]
+	This is a Goomba.[BR]
+	[Wait][Next]
+	Goombas are what you'd call[BR]
+	"small fries." Actually, they're[BR]
+	pretty much the smallest fries.[BR]
+	[Pause 20]...Hey, wait! I'm one of 'em![BR]
+	[Wait][Next]
+	Max HP: 2, Attack Power: 1[BR]
+	Defense Power: 0[BR]
+	You can jump on them or whack[BR]
+	'em with the Hammer.[BR]
+	[Wait][Next]
+	These guys are old school.[BR]
+	They've been around since you[BR]
+	were in Super Mario Bros.![Wait][End]
+}
+
+#string:1C:002
+{
+	[Style Right]
+	This is a Paragoomba.[BR]
+	[Pause 10]Obviously, Paragoombas are[BR]
+	Goombas with wings.[BR]
+	[Wait][Next]
+	Max Hp: 2, Attack Power: 1,[BR]
+	Defense Power: 0[BR]
+	[Wait][Next]
+	You can't hit 'em with the[BR]
+	Hammer while they're airborne.[BR]
+	[Wait][Next]
+	If you damage 'em, they'll fall[BR]
+	to the ground and become [BR]
+	ordinary Goombas.[Wait][End]
+}
+
+#string:1C:015
+{
+	[Style Right]
+	This is a Cleft.[BR]
+	[Pause 10]Clefts are pretty strong, so[BR]
+	you'd better be careful.[BR]
+	[Wait][Next]
+	Max HP: 2, Attack Power: 2,[BR]
+	Defense Power: 2[BR]
+	[Wait][Next]
+	Their specialty is pretending[BR]
+	to be rocks, so watch your step[BR]
+	on the mountain.[BR]
+	[Wait][Next]
+	You'll get hurt if you jump[BR]
+	on the spikes on their heads.[BR]
+	[Wait][Next]
+	You know, there's courage in[BR]
+	running away sometimes...[Wait][End]
+}
+
 #message:1C:036
 {
 	[Style Right]

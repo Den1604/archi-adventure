@@ -1,10 +1,10 @@
 @ $Header
 {
 	[MainScript] $Script_Main
-	[Background] 80200000
+	[Background] 00000000
 	[EntryList] $EntryList
 	[EntryCount] 2
-	[MapTattle]  00190008
+	[MapTattle]  0019000A
 }
 
 @ $Script_Main
@@ -17,10 +17,16 @@
 	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
-    Call  PlaySoundAtF  ( 8000005A 00000001 -166` 185` -199` )
-    Call  PlaySoundAtF  ( 80000021 00000001 225` 185` -355` )
-    Call  PlaySoundAtF  ( 80000022 00000001 1704` 464` -290` )
+    Call  PlaySoundAtF  ( 8000005A 00000001 200` -76` 100` )
 	Exec  $Script_EnterMap
+	Return
+	End
+}
+
+@ $Script_SetupMusic
+{
+	Call  SetMusicTrack ( 00000000 .Song:YoshiMountain 00000000 00000006 )
+	Call  ClearAmbientSounds ( 250` )
 	Return
 	End
 }

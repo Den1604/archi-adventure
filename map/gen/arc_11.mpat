@@ -1,165 +1,17 @@
-#import enemy/14_MBush.bpat
-#import enemy/14_SpearGuy.bpat
-#import enemy/09_Cleft.bpat
-#import enemy/00_Goomba.bpat
-#import enemy/00_Paragoomba.bpat
+% Auto-generated script for arc_11
 
-#new:FormationTable $FormationTable_ARC
+#new:Header $Header
 {
-    00000000 00000001 $Formation_00 $Stage_arc_bt00 00000000 % arc_02, 0
-    00000000 00000002 $Formation_01 $Stage_arc_bt00 00000000 % arc_02, 1
-    00000000 00000001 $Formation_02 $Stage_arc_bt01 00000000 % arc_01, 2, Spear Guy Mini-Boss Battle
-    00000000 00000001 $Formation_00 $Stage_arc_bt02 00000000 % arc_04, 3
-    00000000 00000003 $Formation_03 $Stage_arc_bt03 00000000 % arc_07, 4
-    00000000 00000003 $Formation_04 $Stage_arc_bt04 00000000 % arc_08, 5
-    00000000 00000003 $Formation_05 $Stage_arc_bt05 00000000 % arc_10, 6
-    00000000 00000002 $Formation_06 $Stage_arc_bt05 00000000 % arc_10, 7
-	00000000 00000000 00000000 00000000 00000000
+	[MainScript] $Script_Main
+	[Background] 00000000
+	[EntryList] $EntryList
+	[EntryCount] 2
 }
 
-#new:Formation $Formation_00
+#new:EntryList $EntryList
 {
-	$14_MBush 00000002 0000000A 00000000 00000000 00000000 00000000
-}
-
-#new:Formation $Formation_01
-{
-	$14_MBush 00000001 0000000A 00000000 00000000 00000000 00000000
-	$14_MBush 00000002 00000009 00000000 00000000 00000000 00000000
-}
-
-#new:Formation $Formation_02
-{
-	$14_SpearGuy 00000002 0000000A 00000000 00000000 00000000 00000000
-}
-
-#new:Formation $Formation_03
-{
-    $09_Cleft 00000001 0000000A 00000000 00000000 00000000 00000000
-	$00_Goomba 00000002 00000009 00000000 00000000 00000000 00000000
-	$00_Paragoomba 00000007 00000008 00000000 00000000 00000000 00000000
-}
-
-#new:Formation $Formation_04
-{
-	$09_Cleft 00000000 0000000A 00000000 00000000 00000000 00000000
-	$00_Goomba 00000001 00000009 00000000 00000000 00000000 00000000
-	$09_Cleft 00000002 00000008 00000000 00000000 00000000 00000000
-}
-
-#new:Formation $Formation_05
-{
-    $00_Goomba 00000001 0000000A 00000000 00000000 00000000 00000000
-	$09_Cleft 00000002 00000009 00000000 00000000 00000000 00000000
-	$00_Paragoomba 00000007 00000008 00000000 00000000 00000000 00000000
-}
-
-#new:Formation $Formation_06
-{
-	$09_Cleft 00000001 0000000A 00000000 00000000 00000000 00000000
-	$09_Cleft 00000002 00000009 00000000 00000000 00000000 00000000
-}
-
-#new:StageTable $StageTable_ARC
-{
-	"arc_bt00" $Stage_arc_bt00
-	"arc_bt01" $Stage_arc_bt01
-	"arc_bt02" $Stage_arc_bt02
-	"arc_bt03" $Stage_arc_bt03
-	"arc_bt04" $Stage_arc_bt04
-	"arc_bt05" $Stage_arc_bt05
-	00000000 00000000
-}
-
-#new:Stage $Stage_arc_bt00
-{
-	"jan_tex" % jan_tex
-	"arc_bt00_shape"
-	"arc_bt00_hit"
-	00000000
-	00000000
-	"jan_bg"
-	00000000
-	00000000
-	00000000
-	00000000
-}
-
-#new:Stage $Stage_arc_bt01
-{
-	"jan_tex" % jan_tex
-	"arc_bt01_shape"
-	"arc_bt01_hit"
-	00000000
-	00000000
-	"jan_bg"
-	00000000
-	00000000
-	00000000
-	00000000
-}
-
-#new:Stage $Stage_arc_bt02
-{
-	"jan_tex" % jan_tex
-	"arc_bt02_shape"
-	"arc_bt02_hit"
-	00000000
-	00000000
-	"jan_bg"
-	00000000
-	00000000
-	00000000
-	00000000
-}
-
-#new:Stage $Stage_arc_bt03
-{
-	"jan_tex" % jan_tex
-	"arc_bt03_shape"
-	"arc_bt03_hit"
-	00000000
-	00000000
-	"iwa_bg"
-	00000000
-	00000000
-	00000000
-	00000000
-}
-
-#new:Stage $Stage_arc_bt04
-{
-	"jan_tex" % jan_tex
-	"arc_bt04_shape"
-	"arc_bt04_hit"
-	00000000
-	00000000
-	"iwa_bg"
-	00000000
-	00000000
-	00000000
-	00000000
-}
-
-#new:Stage $Stage_arc_bt05
-{
-	"jan_tex" % jan_tex
-	"arc_bt05_shape"
-	"arc_bt05_hit"
-	$Script_BeforeBattle_arc_bt05
-	00000000
-	00000000
-	00000000
-	00000000
-	00000000
-	00000000
-}
-
-#new:Script $Script_BeforeBattle_arc_bt05
-{
-	Exec $Script_SetupTexturePan
-	Return  
-	End
+	~Vec4f:Entry0
+	~Vec4f:Entry1
 }
 
 #new:Script $Script_TexturePan_Update
@@ -412,15 +264,57 @@
     ADDIU       SP, SP, 18
 }
 
+#new:Script_Main $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:YoshisVillage
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_MakeEntities
+	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
+	Exec  $Script_EnterMap
+	Return
+	End
+}
+
+#new:Function_Init $Function_Init
+{
+	PUSH    RA
+	LIA     A0, 800B0CF0
+	LIA     A1, "jan_tex"
+	JAL     800654F0 % sprintf
+	RESERVED
+	CLEAR  V0
+	JPOP   RA
+}
+
+#new:Script $Script_MakeEntities
+{
+	Call  MakeEntity    ( .Entity:SavePoint ~Vec4d:Pos_SaveBlock 80000000 )
+	Call  MakeEntity    ( .Entity:HealingBlock ~Vec4d:Pos_HeartBlock 80000000 )
+	Return
+	End
+}
+
+#new:Script $Script_SetupMusic
+{
+	Call  SetMusicTrack ( 00000000 .Song:YoshiMountain 00000000 00000008 )
+	Call  ClearAmbientSounds ( 250` )
+	Return
+	End
+}
+
 #new:Script $Script_SetupTexturePan
 {
-	Call     802C9000 	( ~Model:arc_bt05:WatefallModel 0 )
+	Call     802C9000 	( ~Model:BG_Waterfall3 0 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] 0
-		Set  *Var[2] FFFFFF06
+		Set  *Var[2] FA
 		Set  *Var[3] 0
-		Set  *Var[4] FFFFFE89
+		Set  *Var[4] 177
 		Set  *Var[5] 0
 		Set  *Var[6] 1
 		Set  *Var[7] 0
@@ -434,3 +328,56 @@
 	Return
 	End
 }
+
+#new:Script $Script_EnterMap
+{
+	Call  GetLoadType   ( *Var[0] )
+	If  *Var[0]  ==  1
+		Exec  EnterSavePoint
+		Exec $Script_CreateExitTriggers
+		Return
+	EndIf
+	Call  GetEntryID    ( *Var[0] )
+	Switch  *Var[0]
+		CaseOR  ==  ~Entry:Entry0
+		CaseOR  ==  ~Entry:Entry1
+			Set   *Var[0] $Script_CreateExitTriggers
+			Exec  EnterWalk
+		EndCaseGroup
+		Default
+			Exec  $Script_CreateExitTriggers
+	EndSwitch
+	Return
+	End
+}
+
+#new:Script $Script_Exit_Entry0
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry0 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "arc_10" ~Entry:arc_10:Entry1 )
+	Wait  100`
+	Return
+	End
+}
+
+#new:Script $Script_Exit_Entry1
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry1 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "arc_11" ~Entry:arc_11:Entry1 )
+	Wait  100`
+	Return
+	End
+}
+
+#new:Script $Script_CreateExitTriggers
+{
+	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:Entry0Coll 00000001 00000000
+	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:Entry1Coll 00000001 00000000
+	Return
+	End
+}
+

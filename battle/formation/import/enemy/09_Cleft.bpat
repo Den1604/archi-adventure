@@ -4,7 +4,7 @@
 % stats
 [Index]        11b 
 [Level]        10`b 
-[MaxHP]         2`b 
+[MaxHP]         3`b 
 [Coins]         2`b 
 [Flags]       00000000 
 [StatusTable] $StatusTable_80218740_09 
@@ -537,7 +537,7 @@
   62C:  Call  ResetAllActorSounds   ( .Actor:Self )
   63C:  Wait  2`
   648:  Call  SetGoalToTarget       ( .Actor:Self )
-  658:  Call  EnemyDamageTarget     ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 00000000 00000002 00000020 )
+  658:  Call  EnemyDamageTarget     ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 00000000 00000003 00000020 )
   680:  Call  SetAnimation  ( .Actor:Self 00000001 00300002 )
   698:  Call  UseBattleCamPreset    ( 00000002 )
   6A8:  Switch  *Var0 

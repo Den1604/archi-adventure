@@ -1,3 +1,12 @@
+@ $Header
+{
+	[MainScript] $Script_Main
+	[Background] 80200000
+	[EntryList] $EntryList
+	[EntryCount] 2
+	[MapTattle]  00190005
+}
+
 @ $Script_SetupMusic
 {
 	Call  SetMusicTrack ( 00000000 .Song:YoshiMountain 00000000 00000008 )

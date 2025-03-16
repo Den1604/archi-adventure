@@ -58,3 +58,154 @@
 	feeling about these vines...[BR]
 	[Wait][End]
 }
+
+#message:19:004
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	I watch this island bob[BR]
+	in the distance from[BR]
+	tangle island sometimes...[BR]
+	[Wait][Next]
+	I'm excited to explore it[BR]
+	after staring at it for[BR]
+	so long![Pause:10] It's kind of[BR]
+	hypnotic...[BR]
+	[Wait][Next]
+	We should try avoiding[BR]
+	the water when it comes[BR]
+	up.[BR]
+	[Wait][Next]
+	It will most likely wash us[BR]
+	up where we docked.[BR]
+	[Wait][End]
+}
+
+#message:19:005
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	This is Waterfall Island![Pause:10][BR]
+	It's named after it's incredible[BR]
+	amount of waterfalls.[BR]
+	[Wait][Next]
+	There's even one rushing[BR]
+	onto that mushroom over there![BR]
+	[Wait][Next]
+	Looks like it's coming from[BR]
+	[Wave]aa[Pause:1]a[Pause:1]a[Pause:1]a[Pause:1]all[Pause:1]ll[Pause:1]ll[/fx] the way up the[BR]
+	mountain.[BR]
+	[Wait][Next]
+	Another noteworthy thing about[BR]
+	this island are the mushrooms![BR]
+	[Wait][Next]
+	There's a ton of them, in many[BR]
+	different colors and sizes.[BR]
+	[Wait][End]
+}
+
+#message:19:006
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	Watch out for the streams that[BR]
+	got formed by the waterfalls![BR]
+	[Wait][Next]
+	We don't want you washed into[BR]
+	the ocean again, Mario![Pause:10][BR]
+	Also, watch out for Clefts![BR]
+	[Wait][Next]
+	They can hide themselves[BR]
+	pretty well among this[BR]
+	rocky terrain.[BR]
+	[Wait][Next]
+	Be sure to whack 'em with your[BR]
+	hammer![Pause:10] Jumping could seriously[BR]
+	hurt you.[BR]
+	[Wait][End]
+}
+
+#message:19:007
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	Look at all these mushrooms![BR]
+	I wonder if they're edible...[BR]
+	[Wait][Next]
+	I also wonder who put these[BR]
+	bridges up![BR]
+	[Wait][Next]
+	They're real handy in avoiding[BR]
+	the streams.[BR]
+	[Wait][Next]
+	Wait...[Pause:10] Are those...?[BR]
+	[Wait][Next]
+	[PrintRising][Shake]Are we gonna have to climb[BR]
+	these up the mountain?![BR]
+	[Wait][Next]
+	Are they even safe to walk[BR]
+	on??[/fx][/fx][BR]
+	[Wait][Next]
+	.[Pause:5].[Pause:5].[Pause:20] let's be careful as we[BR]
+	scale the mountain, Mario.[BR]
+	[Wait][End]
+}
+
+#message:19:008
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	I really don't trust these wooden[BR]
+	half-pipes...[Pause:10] Atleast the cliffs[BR]
+	are nice to look at...?[BR]
+	[Wait][Next]
+	It looks like the path is leading[BR]
+	to a cave.[Pause:10] I seriously hope the[BR]
+	support doesn't give in...[BR]
+	[Wait][Next]
+	Let's be somewhat fast but[BR]
+	careful on our way there, Mario![BR]
+	[Wait][End]
+}
+
+#message:19:009
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	Oh my...[Pause:10] This view alone was[BR]
+	worth the scary bridge![BR]
+	[Wait][Next]
+	Look at the water bounce[BR]
+	off the mushrooms!![BR]
+	[Wait][Next]
+	I'm kind of surprised these[BR]
+	pillars are so hollow...[BR]
+	[Wait][Next]
+	Let's make our way up and[BR]
+	see what's atop![BR]
+	[Wait][End]
+}
+
+#message:19:00A
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	Looks like this is just a[BR]
+	small pathway between the[BR]
+	insides of the peaks of[BR]
+	the two "pillars".[BR]
+	[Wait][Next]
+	I hope something awaits[BR]
+	us in the other one, even[BR]
+	if it's just another[BR]
+	amazing sight![BR]
+	[Wait][End]
+}
+
+#message:19:00B
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	Waterfall Island 7 Tattle
+	[Wait][End]
+}
