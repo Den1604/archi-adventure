@@ -8,9 +8,9 @@
 	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
-    Call  PlaySoundAtF  ( 8000005A 00000001 -166` 185` -199` )
-    Call  PlaySoundAtF  ( 80000021 00000001 225` 185` -355` )
-    Call  PlaySoundAtF  ( 80000022 00000001 1704` 464` -290` )
+    Call  PlaySoundAtF  ( 8000005A 00000001 0` 58` 0` )
+    Call  PlaySoundAtF  ( 80000021 00000001 0` 323` 0` )
+    Call  PlaySoundAtF  ( 80000022 00000001 0` 699` 0` )
 	Exec  $Script_EnterMap
 	Return
 	End
@@ -18,7 +18,7 @@
 
 @ $Script_SetupMusic
 {
-	Call  FadeOutMusic  ( 00000000 500` ) % usually between 500-1000
+	Call  SetMusicTrack ( 00000000 .Song:YoshiMountain 00000000 00000007 )
 	Call  ClearAmbientSounds ( 250` )
 	Return
 	End

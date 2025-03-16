@@ -17,9 +17,9 @@
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
     Exec  $Script_BoatBop
+    Call  PlaySoundAtF  ( 8000005A 00000001 -91` 120` -192` )
 	Exec  $Script_EnterMap
     Bind  $Script_BoatLeave .Trigger:WallPressA ~Collider:BoatInteractColl 00000001 00000000
-	Call PlaySoundAtModel ( ~Model:Mushroom_Water_Cover 00000273 00000000 )
 	Return
 	End
 }

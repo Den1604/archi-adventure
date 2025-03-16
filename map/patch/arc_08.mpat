@@ -11,6 +11,7 @@
 	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
+  Call  PlaySoundAtF  ( 8000005A 00000001 203` -16` -4` )
 	Exec  $Script_EnterMap
 	Return
 	End

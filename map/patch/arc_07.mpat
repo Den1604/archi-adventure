@@ -12,6 +12,7 @@
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
 	Exec  $Script_BindFoliage
+  Call  PlaySoundAtF  ( 8000005A 00000001 -476` -12` 180` )
 	Exec  $Script_EnterMap
 	Return
 	End

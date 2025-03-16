@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_08" author="unnamed" background="iwa_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="230.148575,356.978455,-13.878109" pitch="38.080032" yaw="1.760467"/>
-		<Camera pos="214.112350,65536.000000,-558.120850"/>
-		<Camera pos="65536.000000,148.712601,-496.992157"/>
-		<Camera pos="-7.164372,110.914749,65536.000000"/>
+		<Camera pos="194.334183,132.825333,339.329041" pitch="17.839998" yaw="359.679993"/>
+		<Camera pos="143.554459,65536.000000,-462.023773"/>
+		<Camera pos="65536.000000,139.959183,-428.957367"/>
+		<Camera pos="134.814117,123.278450,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="2B">
@@ -99,7 +99,7 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="6">
+		<Node name="Root" id="7">
 			<Node name="Entrances" id="1">
 				<Node name="Entry0" id="FFFFFFFF"/>
 				<Node name="Entry1" id="0"/>
@@ -108,6 +108,7 @@
 			<Node name="Pos_Spring" id="3"/>
 			<Node name="Pos_YellowBlock" id="4"/>
 			<Node name="NPC_Cleft_02" id="5"/>
+			<Node name="Pos_WaterSFX1" id="6"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -130,10 +131,9 @@
 					<F3DEX2 cmd="D9FFFFFF,200400"/>
 					<TriangleBatch ver="0">
 						<VertexTable>
-							<Vertex xyz="136,152,-430" uv="256,1280"/>
-							<Vertex xyz="148,136,-446" uv="0,1024"/>
-							<Vertex xyz="148,152,-446" uv="255,1024"/>
 							<Vertex xyz="127,136,-436" uv="1,1280"/>
+							<Vertex xyz="136,132,-430" uv="0,1024"/>
+							<Vertex xyz="136,152,-430" uv="256,1280"/>
 							<Vertex xyz="74,152,-484" uv="256,1280"/>
 							<Vertex xyz="153,152,-588" uv="255,1024"/>
 							<Vertex xyz="83,136,-477" uv="1,1280"/>
@@ -141,9 +141,8 @@
 						</VertexTable>
 						<TriangleList>
 							<Triangle ijk="0,1,2"/>
-							<Triangle ijk="3,1,0"/>
-							<Triangle ijk="4,5,6"/>
-							<Triangle ijk="6,5,7"/>
+							<Triangle ijk="3,4,5"/>
+							<Triangle ijk="5,4,6"/>
 						</TriangleList>
 					</TriangleBatch>
 					<TriangleBatch ver="0">
@@ -153,7 +152,7 @@
 							<Vertex xyz="83,136,-477" uv="0,1280"/>
 							<Vertex xyz="147,132,-503" uv="-255,768"/>
 							<Vertex xyz="127,136,-436" uv="0,1280"/>
-							<Vertex xyz="148,136,-446" uv="1,1024"/>
+							<Vertex xyz="136,132,-430" uv="1,1024"/>
 						</VertexTable>
 						<TriangleList>
 							<Triangle ijk="0,1,2"/>
@@ -7749,33 +7748,36 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="6"/>
+			<MapObject name="Root" id="7"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="203,-16,-4" yaw="0.000000">
+			<MapObject name="Pos_WaterSFX1" id="6"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="-114,0,10" yaw="90.000000">
-			<MapObject name="NPC_Cleft_02" id="5" hidden="true"/>
+			<MapObject name="NPC_Cleft_02" id="5"/>
 			<Movement type="Wander" data="FFFFFF8E,0,A,1E,0,FFFF8001,0,FFFFFF8E,0,A,96,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="30" palette="0" animations="2,6,7,7,2,2,8,8,14,17,13,15,10,11,16,0"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="-336,156,-88" yaw="0.000000">
-			<MapObject name="Pos_YellowBlock" id="4" hidden="true"/>
+			<MapObject name="Pos_YellowBlock" id="4"/>
 			<Entity type="802EA564" flag="*MF_ARC_08_YELLOWBLOCK" callback="false" item="VoltShroom"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="-221,0,-156" yaw="0.000000">
-			<MapObject name="Pos_Spring" id="3" hidden="true"/>
+			<MapObject name="Pos_Spring" id="3"/>
 			<Entity type="802EAA54" launchH="3C"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="-54,196,-247" yaw="0.000000">
-			<MapObject name="Pos_HiddenBlock" id="2" hidden="true"/>
+			<MapObject name="Pos_HiddenBlock" id="2"/>
 			<Entity type="802EA588" flag="*MF_ARC_08_YELLOWHIDDENBLOCK" callback="false" item="SuperShroom"/>
 		</Marker>
 		<Marker ver="4" type="Group">
 			<MapObject name="Entrances" id="1"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="80,134,-431" yaw="215.000000">
-			<MapObject name="Entry1" id="0" hidden="true"/>
+			<MapObject name="Entry1" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="475,0,0" yaw="270.000000">
-			<MapObject name="Entry0" id="FFFFFFFF" hidden="true"/>
+			<MapObject name="Entry0" id="FFFFFFFF"/>
 		</Marker>
 	</Markers>
 	<ScriptData>

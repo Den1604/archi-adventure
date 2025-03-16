@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_07" author="unnamed" background="iwa_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="-303.410461,124.036812,665.901550" pitch="9.999999" yaw="-46.056999"/>
+		<Camera pos="-240.857834,147.412231,455.337067" pitch="13.599987" yaw="321.942932"/>
 		<Camera pos="-338.467407,65536.000000,203.258438"/>
 		<Camera pos="65536.000000,-0.437291,258.518677"/>
 		<Camera pos="-446.481323,71.059151,65536.000000"/>
@@ -87,7 +87,7 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="7">
+		<Node name="Root" id="8">
 			<Node name="Entrances" id="1">
 				<Node name="Entry0" id="FFFFFFFF"/>
 				<Node name="Entry1" id="0"/>
@@ -97,6 +97,7 @@
 			<Node name="Mushtree_BombPos" id="4"/>
 			<Node name="Mushtree2_BombPos" id="5"/>
 			<Node name="NPC_Cleft_02" id="6"/>
+			<Node name="Pos_WaterSFX1" id="7"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -5337,7 +5338,10 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="7"/>
+			<MapObject name="Root" id="8"/>
+		</Marker>
+		<Marker ver="4" type="Position" pos="-476,-12,180" yaw="0.000000">
+			<MapObject name="Pos_WaterSFX1" id="7"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="102,0,43" yaw="90.000000">
 			<MapObject name="NPC_Cleft_02" id="6"/>
