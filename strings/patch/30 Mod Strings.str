@@ -36,7 +36,9 @@
 {
 	[Style Right]
 	You should get going right away,[Pause:5][BR]
-	I'll watch the house as per usual![BR]
+	I'll watch the house as per usual.[Pause:10][BR]
+	Don't forget to grab some badges[BR]
+	incase you get in a fight, bro![BR]
 	[Wait][End]
 }
 

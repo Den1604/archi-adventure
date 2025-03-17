@@ -1,5 +1,11 @@
-#string:23:01E
+#message:23:01E
 {
-	A dry, yet tasty fruit.[BR]
-	Restores 15 HP.[End]
+	A bubbly, tasty fruit.[BR]
+	Restores 15 HP and cures poison.[End]
+}
+
+#string:23:060
+{
+	Lets you bounce on an enemy[BR]
+	three times.[End]
 }
