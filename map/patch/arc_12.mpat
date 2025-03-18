@@ -1,0 +1,417 @@
+#define .NpcID:NPC_RedGoomba               00
+#define .NpcID:NPC_BlueGoomba              01
+#define .NpcID:NPC_YellowGoomba            02
+#define .NpcID:NPC_PurpleGoomba            03
+
+@ $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_MakeEntities
+	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
+    If *MF_ARC_12_BEATENGOOMBAS == .False
+        Call MakeNpcs  ( .False $NpcGroupList_GoombaSquad )
+    EndIf
+    Exec  $Script_EnterMap
+	Return
+	End
+}
+
+#new:NpcGroupList $NpcGroupList_GoombaSquad
+{
+	00000004 $NpcGroup_GoombaSquad 2F080000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_GoombaSquad
+{
+	.NpcID:NPC_RedGoomba $NpcSettings_8024EC90 ~Vec3f:NPC_RedGoomba
+	00112D09 $Script_Init_RedGoomba 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC_RedGoomba
+	~AnimationTable:NPC_RedGoomba
+	00000000 00000000 00000000 00000000
+
+    .NpcID:NPC_BlueGoomba $NpcSettings_8024EC90 ~Vec3f:NPC_BlueGoomba
+	00112D09 $Script_Init_OtherGoombas 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC_BlueGoomba
+	~AnimationTable:NPC_BlueGoomba
+	00000000 00000000 00000000 00000000
+
+    .NpcID:NPC_YellowGoomba $NpcSettings_8024EC90 ~Vec3f:NPC_YellowGoomba
+	00112D09 $Script_Init_OtherGoombas 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC_YellowGoomba
+	~AnimationTable:NPC_YellowGoomba
+	00000000 00000000 00000000 00000000
+
+    .NpcID:NPC_PurpleGoomba $NpcSettings_8024EC90 ~Vec3f:NPC_PurpleGoomba
+	00112D09 $Script_Init_OtherGoombas 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC_PurpleGoomba
+	~AnimationTable:NPC_PurpleGoomba
+	00000000 00000000 00000000 00000000
+}
+
+#new:NpcSettings $NpcSettings_8024EC90
+{
+	00000000 001E001E 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_RedGoomba
+{
+    Call BindNpcIdle ( .Npc:Self $Script_PreBossCutscene )
+    Call BindNpcDefeat ( .Npc:Self $Script_PostBossCutscene )
+    Return
+    End
+}
+
+#new:Script $Script_Init_OtherGoombas
+{
+    Return
+    End
+}
+
+#new:Script $Script_PreBossCutscene
+{
+    Call TranslateGroup ( ~Model:RedMushroomGroup 0` -500` 0` )
+    Call TranslateGroup ( ~Model:BlueMushroomGroup 0` -500` 0` )
+    Call TranslateGroup ( ~Model:YellowMushroomGroup 0` -500` 0` )
+    Call TranslateGroup ( ~Model:PurpleMushroomGroup 0` -500` 0` )
+    Call GetNpcPos ( .NpcID:NPC_RedGoomba *VarA *VarB *VarC )
+    Sub *VarB 500`
+    Call SetNpcPos ( .NpcID:NPC_RedGoomba *VarA *VarB *VarC )
+    Call GetNpcPos ( .NpcID:NPC_BlueGoomba *VarA *VarB *VarC )
+    Sub *VarB 500`
+    Call SetNpcPos ( .NpcID:NPC_BlueGoomba *VarA *VarB *VarC )
+    Call GetNpcPos ( .NpcID:NPC_YellowGoomba *VarA *VarB *VarC )
+    Sub *VarB 500`
+    Call SetNpcPos ( .NpcID:NPC_YellowGoomba *VarA *VarB *VarC )
+    Call GetNpcPos ( .NpcID:NPC_PurpleGoomba *VarA *VarB *VarC )
+    Sub *VarB 500`
+    Call SetNpcPos ( .NpcID:NPC_PurpleGoomba *VarA *VarB *VarC )
+
+    Call AwaitPlayerApproach ( ~Vec2D:Pos_AwaitPlayerApproach 140` )
+
+    Exec $Script_PanCamera_CamPan_CutsceneStart
+    Call DisablePlayerInput ( .True )
+    Call PlaySound ( 00000262)
+    Call GetPlayerPos ( *Var1 *Var2 *Var3 )
+    Call ShowEmote ( 00000000 .Emote:Exclamation  0`  -45` .False  *Var1 *Var2 *Var3  0` )
+	Call  SetMusicTrack ( 00000000 .Song:KoopaBrosInterlude 00000000 00000008 )
+    Call SpeakToNpc ( .NpcID:NPC_RedGoomba 0062000A 00620002 00000000 .NpcID:NPC_BlueGoomba 00300015 )
+    Call SpeakToNpc ( .NpcID:NPC_BlueGoomba 0062010A 00620102 00000000 .NpcID:NPC_YellowGoomba 00300016 )
+    Call SpeakToNpc ( .NpcID:NPC_YellowGoomba 00620A0A 00620A02 00000000 .NpcID:NPC_RedGoomba 00300017 )
+    Call SpeakToNpc ( .NpcID:NPC_PurpleGoomba 0062090A 00620902 00000000 .NpcID:NPC_RedGoomba 00300018 )
+
+    Exec $Script_PanCamera_CamPan_RedGoomba
+    Exec $Script_RedGoomba_FlyUp
+    Call MakeLerp ( -500` 0` 60` .Easing:CubicOut )
+    Loop
+        Call UpdateLerp ( )
+        Call TranslateGroup ( ~Model:RedMushroomGroup 0` *Var0 0` )
+        If  *Var1  ==  00000000
+            BreakLoop
+        EndIf
+        Wait 1`
+    EndLoop
+    Call DisablePartnerAI ( 00000000 )
+    Call SetPlayerPos ( ~Vec3D:CamPan_CutsceneStart )
+    Call GetPlayerPos ( *VarA *VarB *VarC )
+    Sub *VarA 30`
+    Add *VarC 10`
+    Call SetNpcPos ( .Npc:Partner *VarA *VarB *VarC )
+    Exec $Script_PanCamera_CamPan_BlueGoomba
+    Exec $Script_BlueGoomba_FlyUp
+    Call MakeLerp ( -500` 0` 60` .Easing:CubicOut )
+    Loop
+        Call UpdateLerp ( )
+        Call TranslateGroup ( ~Model:BlueMushroomGroup 0` *Var0 0` )
+        If  *Var1  ==  00000000
+            BreakLoop
+        EndIf
+        Wait 1`
+    EndLoop
+    Exec $Script_PanCamera_CamPan_YellowGoomba
+    Exec $Script_YellowGoomba_FlyUp
+    Call MakeLerp ( -500` 0` 60` .Easing:CubicOut )
+    Loop
+        Call UpdateLerp ( )
+        Call TranslateGroup ( ~Model:YellowMushroomGroup 0` *Var0 0` )
+        If  *Var1  ==  00000000
+            BreakLoop
+        EndIf
+        Wait 1`
+    EndLoop
+    Exec $Script_PanCamera_CamPan_PurpleGoomba
+    Exec $Script_PurpleGoomba_FlyUp
+    Call MakeLerp ( -500` 0` 60` .Easing:CubicOut )
+    Loop
+        Call UpdateLerp ( )
+        Call TranslateGroup ( ~Model:PurpleMushroomGroup 0` *Var0 0` )
+        If  *Var1  ==  00000000
+            BreakLoop
+        EndIf
+        Wait 1`
+    EndLoop
+    
+    ExecWait $Script_PanCamera_CamPan_CutsceneZoomOut
+    Thread
+        Wait 2`
+        Call InterpNpcYaw ( .Npc:Partner -227` 10` )
+        Wait 8`
+        Call InterpNpcYaw ( .Npc:Partner -127` 10` )
+        Wait 5`
+        Call InterpNpcYaw ( .Npc:Partner -227` 10` )
+    EndThread
+    Wait 7`
+    Call InterpPlayerYaw ( -127` 10` )
+    Wait 5`
+    Call InterpPlayerYaw ( -227` 10` )
+    Wait 3`
+    Call InterpPlayerYaw ( -127` 10` )
+    Wait 15`
+    Call SpeakToNpc ( .Npc:Partner 00010008 00010001 00000000 .NpcID:NPC_YellowGoomba 00300019 )
+    Call SpeakToNpc ( .NpcID:NPC_RedGoomba 0062000A 00620002 00000000 .NpcID:NPC_YellowGoomba 0030001A )
+    Thread
+        Wait 10`
+        Call PlaySound ( .Sound:Jump )
+        Exec $Script_BlueGoomba_Jump
+    EndThread
+    Thread
+        Wait 20`
+        Call PlaySound ( .Sound:Jump )
+        Exec $Script_YellowGoomba_Jump
+    EndThread
+    Thread
+        Wait 30`
+        Call PlaySound ( .Sound:Jump )
+        Exec $Script_PurpleGoomba_Jump
+    EndThread
+    Call PlaySound ( .Sound:Jump )
+    Exec $Script_RedGoomba_Jump
+    Wait 25`
+    Call SetPlayerAnimation ( 0001002B )
+    Call StartBossBattle ( .Song:SpecialBattle )
+    Return
+    End
+}
+
+#new:Script $Script_RedGoomba_FlyUp
+{
+    Call NpcFlyTo ( .NpcID:NPC_RedGoomba ~Vec3D:NPC_RedGoomba 60` *Fixed[1.0] .Easing:CubicOut )
+    Return
+    End
+}
+
+#new:Script $Script_BlueGoomba_FlyUp
+{
+    Call NpcFlyTo ( .NpcID:NPC_BlueGoomba ~Vec3D:NPC_BlueGoomba 60` *Fixed[1.0] .Easing:CubicOut )
+    Return
+    End
+}
+
+#new:Script $Script_YellowGoomba_FlyUp
+{
+    Call NpcFlyTo ( .NpcID:NPC_YellowGoomba ~Vec3D:NPC_YellowGoomba 60` *Fixed[1.0] .Easing:CubicOut )
+    Return
+    End
+}
+
+
+#new:Script $Script_PurpleGoomba_FlyUp
+{
+    Call NpcFlyTo ( .NpcID:NPC_PurpleGoomba ~Vec3D:NPC_PurpleGoomba 60` *Fixed[1.0] .Easing:CubicOut )
+    Return
+    End
+}
+
+
+@ $Script_PanCamera_CamPan_RedGoomba
+{
+	Call  UseSettingsFrom   ( .Cam:Default -175` 72` -211` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_RedGoomba )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[5.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+@ $Script_PanCamera_CamPan_BlueGoomba
+{
+	Call  UseSettingsFrom   ( .Cam:Default -53` 52` -178` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_BlueGoomba )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[5.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+@ $Script_PanCamera_CamPan_YellowGoomba
+{
+	Call  UseSettingsFrom   ( .Cam:Default 53` 63` -261` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_YellowGoomba )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[5.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+@ $Script_PanCamera_CamPan_PurpleGoomba
+{
+	Call  UseSettingsFrom   ( .Cam:Default 127` 33` -176` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_PurpleGoomba )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[5.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+#new:Script $Script_RedGoomba_Jump
+{
+    Call SetNpcJumpscale ( .NpcID:NPC_RedGoomba *Fixed[0.75] )
+    Call NpcJump0 ( .NpcID:NPC_RedGoomba ~Vec3D:Pos_RedGoombaJump 15` )
+    Return
+    End
+}
+
+#new:Script $Script_BlueGoomba_Jump
+{
+    Call SetNpcJumpscale ( .NpcID:NPC_BlueGoomba *Fixed[0.75] )
+    Call NpcJump0 ( .NpcID:NPC_BlueGoomba ~Vec3D:Pos_BlueGoombaJump 15` )
+    Return
+    End
+}
+
+#new:Script $Script_YellowGoomba_Jump
+{
+    Call SetNpcJumpscale ( .NpcID:NPC_YellowGoomba *Fixed[0.75] )
+    Call NpcJump0 ( .NpcID:NPC_YellowGoomba ~Vec3D:Pos_YellowGoombaJump 15` )
+    Return
+    End
+}
+
+#new:Script $Script_PurpleGoomba_Jump
+{
+    Call SetNpcJumpscale ( .NpcID:NPC_PurpleGoomba *Fixed[0.75] )
+    Call NpcJump0 ( .NpcID:NPC_PurpleGoomba ~Vec3D:Pos_PurpleGoombaJump 15` )
+    Return
+    End
+}
+
+
+#new:Script $Script_PostBossCutscene
+{
+    Call DisablePartnerAI ( 00000000 )
+    Call SetNpcAnimation ( .Npc:Partner 00010001 )
+    Exec $Script_PanCamera_CamPan_CutsceneStart_Snap
+    Call SetNpcAnimation ( .NpcID:NPC_RedGoomba 00620009 )
+    Call SetNpcAnimation ( .NpcID:NPC_BlueGoomba 00620109 )
+    Call SetNpcAnimation ( .NpcID:NPC_YellowGoomba 00620A09 )
+    Call SetNpcAnimation ( .NpcID:NPC_PurpleGoomba 00620909 )
+    Call SpeakToNpc ( .NpcID:NPC_YellowGoomba 00620A09 00620A09 00000000 .NpcID:NPC_RedGoomba 0030001B )
+    Wait 5`
+    Call SpeakToNpc ( .Npc:Partner 00010008 00010001 00000000 .NpcID:NPC_YellowGoomba 0030001C )
+    Call SetPlayerAnimation ( 00010029 )
+    Wait 30`
+    Thread
+        Exec $Script_RedGoomba_Jump_Defeat
+    EndThread
+    Thread
+        Exec $Script_BlueGoomba_Jump_Defeat
+    EndThread
+    Thread
+        Exec $Script_YellowGoomba_Jump_Defeat
+    EndThread
+    Thread
+        Exec $Script_PurpleGoomba_Jump_Defeat
+    EndThread
+    Call PlaySound ( .Sound:Jump )
+    Call ShowMessageAtScreenPos ( 0030001D 0` 0` )
+	Call  SetMusicTrack ( 00000000 .Song:YoshiMountain 00000000 00000006 )
+    Set *MF_ARC_12_BEATENGOOMBAS .True
+	Call ResetCam ( .Cam:Default *Fixed[2.00] )
+    Call EnablePartnerAI ()
+    Call DisablePlayerInput ( .False )
+    Return
+    End
+}
+
+#new:Script $Script_RedGoomba_Jump_Defeat
+{
+    Call SetNpcJumpscale ( .NpcID:NPC_RedGoomba *Fixed[1.25] )
+    Call NpcJump0 ( .NpcID:NPC_RedGoomba ~Vec3D:Pos_RedGoombaJump_Defeat 45` )
+    Return
+    End
+}
+
+#new:Script $Script_BlueGoomba_Jump_Defeat
+{
+    Call SetNpcJumpscale ( .NpcID:NPC_BlueGoomba *Fixed[1.25] )
+    Call NpcJump0 ( .NpcID:NPC_BlueGoomba ~Vec3D:Pos_BlueGoombaJump_Defeat 45` )
+    Return
+    End
+}
+
+#new:Script $Script_YellowGoomba_Jump_Defeat
+{
+    Call SetNpcJumpscale ( .NpcID:NPC_YellowGoomba *Fixed[1.25] )
+    Call NpcJump0 ( .NpcID:NPC_YellowGoomba ~Vec3D:Pos_YellowGoombaJump_Defeat 45` )
+    Return
+    End
+}
+
+#new:Script $Script_PurpleGoomba_Jump_Defeat
+{
+    Call SetNpcJumpscale ( .NpcID:NPC_PurpleGoomba *Fixed[1.25] )
+    Call NpcJump0 ( .NpcID:NPC_PurpleGoomba ~Vec3D:Pos_PurpleGoombaJump_Defeat 45` )
+    Return
+    End
+}
+
+@ $Script_MakeEntities
+{
+	Call  MakeItemEntity    ( .Item:Calculator ~Vec3d:Pos_StarShard .ItemSpawnMode:Fixed_NeverVanish *MF_ARC_12_STARSHARD )
+    Call  PlayEffect ( ~FX:Sparkles:Random ~Vec3D:Pos_StarShard 20` )
+	Return
+	End
+}
+
+#new:Script $Script_PanCamera_CamPan_CutsceneStart_Snap
+{
+	Call  UseSettingsFrom   ( .Cam:Default 22` 6` 8` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[18.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 600` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_CutsceneStart )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[100.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
+@ $Script_SetupMusic
+{
+	Call  SetMusicTrack ( 00000000 .Song:YoshiMountain 00000000 00000006 )
+	Call  ClearAmbientSounds ( 250` )
+	Return
+	End
+}

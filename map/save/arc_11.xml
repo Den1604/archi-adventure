@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_11" author="unnamed" textures="jan_tex">
 	<Editor>
-		<Camera pos="218.170258,199.286911,479.038452" pitch="23.600018" yaw="359.840088"/>
+		<Camera pos="310.846069,159.034561,391.061401" pitch="26.160015" yaw="9.920091"/>
 		<Camera pos="192.186859,65536.000000,-33.110271"/>
 		<Camera pos="65536.000000,-80.899986,-94.744400"/>
 		<Camera pos="180.670471,-66.270660,65536.000000"/>
@@ -3339,7 +3339,7 @@
 			<Entrance type="Walk" hasCallback="false" entry="Entry1"/>
 			<Entrance type="Walk" hasCallback="false" entry="Entry2"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry0" destMap="arc_10" destEntry="Entry1" trigger="Entry0Coll"/>
-			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="arc_11" destEntry="Entry1" trigger="Entry1Coll"/>
+			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="arc_12" destEntry="Entry0" trigger="Entry1Coll"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry2" destMap="arc_13" destEntry="Entry0" trigger="Entry2Coll"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>

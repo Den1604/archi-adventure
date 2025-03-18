@@ -1,10 +1,16 @@
 #message:23:01E
 {
 	A bubbly, tasty fruit.[BR]
-	Restores 15 HP and cures poison.[End]
+	Restores 15 HP.[End]
 }
 
-#string:23:060
+#message:23:0CA
+{
+The Top Star Shard. Collect all[BR]
+five to return back home![End]
+}
+
+#message:23:060
 {
 	Lets you bounce on an enemy[BR]
 	three times.[End]

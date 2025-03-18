@@ -155,7 +155,7 @@
 	<Item index="098" nameMsg="26-02A" desc1Msg="23-02A" desc2Msg="25-02A" typeFlags="1006" targetFlags="8002" name="FrightJar" sellValue="3"/>
 	<Item index="099" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" typeFlags="1006" targetFlags="0008" name="PleaseComeBack" sellValue="5"/>
 	<Item index="09A" nameMsg="26-029" desc1Msg="23-029" desc2Msg="25-029" typeFlags="1006" targetFlags="8002" name="DizzyDial" sellValue="6" powA="3"/>
-	<Item index="09B" nameMsg="26-00F" desc1Msg="23-00F" desc2Msg="25-00F" typeFlags="1187" targetFlags="0009" name="SuperSoda" sellValue="3" powB="5"/>
+	<Item index="09B" nameMsg="26-01E" desc1Msg="23-01E" desc2Msg="25-01E" typeFlags="1087" targetFlags="0009" name="SuperSoda" hudElement="DriedFruit" itemEntity="DriedFruit" sellValue="3" powA="15"/>
 	<Item index="09C" nameMsg="26-015" desc1Msg="23-015" desc2Msg="25-015" typeFlags="1087" targetFlags="0009" name="Lemon" sellValue="1" powA="1" powB="2"/>
 	<Item index="09D" nameMsg="26-014" desc1Msg="23-014" desc2Msg="25-014" typeFlags="1087" targetFlags="0009" name="Lime" sellValue="1" powB="3"/>
 	<Item index="09E" nameMsg="26-010" desc1Msg="23-010" desc2Msg="25-010" typeFlags="1087" targetFlags="0009" name="BlueBerry" sellValue="2" powB="5"/>

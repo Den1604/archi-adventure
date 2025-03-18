@@ -3,6 +3,11 @@
 	Bubble Fruit[End]
 }
 
+#string:26:0CA
+{
+	Top Star Shard[End]
+}
+
 #string:26:060
 {
 	Triple Jump[End]

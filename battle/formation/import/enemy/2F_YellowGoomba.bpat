@@ -1,7 +1,7 @@
 #new:Actor $2F_YellowGoomba {
 % stats
 [Index]        D4b 
-[Level]        40`b 
+[Level]        30`b 
 [MaxHP]         7`b 
 [Coins]         0`b 
 [Flags]       00000000 
@@ -281,8 +281,8 @@
 
 #new:Script $Script_Idle_8021EFE8_01_YellowGoomba {
     0:  Label  A
-    C:  Call  RandInt   ( 00000050 *Var0 )
-    20:  Add   *Var0  00000050 
+    C:  Call  RandInt   ( 00000014 *Var0 )
+    20:  Add   *Var0  00000014
     30:  Loop  *Var0 
     3C:  	Label  0
     48:  	Call  GetStatusFlags    ( .Actor:Self *Var1 )

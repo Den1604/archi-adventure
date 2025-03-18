@@ -32,7 +32,7 @@
 @ $FoliageDrops_Tree_o189
 {
 	1`
-	.Item:DriedFruit ~Vec3d:Tree2_Drop2 0000000E *ARC_02_TREE_DRIED_FRUIT *MapFlag[08]
+	.Item:TastyTonic ~Vec3d:Tree2_Drop2 0000000E *ARC_02_TREE_DRIED_FRUIT *MapFlag[08]
 }
 
 @ $FoliageDrops_Bush_Bush1Coll

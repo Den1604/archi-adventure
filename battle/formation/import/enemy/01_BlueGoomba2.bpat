@@ -3,8 +3,8 @@
 #new:Actor $01_BlueGoomba2 {
 % stats
 [Index]        90b 
-[Level]        40`b 
-[MaxHP]         7`b 
+[Level]        30`b 
+[MaxHP]         10`b 
 [Coins]         0`b 
 [Flags]       00000000 
 [StatusTable] $StatusTable_8021D40C_01 

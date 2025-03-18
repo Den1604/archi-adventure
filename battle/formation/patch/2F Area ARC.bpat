@@ -19,7 +19,7 @@
     00000000 00000003 $Formation_04 $Stage_arc_bt04 00000000 % arc_08, 5
     00000000 00000003 $Formation_05 $Stage_arc_bt05 00000000 % arc_10, 6
     00000000 00000002 $Formation_06 $Stage_arc_bt05 00000000 % arc_10, 7
-    00000000 00000004 $Formation_07 $Stage_arc_bt05 00000000 % arc_13, 8
+    00000000 00000004 $Formation_07 $Stage_arc_bt06 00000000 % arc_13, 8
 	00000000 00000000 00000000 00000000 00000000
 }
 
@@ -82,6 +82,7 @@
 	"arc_bt03" $Stage_arc_bt03
 	"arc_bt04" $Stage_arc_bt04
 	"arc_bt05" $Stage_arc_bt05
+	"arc_bt06" $Stage_arc_bt06
 	00000000 00000000
 }
 
@@ -169,9 +170,23 @@
 	00000000
 }
 
+#new:Stage $Stage_arc_bt06
+{
+	"jan_tex" % jan_tex
+	"arc_bt06_shape"
+	"arc_bt06_hit"
+	$Script_BeforeBattle_arc_bt06
+	00000000
+	00000000
+	00000000
+	00000000
+	00000000
+	00000000
+}
+
 #new:Script $Script_BeforeBattle_arc_bt05
 {
-	Exec $Script_SetupTexturePan
+	Exec $Script_SetupTexturePan_bt05
 	Return  
 	End
 }
@@ -426,9 +441,41 @@
     ADDIU       SP, SP, 18
 }
 
-#new:Script $Script_SetupTexturePan
+#new:Script $Script_SetupTexturePan_bt05
 {
 	Call     802C9000 	( ~Model:arc_bt05:WatefallModel 0 )
+	Thread
+		Set  *Var[0] 0
+		Set  *Var[1] 0
+		Set  *Var[2] FFFFFF06
+		Set  *Var[3] 0
+		Set  *Var[4] FFFFFE89
+		Set  *Var[5] 0
+		Set  *Var[6] 1
+		Set  *Var[7] 0
+		Set  *Var[8] 1
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Return
+	End
+}
+
+#new:Script $Script_BeforeBattle_arc_bt06
+{
+	Exec $Script_SetupTexturePan_bt06
+	Return  
+	End
+}
+
+#new:Script $Script_SetupTexturePan_bt06
+{
+	Call     802C9000 	( ~Model:arc_bt06:SmallWaterfall1 0 )
+	Call     802C9000 	( ~Model:arc_bt06:SmallWaterfall2 0 )
+	Call     802C9000 	( ~Model:arc_bt06:SmallWaterfall3 0 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] 0

@@ -282,3 +282,90 @@
 	knowledge of the island you're at.[BR]
 	[Wait][End]
 }
+
+
+#message:30:015
+{
+	[Style Right]
+	Woah![Pause:10] Is someone trying to take[BR]
+	our precious [Color:26]Star Shard[Color:0A]?[Pause:10][BR]
+	You better get outta here if you[BR]
+	know what's good for ya![BR]
+	[Wait][End]
+}
+
+#message:30:016
+{
+	[Style Right]
+	Hmph, if not we'll just have to[BR]
+	take care of it ourselves![Pause:10][BR]
+	Noone's ever made it past us,[Pause:5][BR]
+	[Wave]hahahaha[/fx]![BR]
+	[Wait][End]
+}
+
+#message:30:017
+{
+	[Style Right]
+	Yup![Pause:5] We'll beat em to a pulp!![Pause:5][BR]
+	We should strike fast before[BR]
+	they get out!![BR]
+	[Wait][End]
+}
+
+#message:30:018
+{
+	[Style Right]
+	[Wave]Hehehe...[/fx][BR]
+	They better bet gone by the time[BR]
+	we're up...[Pause:10] Or else they'll be in[BR]
+	a world of hurt!![BR]
+	[Wait][End]
+}
+
+#message:30:019
+{
+	[Style Right]
+	We'll need to take this Star[BR]
+	Shard from you![Pause:10] You could just[BR]
+	give it to us, but we're not[BR]
+	scared to fight for it!![BR]
+	[Wait][End]
+}
+
+#message:30:01A
+{
+	[Style Right]
+	You gotta take it from us then![Pause:10][BR]
+	Here we come!![BR]
+	[Wait][End]
+}
+
+#message:30:01B
+{
+	[Style Right]
+	[Shake]Argh!![Pause:10] How did we lose?![Pause:10][BR]
+	We've kept this shiny thing for[BR]
+	so long now!![Pause:5] Why do you suddenly[BR]
+	want it!?[BR]
+	[Wait][End]
+}
+
+#message:30:01C
+{
+	[Style Right]
+	This guy needs to get back home[BR]
+	and we need the shards to get[BR]
+	him there![BR]
+	[Wait][Next]
+	We'll do anything to get all five.[Pause:10][BR]
+	Ain't that right, Mario?[BR]
+	[Wait][End]
+}
+
+#message:30:01D
+{
+	[Style Right]
+	[Wave][Size 32][Down 8]Curse yooooouu!!
+	[Wait][End]
+}

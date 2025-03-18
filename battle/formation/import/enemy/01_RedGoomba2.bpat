@@ -3,7 +3,7 @@
 #new:Actor $01_RedGoomba2 {
 % stats
 [Index]        91b 
-[Level]        40`b 
+[Level]        30`b 
 [MaxHP]         7`b 
 [Coins]         0`b 
 [Flags]       00000000 
@@ -594,7 +594,7 @@
   97C:  		Call  SetActorScale ( .Actor:Self *Fixed[1.3] *Fixed[0.5] *Fixed[1.0] )
   998:  		Wait  1`
   9A4:  EndSwitch
-  9AC:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 ~DebuffType:Poison:1:10` 00000002 00000020 )
+  9AC:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 ~DebuffType:Poison:1:10` 00000003 00000020 )
 
 
           Call GetGoalPos ( .Actor:Self *VarA *VarB *VarC )

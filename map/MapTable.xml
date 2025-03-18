@@ -588,7 +588,8 @@
 		<Stage name="arc_bt02" nickname="Tangle Secret Battle Map"/>
 		<Stage name="arc_bt03" nickname="Outer Waterfall Island Battle Map #1"/>
 		<Stage name="arc_bt04" nickname="Outer Waterfall Island Battle Map #2"/>
-		<Stage name="arc_bt05" nickname="Outer Waterfall Island Battle Map #3"/>
+		<Stage name="arc_bt05" nickname="Inner Waterfall Island Battle Map #1"/>
+		<Stage name="arc_bt06" nickname="Goomba Squad Battle Mapdwha"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
 	<Resource name="tik_tex" compressed="false"/>
