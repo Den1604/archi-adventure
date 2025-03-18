@@ -1,4 +1,24 @@
+#string:29:003
+{
+	R. Mushroom Goomba[End]
+}
+
+#string:29:004
+{
+	B. Mushroom Goomba[End]
+}
+
 #string:29:036
 {
 	Javelin Guy[End]
+}
+
+#string:29:083
+{
+	Y. Mushroom Goomba[End]
+}
+
+#string:29:084
+{
+	P. Mushroom Goomba[End]
 }

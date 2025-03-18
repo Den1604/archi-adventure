@@ -994,3 +994,72 @@
    4C:  Return
    54:  End
 }
+
+@ $Script_HandleEvent_80239360
+{
+    0:  Call  UseIdleAnimation  ( .Actor:Partner .False )
+   14:  Call  CloseActionCommandInfo ( )
+   20:  Call  GetLastEvent      ( .Actor:Partner *Var0 )
+   34:  Switch  *Var0
+   40:  	CaseOR  ==  .Event:HitCombo % 9
+   4C:  	CaseOR  ==  .Event:Hit % A
+   58:  		SetConst  *Var1  00090009
+   68:  		SetConst  *Var2  00090009
+   78:  		ExecWait  802977BC
+   84:  		SetConst  *Var1  00090009
+   94:  		ExecWait  80296014
+   A0:  	EndCaseGroup
+   A8:  	CaseOR  ==  00000017 % 17
+   B4:  	CaseOR  ==  .Event:Immune % 19
+   C0:  		Call  PlaySoundAtActor  ( .Actor:Partner 0000208C )
+   D4:  		SetConst  *Var0  00000001
+   E4:  		SetConst  *Var1  00090009
+   F4:  		ExecWait  80297814
+  100:  	EndCaseGroup
+  108:  	Case  ==  .Event:SpikeContact % 2A
+  114:  		SetConst  *Var1  00090009
+  124:  		Set   *Var2  0000000C
+  134:  		ExecWait  80294FE4
+  140:  		SetConst  *Var1  00090009
+  150:  		ExecWait  80296014
+  15C:  	Case  ==  .Event:BurnContact % 2C
+  168:  		SetConst  *Var1  0009000B
+  178:  		Set   *Var2  0000000C
+  188:  		SetConst  *Var3  0009000C
+  198:  		ExecWait  80294C68
+  1A4:  		SetConst  *Var1  00090009
+  1B4:  		ExecWait  80296014
+  1C0:  	Case  ==  .Event:BurnHit % E
+  1CC:  		SetConst  *Var1  0009000B
+  1DC:  		SetConst  *Var2  0009000C
+  1EC:  		ExecWait  8029621C
+  1F8:  		SetConst  *Var1  00090009
+  208:  		ExecWait  80296014
+  214:  	Case  ==  .Event:ShockHit % 2F
+  220:  		SetConst  *Var1  00090009
+  230:  		Set   *Var2  0000000C
+  240:  		ExecWait  80295744
+  24C:  	Case  ==  00000033 % 33
+  258:  		Call  $Function_8023903C ( )
+  264:  		SetConst  *Var1  00090009
+  274:  		ExecWait  80296014
+  280:  	Case  ==  00000034 % 34
+  28C:  		SetConst  *Var0  00000001
+  29C:  		SetConst  *Var1  00090001
+  2AC:  		SetConst  *Var2  00090003
+  2BC:  		Set   *Var3  00000000
+  2CC:  		ExecWait  80295EC4
+  2D8:  	CaseOR  ==  00000018 % 18
+  2E4:  	CaseOR  ==  .Event:Block % 1A
+  2F0:  		Call  PlaySoundAtActor  ( .Actor:Partner 0000208C )
+  304:  		SetConst  *Var0  00000001
+  314:  		SetConst  *Var1  00090013
+  324:  		ExecWait  80297814
+  330:  		Wait  10`
+  33C:  	EndCaseGroup
+  344:  	Default
+  34C:  EndSwitch
+  354:  Call  UseIdleAnimation  ( .Actor:Partner .True )
+  368:  Return
+  370:  End
+}

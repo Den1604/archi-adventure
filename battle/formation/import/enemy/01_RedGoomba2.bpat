@@ -3,7 +3,7 @@
 #new:Actor $01_RedGoomba2 {
 % stats
 [Index]        91b 
-[Level]        20`b 
+[Level]        40`b 
 [MaxHP]         7`b 
 [Coins]         0`b 
 [Flags]       00000000 
@@ -594,10 +594,50 @@
   97C:  		Call  SetActorScale ( .Actor:Self *Fixed[1.3] *Fixed[0.5] *Fixed[1.0] )
   998:  		Wait  1`
   9A4:  EndSwitch
-  9AC:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 00000000 00000001 00000020 )
+  9AC:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 ~DebuffType:Poison:1:10` 00000002 00000020 )
+
+
+          Call GetGoalPos ( .Actor:Self *VarA *VarB *VarC )
+          Call PlayEffect ( ~FX:Steam:LingeringRing *VarA *VarB *VarC )
+
+
   9D4:  Switch  *Var0 
   9E0:  	CaseOR  ==  .HitResult:Hit % 0
   9EC:  	CaseOR  ==  .HitResult:QuakeImmune % 2
+
+
+               Call SetTargetActor ( .Actor:Self .Actor:Partner )
+               Call  SetGoalToTarget       ( .Actor:Self )
+               Call  SetActorJumpGravity   ( .Actor:Self *Fixed[1.2] )
+               Thread
+                    Call  GetActorPos   ( .Actor:Self *Var1 *Var2 *Var0 )
+                    Set   *Var0  00000000 
+                    Loop  00000010 
+                         Call  GetActorPos   ( .Actor:Self *Var4 *Var5 *Var6 )
+                         Call  $Function_8021893C_01 ( *Var1 *Var2 *Var4 *Var5 *Var0 )
+                         Call  SetActorRotation      ( .Actor:Self 00000000 00000000 *Var0 )
+                         Set   *Var1  *Var4 
+                         Set   *Var2  *Var5 
+                         Set   *Var3  *Var6 
+                         Wait  1`
+                    EndLoop
+               EndThread
+               Thread
+               	Wait  6`
+               	Call  SetAnimation  ( .Actor:Self 00000001 00620008 )
+               EndThread
+               Call  JumpToGoal    ( .Actor:Self  24` .False .True .False )
+       		Call  SetAnimation  ( .Actor:Self 00000001 00620008 )
+       		Call  SetActorScale ( .Actor:Self *Fixed[1.1] *Fixed[0.8] *Fixed[1.0] )
+       		Wait  1`
+       		Call  SetActorScale ( .Actor:Self *Fixed[1.3] *Fixed[0.5] *Fixed[1.0] )
+       		Wait  1`
+               Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 00000000 00000001 00000020 )
+               Call GetGoalPos ( .Actor:Self *VarA *VarB *VarC )
+               Call PlayEffect ( ~FX:Steam:LingeringRing *VarA *VarB *VarC )
+
+
+
   9F8:  		Call  UseBattleCamPreset    ( 00000002 )
   A08:  		Call  SetActorScale ( .Actor:Self *Fixed[1.1] *Fixed[0.8] *Fixed[1.0] )
   A24:  		Wait  1`
@@ -637,8 +677,8 @@
 
 #new:Script $Script_Init_802207B8_01 {
     0:  ExecWait  $Script_8021EF9C_01 
-    C:  Call  SetEnemyHP    ( .Actor:Self  2` )
-   20:  Call  $Function_80218A30_01 ( )
+%     C:  Call  SetEnemyHP    ( .Actor:Self  2` )
+%    20:  Call  $Function_80218A30_01 ( )
    2C:  Return
    34:  End
 }

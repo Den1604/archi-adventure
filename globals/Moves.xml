@@ -46,7 +46,7 @@
 	<Move index="02B" nameMsg="2A-000" desc1Msg="23-058" desc2Msg="25-058" flags="00054881" category="02" inputPopup="00" fp="02" bp="01" name="PowerJump"/>
 	<Move index="02C" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" flags="00054881" category="02" inputPopup="00" fp="04" bp="02" name="SuperJump"/>
 	<Move index="02D" nameMsg="2A-001" desc1Msg="23-059" desc2Msg="25-059" flags="00054881" category="02" inputPopup="00" fp="06" bp="03" name="MegaJump"/>
-	<Move index="02E" nameMsg="2A-008" desc1Msg="23-060" desc2Msg="25-060" flags="00054881" category="02" inputPopup="00" fp="02" bp="02" name="DDownJump"/>
+	<Move index="02E" nameMsg="2A-008" desc1Msg="23-060" desc2Msg="25-060" flags="00054881" category="02" inputPopup="00" fp="03" bp="03" name="DDownJump"/>
 	<Move index="02F" nameMsg="2A-007" desc1Msg="23-05F" desc2Msg="25-05F" flags="00054881" category="02" inputPopup="00" fp="02" bp="01" name="ShrinkStomp"/>
 	<Move index="030" nameMsg="00-000" desc1Msg="00-000" desc2Msg="00-000" flags="00008020" category="02" inputPopup="14" fp="02" bp="02" name="EarthquakeJump"/>
 	<Move index="031" nameMsg="00-000" desc1Msg="23-074" desc2Msg="25-074" flags="00010005" category="03" inputPopup="FF" fp="00" bp="06" name="Unused_DefendPlus"/>

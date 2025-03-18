@@ -15,10 +15,10 @@
  78:  Switch  *Var0
  84:  	Case  >  .False
  90:  		Call  SetActorSounds    ( .Actor:Player .ActorSound:Hurt 0000015B 00000000 )
- AC:  		Call  PlayerDamageEnemy ( *Var0 ~Flags:DamageType:Jump 00000000 00000000 00000001 00000050 )
+ AC:  		Call  PlayerDamageEnemy ( *Var0 ~Flags:DamageType:Jump 00000000 00000000 *GB_JumpCounter 00000050 )
  D0:  	Default
  D8:  		Call  SetActorSounds    ( .Actor:Player .ActorSound:Hurt 0000015B 00000000 )
- F4:  		Call  PlayerDamageEnemy ( *Var0 ~Flags:DamageType:Jump 00000000 00000000 00000001 00000030 )
+ F4:  		Call  PlayerDamageEnemy ( *Var0 ~Flags:DamageType:Jump 00000000 00000000 *GB_JumpCounter 00000030 )
 118:  EndSwitch
 120:  Switch  *Var0
 12C:  	CaseOR  ==  .HitResult:Hit % 0
@@ -41,6 +41,7 @@
 
 Wait 1`
 EndLoop
+
 1F0:  Call  LoadActionCommand ( .ActionCommand:Jump )
 200:  Call  802A9000 ( )
 20C:  Call  802694A4  ( 00000000 )

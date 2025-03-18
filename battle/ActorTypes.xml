@@ -213,4 +213,6 @@
 	<ActorType desc="SlotMachineStart" id="D1" name="00290076" tattle="001C0093" sfxIncrement="30,30"/>
 	<ActorType desc="SlotMachineStart" id="D2" name="00290076" tattle="001C0093" sfxIncrement="30,30"/>
 	<ActorType desc="SlotMachineStart" id="D3" name="00290076" tattle="001C0093" sfxIncrement="30,30"/>
+	<ActorType desc="YellowGoomba" id="D4" name="00290083" tattle="001C0096" tattleCamOffset="0,4,0" sfxWalk="3AC,3AC" sfxJump="10F" sfxHurt="10F" sfxIncrement="30,30"/>
+	<ActorType desc="PurpleGoomba" id="D5" name="00290084" tattle="001C0097" tattleCamOffset="0,4,0" sfxWalk="3AC,3AC" sfxJump="10F" sfxHurt="10F" sfxIncrement="30,30"/>
 </ActorTypes>

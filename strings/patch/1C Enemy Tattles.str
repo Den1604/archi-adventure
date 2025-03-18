@@ -36,6 +36,52 @@
 	ordinary Goombas.[Wait][End]
 }
 
+#message:1C:003
+{
+	[Style Right]
+	This is the Red Mushroom[BR]
+	Goomba.[Pause:10] He's part of the[BR]
+	Mushroom Goomba Squad.[BR]
+	[Wait][Next]
+	Max HP: 7[BR]
+	Attack Power: 2[BR]
+	Defense Power: 0[BR]
+	[Wait][Next]
+	He seems ferocious![Pause:10] I'm worried[BR]
+	he might go for me aswell as you...[Pause:10][BR]
+	It might knock me out for a little[BR]
+	while unless I guard it![BR]
+	[Wait][Next]
+	Like the other Mushroom Goombas,[BR]
+	he might poison [Color:01](1/30)[Color:0A] you when[BR]
+	he hits you![Pause:10] So make sure to[BR]
+	guard his attacks![BR]
+	[Wait][End]
+}
+
+#message:1C:004
+{
+	[Style Right]
+	This is the Blue Mushroom[BR]
+	Goomba.[Pause:10] He's part of the[BR]
+	Mushroom Goomba Squad.[BR]
+	[Wait][Next]
+	Max HP: 7[BR]
+	Attack Power: 1[BR]
+	Defense Power: 1[BR]
+	[Wait][Next]
+	He seems to have a hard shell,[BR]
+	so our damage might be reduced![Pause:10][BR]
+	But he also doesn't seem much[BR]
+	worse than a regular Goomba.[BR]
+	[Wait][Next]
+	Like the other Mushroom Goombas,[BR]
+	he might poison [Color:01](1/30)[Color:0A] you when[BR]
+	he hits you![Pause:10] So make sure to[BR]
+	guard his attack![BR]
+	[Wait][End]
+}
+
 #message:1C:015
 {
 	[Style Right]
@@ -74,4 +120,54 @@
 	[Wait][Next]
 	Let's get rid of these guys[BR]
 	before they poison you![Wait][End]
+}
+
+#message:1C:096
+{
+	[Style Right]
+	This is the Yellow Mushroom[BR]
+	Goomba.[Pause:10] He's part of the[BR]
+	Mushroom Goomba Squad.[BR]
+	[Wait][Next]
+	Max HP: 7[BR]
+	Attack Power: Min. 1 - Max. 2[BR]
+	Defense Power: 0[BR]
+	[Wait][Next]
+	This guy just won't sit still!![Pause:10][BR]
+	I wonder if this reflects on his[BR]
+	attacks...[BR]
+	[Wait][Next]
+	Let's be extra careful when this[BR]
+	guy attacks us, Mario![BR]
+	[Wait][Next]
+	Like the other Mushroom Goombas,[BR]
+	he might poison [Color:01](1/30)[Color:0A] you when[BR]
+	he hits you![Pause:10] So make sure to[BR]
+	guard his attacks![BR]
+	[Wait][End]
+}
+
+#message:1C:097
+{
+	[Style Right]
+	This is the Purple Mushroom[BR]
+	Goomba.[Pause:10] She's part of the[BR]
+	Mushroom Goomba Squad.[BR]
+	[Wait][Next]
+	Max HP: 7[BR]
+	Attack Power: 1[BR]
+	Defense Power: 0[BR]
+	[Wait][Next]
+	Not to be rude to her, but she[BR]
+	seems a lot lighter than the[BR]
+	rest of the squad.[BR]
+	[Wait][Next]
+	Her headbonks might be floatier[BR]
+	than the others! Don't get thrown[BR]
+	off by it![BR]
+	[Wait][Next]
+	She also looks extra poisonous...[Pause:10][BR]
+	Make sure to guard her attacks[BR]
+	to avoid being poisoned! [Color:01](1/10)[Color:0A][BR]
+	[Wait][End]
 }

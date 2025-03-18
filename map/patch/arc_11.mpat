@@ -3,7 +3,7 @@
 	[MainScript] $Script_Main
 	[Background] 00000000
 	[EntryList] $EntryList
-	[EntryCount] 2
+	[EntryCount] 3
 	[MapTattle]  0019000A
 }
 

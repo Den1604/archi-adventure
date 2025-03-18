@@ -3,8 +3,8 @@
 #new:Actor $01_BlueGoomba2 {
 % stats
 [Index]        90b 
-[Level]        20`b 
-[MaxHP]         6`b 
+[Level]        40`b 
+[MaxHP]         7`b 
 [Coins]         0`b 
 [Flags]       00000000 
 [StatusTable] $StatusTable_8021D40C_01 
@@ -214,7 +214,7 @@
 }
 
 #new:DefenseTable $DefenseTable_8021D400_01 {
-.Element:Normal 00000000
+.Element:Normal 00000001
 .Element:End
 }
 
@@ -594,7 +594,9 @@
   97C:  		Call  SetActorScale ( .Actor:Self *Fixed[1.3] *Fixed[0.5] *Fixed[1.0] )
   998:  		Wait  1`
   9A4:  EndSwitch
-  9AC:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 00000000 00000001 00000020 )
+  9AC:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:0 00000000 ~DebuffType:Poison:2:30` 00000001 00000020 )
+          Call GetGoalPos ( .Actor:Self *VarA *VarB *VarC )
+          Call PlayEffect ( ~FX:Steam:LingeringRing *VarA *VarB *VarC )
   9D4:  Switch  *Var0 
   9E0:  	CaseOR  ==  .HitResult:Hit % 0
   9EC:  	CaseOR  ==  .HitResult:QuakeImmune % 2
@@ -637,8 +639,8 @@
 
 #new:Script $Script_Init_8021EDB8_01 {
     0:  ExecWait  $Script_8021D59C_01 
-    C:  Call  SetEnemyHP    ( .Actor:Self  2` )
-   20:  Call  $Function_80218780_01 ( )
+%     C:  Call  SetEnemyHP    ( .Actor:Self  2` )
+%    20:  Call  $Function_80218780_01 ( )
    2C:  Return
    34:  End
 }

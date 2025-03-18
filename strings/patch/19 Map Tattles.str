@@ -209,3 +209,16 @@
 	Waterfall Island 7 Tattle
 	[Wait][End]
 }
+
+#message:19:00C
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	This seems to just be[BR]
+	a little cave that holds[BR]
+	some mushrooms n streams.[BR]
+	[Wait][Next]
+	Look at that adorable[BR]
+	stream passing by![BR]
+	[Wait][End]
+}

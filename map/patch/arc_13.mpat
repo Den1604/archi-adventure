@@ -1,0 +1,43 @@
+@ $Header
+{
+	[MainScript] $Script_Main
+	[Background] 00000000
+	[EntryList] $EntryList
+	[EntryCount] 1
+	[MapTattle]  0019000C
+}
+
+@ $Script_MakeEntities
+{
+	Call  MakeItemEntity    ( .Item:SuperShroom ~Vec3d:Pos_Mushroom .ItemSpawnMode:Fixed_NeverVanish *MF_ARC_13_MUSHROOM )
+    If *MF_ARC_13_TRIPLEJUMP == .False
+        Call  MakeItemEntity    ( .Item:DDownJump ~Vec3d:Pos_TripleJump .ItemSpawnMode:Decoration *MF_ARC_13_TRIPLEJUMP )
+        Set *MapVar[0] *Var0
+    EndIf
+	Return
+	End
+}
+
+
+@ $Script_Callback_Tree_MushromTreeColl
+{
+    If *MF_ARC_13_TRIPLEJUMP == .True
+        Return
+    EndIf
+    If *MapFlag[0] == .True
+        Return
+    EndIf
+    Set *MapFlag[0] .True
+    Call RemoveItemEntity ( *MapVar[0] )
+	Call MakeItemEntity ( .Item:DDownJump ~Vec3d:Pos_TripleJump .ItemSpawnMode:Toss_Higher_NeverVanish *MF_ARC_13_TRIPLEJUMP )
+	Return
+	End
+}
+
+@ $Script_SetupMusic
+{
+	Call  SetMusicTrack ( 00000000 .Song:YoshiMountain 00000000 00000006 )
+	Call  ClearAmbientSounds ( 250` )
+	Return
+	End
+}
