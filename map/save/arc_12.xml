@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_12" author="unnamed" textures="jan_tex">
 	<Editor>
-		<Camera pos="66.931343,299.469879,581.106873" pitch="17.440060" yaw="352.639923"/>
-		<Camera pos="444.621216,65536.000000,-80.974213"/>
-		<Camera pos="65536.000000,19.757145,26.310450"/>
-		<Camera pos="192.229477,49.970608,65536.000000"/>
+		<Camera pos="-34.915337,166.044876,434.833313" pitch="11.680093" yaw="2.720004"/>
+		<Camera pos="334.042389,65536.000000,5.190966"/>
+		<Camera pos="65536.000000,54.192406,2.575619"/>
+		<Camera pos="305.951508,85.415108,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="31">
@@ -64,23 +64,25 @@
 		</Node>
 	</ModelTree>
 	<ColliderTree>
-		<Node name="Root" id="E">
+		<Node name="Root" id="10">
 			<Node name="Stage" id="0"/>
-			<Node name="Exits" id="2">
+			<Node name="Exits" id="3">
 				<Node name="Entry0Coll" id="1"/>
+				<Node name="Entry1Coll" id="2"/>
 			</Node>
-			<Node name="ExitGuards" id="4">
-				<Node name="Entry0GuardColl" id="3"/>
+			<Node name="ExitGuards" id="6">
+				<Node name="Entry0GuardColl" id="4"/>
+				<Node name="Entry1GuardColl" id="5"/>
 			</Node>
-			<Node name="MeshCollider" id="5"/>
-			<Node name="MeshCollider" id="6"/>
-			<Node name="SecurityColl" id="7"/>
+			<Node name="MeshCollider" id="7"/>
 			<Node name="MeshCollider" id="8"/>
-			<Node name="MeshCollider" id="9"/>
-			<Node name="HullCollider" id="A"/>
-			<Node name="HullCollider" id="B"/>
-			<Node name="DrawnCollider" id="C"/>
-			<Node name="DrawnCollider" id="D"/>
+			<Node name="SecurityColl" id="9"/>
+			<Node name="MeshCollider" id="A"/>
+			<Node name="MeshCollider" id="B"/>
+			<Node name="HullCollider" id="C"/>
+			<Node name="HullCollider" id="D"/>
+			<Node name="DrawnCollider" id="E"/>
+			<Node name="DrawnCollider" id="F"/>
 		</Node>
 	</ColliderTree>
 	<ZoneTree>
@@ -94,31 +96,32 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="16">
-			<Node name="Entrances" id="0">
+		<Node name="Root" id="17">
+			<Node name="Entrances" id="1">
 				<Node name="Entry0" id="FFFFFFFF"/>
+				<Node name="Entry1" id="0"/>
 			</Node>
-			<Node name="NPC_RedGoomba" id="1"/>
-			<Node name="NPC_BlueGoomba" id="2"/>
-			<Node name="NPC_YellowGoomba" id="3"/>
-			<Node name="NPC_PurpleGoomba" id="4"/>
-			<Node name="NPC_BattleStarPos" id="5"/>
-			<Node name="Pos_AwaitPlayerApproach" id="6"/>
-			<Node name="Pos_StarShard" id="7"/>
-			<Node name="CamPan_RedGoomba" id="8"/>
-			<Node name="CamPan_BlueGoomba" id="9"/>
-			<Node name="CamPan_YellowGoomba" id="A"/>
-			<Node name="CamPan_PurpleGoomba" id="B"/>
-			<Node name="CamPan_CutsceneStart" id="C"/>
-			<Node name="CamPan_CutsceneZoomOut" id="D"/>
-			<Node name="Pos_RedGoombaJump" id="E"/>
-			<Node name="Pos_BlueGoombaJump" id="F"/>
-			<Node name="Pos_YellowGoombaJump" id="10"/>
-			<Node name="Pos_PurpleGoombaJump" id="11"/>
-			<Node name="Pos_RedGoombaJump_Defeat" id="12"/>
-			<Node name="Pos_BlueGoombaJump_Defeat" id="13"/>
-			<Node name="Pos_YellowGoombaJump_Defeat" id="14"/>
-			<Node name="Pos_PurpleGoombaJump_Defeat" id="15"/>
+			<Node name="NPC_RedGoomba" id="2"/>
+			<Node name="NPC_BlueGoomba" id="3"/>
+			<Node name="NPC_YellowGoomba" id="4"/>
+			<Node name="NPC_PurpleGoomba" id="5"/>
+			<Node name="NPC_BattleStarPos" id="6"/>
+			<Node name="Pos_AwaitPlayerApproach" id="7"/>
+			<Node name="Pos_StarShard" id="8"/>
+			<Node name="CamPan_RedGoomba" id="9"/>
+			<Node name="CamPan_BlueGoomba" id="A"/>
+			<Node name="CamPan_YellowGoomba" id="B"/>
+			<Node name="CamPan_PurpleGoomba" id="C"/>
+			<Node name="CamPan_CutsceneStart" id="D"/>
+			<Node name="CamPan_CutsceneZoomOut" id="E"/>
+			<Node name="Pos_RedGoombaJump" id="F"/>
+			<Node name="Pos_BlueGoombaJump" id="10"/>
+			<Node name="Pos_YellowGoombaJump" id="11"/>
+			<Node name="Pos_PurpleGoombaJump" id="12"/>
+			<Node name="Pos_RedGoombaJump_Defeat" id="13"/>
+			<Node name="Pos_BlueGoombaJump_Defeat" id="14"/>
+			<Node name="Pos_YellowGoombaJump_Defeat" id="15"/>
+			<Node name="Pos_PurpleGoombaJump_Defeat" id="16"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -141,10 +144,10 @@
 					<F3DEX2 cmd="D9FFFFFF,200400"/>
 					<TriangleBatch ver="0">
 						<VertexTable>
-							<Vertex xyz="452,50,-94" uv="168,3416" rgba="106,106,85,-1"/>
-							<Vertex xyz="354,50,-83" uv="80,2632" rgba="106,106,85,-1"/>
-							<Vertex xyz="452,50,94" uv="-1336,3416" rgba="106,106,85,-1"/>
-							<Vertex xyz="329,50,83" uv="-1248,2432" rgba="106,106,85,-1"/>
+							<Vertex xyz="452,50,-94" uv="168,3416" rgba="106,106,85,255"/>
+							<Vertex xyz="354,50,-83" uv="80,2632" rgba="106,106,85,255"/>
+							<Vertex xyz="452,50,94" uv="-1336,3416" rgba="106,106,85,255"/>
+							<Vertex xyz="329,50,83" uv="-1248,2432" rgba="106,106,85,255"/>
 						</VertexTable>
 						<TriangleList>
 							<Triangle ijk="0,1,2"/>
@@ -7316,11 +7319,11 @@
 	</Models>
 	<Colliders>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Root" id="E"/>
+			<MapObject name="Root" id="10"/>
 			<HitObject type="ROOT"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="DrawnCollider" id="D" hidden="true"/>
+			<MapObject name="DrawnCollider" id="F" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7382,7 +7385,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="DrawnCollider" id="C" hidden="true"/>
+			<MapObject name="DrawnCollider" id="E" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7405,7 +7408,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="HullCollider" id="B" hidden="true"/>
+			<MapObject name="HullCollider" id="D" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7469,7 +7472,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="HullCollider" id="A" hidden="true"/>
+			<MapObject name="HullCollider" id="C" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7597,7 +7600,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="MeshCollider" id="9" hidden="true"/>
+			<MapObject name="MeshCollider" id="B" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7729,7 +7732,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="MeshCollider" id="8" hidden="true"/>
+			<MapObject name="MeshCollider" id="A" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7829,7 +7832,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="SecurityColl" id="7" hidden="true"/>
+			<MapObject name="SecurityColl" id="9" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -7848,7 +7851,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="MeshCollider" id="6" hidden="true"/>
+			<MapObject name="MeshCollider" id="8" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8340,7 +8343,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="MeshCollider" id="5" hidden="true"/>
+			<MapObject name="MeshCollider" id="7" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8488,11 +8491,37 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="ExitGuards" id="4"/>
+			<MapObject name="ExitGuards" id="6"/>
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Entry0GuardColl" id="3" hidden="true"/>
+			<MapObject name="Entry1GuardColl" id="5" hidden="true"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="452,200,94" uv="1975,1024"/>
+						<Vertex xyz="329,50,83"/>
+						<Vertex xyz="329,200,83" uv="0,1024"/>
+						<Vertex xyz="452,50,94" uv="1975,0"/>
+						<Vertex xyz="452,200,-94" uv="4983,1024"/>
+						<Vertex xyz="452,50,-94" uv="4983,0"/>
+						<Vertex xyz="354,200,-83" uv="6561,1024"/>
+						<Vertex xyz="354,50,-83" uv="6561,0"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="1,0,3"/>
+						<Triangle ijk="4,3,0"/>
+						<Triangle ijk="3,4,5"/>
+						<Triangle ijk="6,5,4"/>
+						<Triangle ijk="5,6,7"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
+		</Collider>
+		<Collider ver="0" flags="0" surface="0">
+			<MapObject name="Entry0GuardColl" id="4" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8520,8 +8549,32 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Exits" id="2"/>
+			<MapObject name="Exits" id="3"/>
 			<HitObject type="GROUP"/>
+		</Collider>
+		<Collider ver="0" flags="0" surface="0">
+			<MapObject name="Entry1Coll" id="2" hidden="true"/>
+			<HitObject type="HIT"/>
+			<HitMesh ver="0">
+				<TriangleBatch ver="0">
+					<VertexTable>
+						<Vertex xyz="452,50,-94" uv="168,3416" rgba="106,106,85,255"/>
+						<Vertex xyz="354,50,-83" uv="80,2632" rgba="106,106,85,255"/>
+						<Vertex xyz="452,50,94" uv="-1336,3416" rgba="106,106,85,255"/>
+						<Vertex xyz="329,50,83" uv="-1248,2432" rgba="106,106,85,255"/>
+						<Vertex xyz="452,50,94" uv="-1336,3416" rgba="106,106,85,255"/>
+						<Vertex xyz="354,50,-83" uv="80,2632" rgba="106,106,85,255"/>
+						<Vertex xyz="354,50,-83" uv="80,2632" rgba="106,106,85,255"/>
+						<Vertex xyz="354,50,-83" uv="80,2632" rgba="106,106,85,255"/>
+						<Vertex xyz="452,50,94" uv="-1336,3416" rgba="106,106,85,255"/>
+					</VertexTable>
+					<TriangleList>
+						<Triangle ijk="0,1,2"/>
+						<Triangle ijk="3,4,5"/>
+						<Triangle ijk="6,7,8"/>
+					</TriangleList>
+				</TriangleBatch>
+			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
 			<MapObject name="Entry0Coll" id="1" hidden="true"/>
@@ -8695,93 +8748,96 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="16"/>
+			<MapObject name="Root" id="17"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="124,-400,112" yaw="0.000000">
-			<MapObject name="Pos_PurpleGoombaJump_Defeat" id="15" hidden="true"/>
+			<MapObject name="Pos_PurpleGoombaJump_Defeat" id="16"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="80,-400,-102" yaw="0.000000">
-			<MapObject name="Pos_YellowGoombaJump_Defeat" id="14" hidden="true"/>
+			<MapObject name="Pos_YellowGoombaJump_Defeat" id="15"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-42,-400,125" yaw="0.000000">
-			<MapObject name="Pos_BlueGoombaJump_Defeat" id="13" hidden="true"/>
+			<MapObject name="Pos_BlueGoombaJump_Defeat" id="14"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-94,-400,-77" yaw="0.000000">
-			<MapObject name="Pos_RedGoombaJump_Defeat" id="12" hidden="true"/>
+			<MapObject name="Pos_RedGoombaJump_Defeat" id="13"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="91,6,-30" yaw="0.000000">
-			<MapObject name="Pos_PurpleGoombaJump" id="11" hidden="true"/>
+			<MapObject name="Pos_PurpleGoombaJump" id="12"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="45,6,-50" yaw="0.000000">
-			<MapObject name="Pos_YellowGoombaJump" id="10" hidden="true"/>
+			<MapObject name="Pos_YellowGoombaJump" id="11"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="0,6,-50" yaw="0.000000">
-			<MapObject name="Pos_BlueGoombaJump" id="F" hidden="true"/>
+			<MapObject name="Pos_BlueGoombaJump" id="10"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-47,6,-30" yaw="0.000000">
-			<MapObject name="Pos_RedGoombaJump" id="E" hidden="true"/>
+			<MapObject name="Pos_RedGoombaJump" id="F"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="22,6,200" yaw="0.000000">
-			<MapObject name="CamPan_CutsceneZoomOut" id="D" hidden="true"/>
+			<MapObject name="CamPan_CutsceneZoomOut" id="E"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="600.000000" overrideAngles="18.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="22,6,8" yaw="0.000000">
-			<MapObject name="CamPan_CutsceneStart" id="C" hidden="true"/>
+			<MapObject name="CamPan_CutsceneStart" id="D"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="600.000000" overrideAngles="18.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="127,33,-176" yaw="0.000000">
-			<MapObject name="CamPan_PurpleGoomba" id="B" hidden="true"/>
+			<MapObject name="CamPan_PurpleGoomba" id="C"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="16.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="52,63,-260" yaw="0.000000">
-			<MapObject name="CamPan_YellowGoomba" id="A" hidden="true"/>
+			<MapObject name="CamPan_YellowGoomba" id="B"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="16.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="-53,52,-177" yaw="0.000000">
-			<MapObject name="CamPan_BlueGoomba" id="9" hidden="true"/>
+			<MapObject name="CamPan_BlueGoomba" id="A"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="16.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="-175,72,-210" yaw="0.000000">
-			<MapObject name="CamPan_RedGoomba" id="8" hidden="true"/>
+			<MapObject name="CamPan_RedGoomba" id="9"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="16.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="Entity" pos="159,49,20" yaw="0.000000">
-			<MapObject name="Pos_StarShard" id="7" hidden="true"/>
+			<MapObject name="Pos_StarShard" id="8"/>
 			<Entity type="FFFFFFFF" flag="*MF_ARC_12_STARSHARD" item="Calculator" itemSpawnMode="Fixed_NeverVanish"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="159,6,16" yaw="0.000000">
-			<MapObject name="Pos_AwaitPlayerApproach" id="6" hidden="true"/>
+			<MapObject name="Pos_AwaitPlayerApproach" id="7"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="22,49,-400" yaw="0.000000">
-			<MapObject name="NPC_BattleStarPos" id="5" hidden="true"/>
+			<MapObject name="NPC_BattleStarPos" id="6"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="9F" palette="0" animations="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="127,33,-176" yaw="0.000000">
-			<MapObject name="NPC_PurpleGoomba" id="4" hidden="true"/>
+			<MapObject name="NPC_PurpleGoomba" id="5"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="62" palette="9" animations="2,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="52,63,-260" yaw="0.000000">
-			<MapObject name="NPC_YellowGoomba" id="3" hidden="true"/>
+			<MapObject name="NPC_YellowGoomba" id="4"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="62" palette="A" animations="2,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="-53,52,-177" yaw="0.000000">
-			<MapObject name="NPC_BlueGoomba" id="2" hidden="true"/>
+			<MapObject name="NPC_BlueGoomba" id="3"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="62" palette="1" animations="2,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="-175,72,-210" yaw="0.000000">
-			<MapObject name="NPC_RedGoomba" id="1" hidden="true"/>
+			<MapObject name="NPC_RedGoomba" id="2"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="62" palette="0" animations="2,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="Group">
-			<MapObject name="Entrances" id="0"/>
+			<MapObject name="Entrances" id="1"/>
+		</Marker>
+		<Marker ver="4" type="Entry" pos="328,50,0" yaw="270.000000">
+			<MapObject name="Entry1" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="-316,0,0" yaw="90.000000">
-			<MapObject name="Entry0" id="FFFFFFFF" hidden="true"/>
+			<MapObject name="Entry0" id="FFFFFFFF"/>
 		</Marker>
 	</Markers>
 	<ScriptData>
@@ -8805,7 +8861,9 @@
 		</TexPanners>
 		<Generators>
 			<Entrance type="Walk" hasCallback="false" entry="Entry0"/>
+			<Entrance type="Walk" hasCallback="false" entry="Entry1"/>
 			<Exit type="Walk" hasCallback="false" entry="Entry0" destMap="arc_11" destEntry="Entry1" trigger="Entry0Coll"/>
+			<Exit type="Walk" hasCallback="false" entry="Entry1" destMap="arc_12" destEntry="Entry1" trigger="Entry1Coll"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="0,10,10,10,255,950,1000" entity="0,10,10,10,255,950,1000"/>

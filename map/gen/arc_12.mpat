@@ -5,12 +5,13 @@
 	[MainScript] $Script_Main
 	[Background] 00000000
 	[EntryList] $EntryList
-	[EntryCount] 1
+	[EntryCount] 2
 }
 
 #new:EntryList $EntryList
 {
 	~Vec4f:Entry0
+	~Vec4f:Entry1
 }
 
 #new:Script $Script_TexturePan_Update
@@ -427,9 +428,11 @@
 {
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
-		Case  ==  ~Entry:Entry0
+		CaseOR  ==  ~Entry:Entry0
+		CaseOR  ==  ~Entry:Entry1
 			Set   *Var[0] $Script_CreateExitTriggers
 			Exec  EnterWalk
+		EndCaseGroup
 		Default
 			Exec  $Script_CreateExitTriggers
 	EndSwitch
@@ -448,9 +451,21 @@
 	End
 }
 
+#new:Script $Script_Exit_Entry1
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry1 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "arc_12" ~Entry:arc_12:Entry1 )
+	Wait  100`
+	Return
+	End
+}
+
 #new:Script $Script_CreateExitTriggers
 {
 	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:Entry0Coll 00000001 00000000
+	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:Entry1Coll 00000001 00000000
 	Return
 	End
 }
