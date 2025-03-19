@@ -233,5 +233,25 @@
 				<Command val="2000"/>
 			</Component>
 		</Animation>
+		<Animation name="Anim_0B">
+			<Component name="Comp_00" xyz="0,0,0">
+				<Command val="102B"/>
+				<Command val="6"/>
+				<Command val="1028"/>
+				<Command val="6"/>
+				<Command val="2000"/>
+			</Component>
+			<Component name="Comp_01" xyz="8,0,-2">
+				<Command val="1019"/>
+				<Command val="6"/>
+				<Command val="101A"/>
+				<Command val="3000"/>
+				<Command val="FFF2"/>
+				<Command val="4"/>
+				<Command val="0"/>
+				<Command val="6"/>
+				<Command val="2000"/>
+			</Component>
+		</Animation>
 	</AnimationList>
 </SpriteSheet>

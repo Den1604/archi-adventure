@@ -1,0 +1,170 @@
+#define .NpcID:NPC_SlideHelperPlayer               00
+#define .NpcID:NPC_SlideHelperPartner              01
+
+@ $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
+    Call MakeNpcs  ( .False $NpcGroupList_SlideHelpers )
+    Call PlaySound ( 0000004E )
+    Bind  $Script_SlideLeave .Trigger:WallPressA ~Collider:SlideInteractColl 00000001 00000000
+	Exec  $Script_EnterMap
+	Return
+	End
+}
+
+#new:NpcGroupList $NpcGroupList_SlideHelpers
+{
+	00000002 $NpcGroup_SlideHelpers 00000000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_SlideHelpers
+{
+	.NpcID:NPC_SlideHelperPlayer $NpcSettings_8024EC90 ~Vec3f:NPC_SlideHelperPlayer
+	0000010A $Script_Init_SlideHelpers 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC_SlideHelperPlayer
+	~AnimationTable:NPC_SlideHelperPlayer
+	00000000 00000000 00000000 00000000
+
+    .NpcID:NPC_SlideHelperPartner $NpcSettings_8024EC90 ~Vec3f:NPC_SlideHelperPartner
+	0000010A $Script_Init_SlideHelpers 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC_SlideHelperPartner
+	~AnimationTable:NPC_SlideHelperPartner
+	00000000 00000000 00000000 00000000
+}
+
+#new:NpcSettings $NpcSettings_8024EC90
+{
+	00000000 001E001E 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+
+#new:Script $Script_Init_SlideHelpers
+{
+    Call BindNpcIdle ( .Npc:Self $Script_IdleHelpers )
+    Return
+    End
+}
+
+#new:Script $Script_IdleHelpers
+{
+    Call SetNpcPos ( .Npc:Self 0` -1000` 0` )
+    Call SetNpcPos ( .Npc:Self ~Vec3D:Pos_Path1 )
+    Return
+    End
+}
+
+#new:Script $Script_SlideLeave
+{
+    Call DisablePlayerInput ( .True )
+    Call DisablePartnerAI ( 00000000 )
+    Call SetPlayerJumpscale ( *Fixed[0.75] )
+    Call PlayerJump ( ~Vec3D:Pos_Path1 15` )
+    Call SetPlayerAnimation ( 00010033 )
+    Exec $Script_PartnerGoDownSlide
+    Exec $Script_PlayerGoDownSlide
+    Return
+    End
+}
+
+#new:Script $Script_BindPlayerToNpc
+{
+    Loop 
+        Call GetNpcPos ( .NpcID:NPC_SlideHelperPlayer *VarA *VarB *VarC )
+        Call SetPlayerPos ( *VarA *VarB *VarC )
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+#new:Script $Script_PlayerGoDownSlide
+{
+    Exec $Script_BindPlayerToNpc
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPlayer ~Vec3D:Pos_Path2 25` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPlayer ~Vec3D:Pos_Path3 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPlayer ~Vec3D:Pos_Path4 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPlayer ~Vec3D:Pos_Path5 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPlayer ~Vec3D:Pos_Path6 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPlayer ~Vec3D:Pos_Path7 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPlayer ~Vec3D:Pos_Path8 20` 0` .Easing:CubicIn )
+    Call DisablePlayerPhysics ( .True )
+    Exec $Script_PanCamera_CamPan_Ending
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPlayer ~Vec3D:Pos_Path9 10` 0` .Easing:CubicOut )
+    Thread
+        Wait 5`
+        Call PlaySound ( 00000161 )
+    EndThread
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPlayer ~Vec3D:Pos_Path10 15` 0` .Easing:CubicIn )
+    Return
+    End
+}
+
+#new:Script $Script_PartnerGoDownSlide
+{
+    Wait 15`
+    Call SetNpcJumpscale ( .Npc:Partner *Fixed[0.75] )
+    Call PlaySound ( .Sound:Jump )
+    Call NpcJump0 ( .Npc:Partner ~Vec3D:Pos_Path1 15` )
+    Exec $Script_BindPartnerToNpc
+    Call SetNpcAnimation ( .Npc:Partner 0001000B )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPartner ~Vec3D:Pos_Path2 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPartner ~Vec3D:Pos_Path3 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPartner ~Vec3D:Pos_Path4 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPartner ~Vec3D:Pos_Path5 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPartner ~Vec3D:Pos_Path6 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPartner ~Vec3D:Pos_Path7 20` 0` .Easing:Linear )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPartner ~Vec3D:Pos_Path8 20` 0` .Easing:CubicIn )
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPartner ~Vec3D:Pos_Path9 10` 0` .Easing:CubicOut )
+    Thread
+        Wait 5`
+        Call PlaySound ( 00000161 )
+    EndThread
+    Call NpcFlyTo ( .NpcID:NPC_SlideHelperPartner ~Vec3D:Pos_Path10 15` 0` .Easing:CubicIn )
+    Wait 30`
+    Call GotoMap ( "arc_06" 00000001 )
+    Return
+    End
+}
+
+#new:Script $Script_BindPartnerToNpc
+{
+    Loop 
+        Call GetNpcPos ( .NpcID:NPC_SlideHelperPartner *VarD *VarE *VarF )
+        Call SetNpcPos ( .Npc:Partner *VarD *VarE *VarF )
+        Wait 1`
+    EndLoop
+    Return
+    End
+}
+
+@ $Script_Exit_Entry0
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry0 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "arc_12" ~Entry:arc_12:Entry1 )
+    Call StopSound ( 0000004E )
+	Wait  100`
+	Return
+	End
+}
+
+@ $Script_PanCamera_CamPan_Ending
+{
+	Call  UseSettingsFrom   ( .Cam:Default 708` -211` 991` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_Ending )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[2.500000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}

@@ -1,17 +1,16 @@
-% Auto-generated script for arc_12
+% Auto-generated script for arc_14
 
 #new:Header $Header
 {
 	[MainScript] $Script_Main
-	[Background] 00000000
+	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 2
+	[EntryCount] 1
 }
 
 #new:EntryList $EntryList
 {
 	~Vec4f:Entry0
-	~Vec4f:Entry1
 }
 
 #new:Script $Script_TexturePan_Update
@@ -266,12 +265,11 @@
 
 #new:Script_Main $Script_Main
 {
-	Set   *GB_WorldLocation  .Location:YoshisVillage
+	Set   *GB_WorldLocation  .Location:GoombaRoad
 	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
-	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
 	Exec  $Script_EnterMap
@@ -290,84 +288,12 @@
 	JPOP   RA
 }
 
-#new:Script $Script_MakeEntities
+#new:Script $Script_PanCamera_CamPan_Ending
 {
-	Call  MakeItemEntity    ( .Item:Calculator ~Vec3d:Pos_StarShard .ItemSpawnMode:Fixed_NeverVanish *MF_ARC_12_STARSHARD )
-	Return
-	End
-}
-
-#new:Script $Script_PanCamera_CamPan_RedGoomba
-{
-	Call  UseSettingsFrom   ( .Cam:Default -175` 72` -210` )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
+	Call  UseSettingsFrom   ( .Cam:Default 708` -211` 991` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
 	Call  SetCamDistance    ( .Cam:Default 450` )
-	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_RedGoomba )
-	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
-	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
-	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
-	Return
-	End
-}
-
-#new:Script $Script_PanCamera_CamPan_BlueGoomba
-{
-	Call  UseSettingsFrom   ( .Cam:Default -53` 52` -177` )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
-	Call  SetCamDistance    ( .Cam:Default 450` )
-	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_BlueGoomba )
-	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
-	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
-	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
-	Return
-	End
-}
-
-#new:Script $Script_PanCamera_CamPan_YellowGoomba
-{
-	Call  UseSettingsFrom   ( .Cam:Default 52` 63` -260` )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
-	Call  SetCamDistance    ( .Cam:Default 450` )
-	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_YellowGoomba )
-	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
-	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
-	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
-	Return
-	End
-}
-
-#new:Script $Script_PanCamera_CamPan_PurpleGoomba
-{
-	Call  UseSettingsFrom   ( .Cam:Default 127` 33` -176` )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[16.000000] *Fixed[-6.000000] )
-	Call  SetCamDistance    ( .Cam:Default 450` )
-	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_PurpleGoomba )
-	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
-	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
-	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
-	Return
-	End
-}
-
-#new:Script $Script_PanCamera_CamPan_CutsceneStart
-{
-	Call  UseSettingsFrom   ( .Cam:Default 22` 6` 8` )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[18.000000] *Fixed[-6.000000] )
-	Call  SetCamDistance    ( .Cam:Default 600` )
-	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_CutsceneStart )
-	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
-	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
-	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
-	Return
-	End
-}
-
-#new:Script $Script_PanCamera_CamPan_CutsceneZoomOut
-{
-	Call  UseSettingsFrom   ( .Cam:Default 22` 6` 200` )
-	Call  SetCamPitch       ( .Cam:Default *Fixed[18.000000] *Fixed[-6.000000] )
-	Call  SetCamDistance    ( .Cam:Default 600` )
-	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_CutsceneZoomOut )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_Ending )
 	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
 	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
 	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
@@ -377,7 +303,7 @@
 
 #new:Script $Script_SetupMusic
 {
-	Call  SetMusicTrack ( 00000000 .Song:YoshiMountain 00000000 00000008 )
+	Call  FadeOutMusic  ( 00000000 500` ) % usually between 500-1000
 	Call  ClearAmbientSounds ( 250` )
 	Return
 	End
@@ -385,31 +311,13 @@
 
 #new:Script $Script_SetupTexturePan
 {
-	Call     802C9000 	( ~Model:SmallWaterfall1 0 )
-	Call     802C9000 	( ~Model:SmallWaterfall2 1 )
-	Call     802C9000 	( ~Model:SmallWaterfall3 0 )
+	Call     802C9000 	( ~Model:WaterFlow 0 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] 0
-		Set  *Var[2] FFFFFF06
+		Set  *Var[2] 20D
 		Set  *Var[3] 0
-		Set  *Var[4] FFFFFE89
-		Set  *Var[5] 0
-		Set  *Var[6] 1
-		Set  *Var[7] 0
-		Set  *Var[8] 1
-		Set  *Var[9] 0
-		Set  *Var[A] 0
-		Set  *Var[B] 0
-		Set  *Var[C] 0
-		Exec $Script_TexturePan_Update
-	EndThread
-	Thread
-		Set  *Var[0] 1
-		Set  *Var[1] 0
-		Set  *Var[2] FFFFFE89
-		Set  *Var[3] 0
-		Set  *Var[4] FFFFFF06
+		Set  *Var[4] 28A
 		Set  *Var[5] 0
 		Set  *Var[6] 1
 		Set  *Var[7] 0
@@ -428,11 +336,9 @@
 {
 	Call  GetEntryID    ( *Var[0] )
 	Switch  *Var[0]
-		CaseOR  ==  ~Entry:Entry0
-		CaseOR  ==  ~Entry:Entry1
+		Case  ==  ~Entry:Entry0
 			Set   *Var[0] $Script_CreateExitTriggers
 			Exec  EnterWalk
-		EndCaseGroup
 		Default
 			Exec  $Script_CreateExitTriggers
 	EndSwitch
@@ -445,18 +351,7 @@
 	SetGroup 0000001B
 	Call     UseExitHeading ( 60` ~Entry:Entry0 )
 	Exec     ExitWalk
-	Call  GotoMap   ( "arc_11" ~Entry:arc_11:Entry1 )
-	Wait  100`
-	Return
-	End
-}
-
-#new:Script $Script_Exit_Entry1
-{
-	SetGroup 0000001B
-	Call     UseExitHeading ( 60` ~Entry:Entry1 )
-	Exec     ExitWalk
-	Call  GotoMap   ( "arc_14" ~Entry:arc_14:Entry0 )
+	Call  GotoMap   ( "arc_12" ~Entry:arc_12:Entry1 )
 	Wait  100`
 	Return
 	End
@@ -465,7 +360,6 @@
 #new:Script $Script_CreateExitTriggers
 {
 	Bind  $Script_Exit_Entry0 .Trigger:FloorAbove ~Collider:Entry0Coll 00000001 00000000
-	Bind  $Script_Exit_Entry1 .Trigger:FloorAbove ~Collider:Entry1Coll 00000001 00000000
 	Return
 	End
 }
