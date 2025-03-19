@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_14" author="unnamed" background="sra_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="-129.807739,105.300163,257.921143" pitch="25.679995" yaw="359.440033"/>
-		<Camera pos="686.646179,65536.000000,907.490784"/>
+		<Camera pos="-366.052063,124.036812,459.388580" pitch="10.000000" yaw="0.000000"/>
+		<Camera pos="-305.243866,65536.000000,-46.132084"/>
 		<Camera pos="65536.000000,-339.396545,887.155701"/>
-		<Camera pos="-322.494904,-22.717833,65536.000000"/>
+		<Camera pos="-283.501068,-12.544434,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="18">
@@ -58,7 +58,7 @@
 		</Node>
 	</ZoneTree>
 	<MarkerTree>
-		<Node name="Root" id="E">
+		<Node name="Root" id="11">
 			<Node name="Entrances" id="0">
 				<Node name="Entry0" id="FFFFFFFF"/>
 			</Node>
@@ -75,6 +75,9 @@
 			<Node name="NPC_SlideHelperPlayer" id="B"/>
 			<Node name="NPC_SlideHelperPartner" id="C"/>
 			<Node name="CamPan_Ending" id="D"/>
+			<Node name="Entity_Arrow1" id="E"/>
+			<Node name="Entity_Arrow2" id="F"/>
+			<Node name="Entity_Arrow3" id="10"/>
 		</Node>
 	</MarkerTree>
 	<LightSets>
@@ -3103,7 +3106,7 @@
 			<HitObject type="ROOT"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="MeshCollider" id="9"/>
+			<MapObject name="MeshCollider" id="9" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3127,7 +3130,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="SlideInteractColl" id="8"/>
+			<MapObject name="SlideInteractColl" id="8" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3157,7 +3160,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="HullCollider" id="7"/>
+			<MapObject name="HullCollider" id="7" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3213,7 +3216,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="MeshCollider" id="6"/>
+			<MapObject name="MeshCollider" id="6" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3353,7 +3356,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="MeshCollider" id="5"/>
+			<MapObject name="MeshCollider" id="5" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3413,7 +3416,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Entry0CollGuard" id="3"/>
+			<MapObject name="Entry0CollGuard" id="3" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3445,7 +3448,7 @@
 			<HitObject type="GROUP"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="Entry0Coll" id="1"/>
+			<MapObject name="Entry0Coll" id="1" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3475,7 +3478,7 @@
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="SlideEndZone" id="2"/>
+			<MapObject name="SlideEndZone" id="2" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3495,7 +3498,7 @@
 			<Camera type="TYPE_6" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="707,10,308" posB="707,10,860" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="SlideZone" id="1"/>
+			<MapObject name="SlideZone" id="1" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3515,7 +3518,7 @@
 			<Camera type="TYPE_1" flag="false" boomLength="-450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="0,0,900" posB="100,10,300" posC="300,0,400"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="MainZone" id="0"/>
+			<MapObject name="MainZone" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -3537,57 +3540,69 @@
 	</Zones>
 	<Markers>
 		<Marker ver="4" type="Root">
-			<MapObject name="Root" id="E"/>
+			<MapObject name="Root" id="11"/>
+		</Marker>
+		<Marker ver="4" type="Entity" pos="-235,-18,-49" yaw="0.000000">
+			<MapObject name="Entity_Arrow3" id="10"/>
+			<Entity type="802BCD9C" angle="0"/>
+		</Marker>
+		<Marker ver="4" type="Entity" pos="-285,-14,-49" yaw="0.000000">
+			<MapObject name="Entity_Arrow2" id="F"/>
+			<Entity type="802BCD9C" angle="0"/>
+		</Marker>
+		<Marker ver="4" type="Entity" pos="-335,-10,-49" yaw="0.000000">
+			<MapObject name="Entity_Arrow1" id="E"/>
+			<Entity type="802BCD9C" angle="0"/>
 		</Marker>
 		<Marker ver="4" type="CamTarget" pos="708,-211,991" yaw="0.000000">
-			<MapObject name="CamPan_Ending" id="D"/>
+			<MapObject name="CamPan_Ending" id="D" hidden="true"/>
 			<CamTarget sampleZone="true" generatePan="true" panSpeed="1.000000" overrideLength="450.000000" overrideAngles="15.000000,-6.000000"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="0,-1000,-400" yaw="0.000000">
-			<MapObject name="NPC_SlideHelperPartner" id="C"/>
+			<MapObject name="NPC_SlideHelperPartner" id="C" hidden="true"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="9F" palette="0" animations="5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="NPC" pos="0,-1000,-400" yaw="0.000000">
-			<MapObject name="NPC_SlideHelperPlayer" id="B"/>
+			<MapObject name="NPC_SlideHelperPlayer" id="B" hidden="true"/>
 			<Movement type="Stationary" data="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 			<Sprite sprite="9F" palette="0" animations="5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="708,-346,991" yaw="0.000000">
-			<MapObject name="Pos_Path10" id="A"/>
+			<MapObject name="Pos_Path10" id="A" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="708,-221,965" yaw="0.000000">
-			<MapObject name="Pos_Path9" id="9"/>
+			<MapObject name="Pos_Path9" id="9" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="708,-211,906" yaw="0.000000">
-			<MapObject name="Pos_Path8" id="8"/>
+			<MapObject name="Pos_Path8" id="8" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="708,-185,698" yaw="0.000000">
-			<MapObject name="Pos_Path7" id="7"/>
+			<MapObject name="Pos_Path7" id="7" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="668,-164,470" yaw="0.000000">
-			<MapObject name="Pos_Path6" id="6"/>
+			<MapObject name="Pos_Path6" id="6" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="584,-139,284" yaw="0.000000">
-			<MapObject name="Pos_Path5" id="5"/>
+			<MapObject name="Pos_Path5" id="5" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="439,-114,123" yaw="0.000000">
-			<MapObject name="Pos_Path4" id="4"/>
+			<MapObject name="Pos_Path4" id="4" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="254,-89,48" yaw="0.000000">
-			<MapObject name="Pos_Path3" id="3"/>
+			<MapObject name="Pos_Path3" id="3" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="43,-65,0" yaw="0.000000">
-			<MapObject name="Pos_Path2" id="2"/>
+			<MapObject name="Pos_Path2" id="2" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-310,-23,0" yaw="0.000000">
-			<MapObject name="Pos_Path1" id="1"/>
+			<MapObject name="Pos_Path1" id="1" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Group">
 			<MapObject name="Entrances" id="0"/>
 		</Marker>
 		<Marker ver="4" type="Entry" pos="-475,0,0" yaw="90.000000">
-			<MapObject name="Entry0" id="FFFFFFFF"/>
+			<MapObject name="Entry0" id="FFFFFFFF" hidden="true"/>
 		</Marker>
 	</Markers>
 	<ScriptData>
@@ -3615,7 +3630,7 @@
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
 		<Fog world="0,10,10,10,255,950,1000" entity="0,10,10,10,255,950,1000"/>
-		<Options location="1F" hasMusic="false" hasSounds="false" sounds="1" hasShading="false" shadingName="None"/>
+		<Options location="1F" hasMusic="false" hasSounds="true" sounds="1" hasShading="false" shadingName="None"/>
 		<Override tex="true"/>
 	</ScriptData>
 </Map>

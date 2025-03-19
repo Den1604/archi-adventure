@@ -122,6 +122,31 @@
 	before they poison you![Wait][End]
 }
 
+#message:1C:038
+{
+	[Style Right]
+	That's...[Pause:10] me?[Pause:10][BR]
+	[PrintRising][Shake]What?![/fx][/fx][Pause:10] How!?[Pause:10][BR]
+	Uhm...[Pause:5] Okay then.[BR]
+	[Wait][Next]
+	Max HP: 27[BR]
+	Attack Power: Min. 2 - Max. 3[BR]
+	Defense Power: 1[BR]
+	[Wait][Next]
+	This guy's some kind of stronger[BR]
+	version of me, I suppose?[Pause:10][BR]
+	Nothing we can't take![BR]
+	[Wait][Next]
+	I'm sure he has the same moves[BR]
+	as me, but I wouldn't be[BR]
+	surprised if they're beefed up.[BR]
+	[Wait][Next]
+	Stay on your guard, Mario![Pause:10][BR]
+	I have no idea what this guy[BR]
+	is gonna do.[BR]
+	[Wait][End]
+}
+
 #message:1C:096
 {
 	[Style Right]

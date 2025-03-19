@@ -1,5 +1,6 @@
 #import enemy/14_MBush.bpat
 #import enemy/14_SpearGuy.bpat
+#import enemy/2F_SpearGuy_Super.bpat
 #import enemy/09_Cleft.bpat
 #import enemy/00_Goomba.bpat
 #import enemy/00_Paragoomba.bpat
@@ -20,6 +21,7 @@
     00000000 00000003 $Formation_05 $Stage_arc_bt05 00000000 % arc_10, 6
     00000000 00000002 $Formation_06 $Stage_arc_bt05 00000000 % arc_10, 7
     00000000 00000004 $Formation_07 $Stage_arc_bt06 00000000 % arc_13, 8
+    00000000 00000001 $Formation_08 $Stage_arc_bt01 00000000 % arc_01, 9, Spear Guy Mini-Boss Battle, Super Boss
 	00000000 00000000 00000000 00000000 00000000
 }
 
@@ -72,6 +74,11 @@
 	$01_BlueGoomba2 00000001 00000009 00000000 00000000 00000000 00000000
 	$2F_YellowGoomba 00000002 00000008 00000000 00000000 00000000 00000000
 	$2F_PurpleGoomba 00000003 00000007 00000000 00000000 00000000 00000000
+}
+
+#new:Formation $Formation_08
+{
+	$2F_SpearGuy_Super 00000002 0000000A 00000000 00000000 00000000 00000000
 }
 
 #new:StageTable $StageTable_ARC

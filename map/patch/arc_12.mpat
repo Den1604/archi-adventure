@@ -3,6 +3,15 @@
 #define .NpcID:NPC_YellowGoomba            02
 #define .NpcID:NPC_PurpleGoomba            03
 
+@ $Header
+{
+	[MainScript] $Script_Main
+	[Background] 00000000
+	[EntryList] $EntryList
+	[EntryCount] 2
+	[MapTattle]  0019000B
+}
+
 @ $Script_Main
 {
 	Set   *GB_WorldLocation  .Location:GoombaRoad
@@ -111,6 +120,10 @@
     Call SpeakToNpc ( .NpcID:NPC_PurpleGoomba 0062090A 00620902 00000000 .NpcID:NPC_RedGoomba 00300018 )
 
     Exec $Script_PanCamera_CamPan_RedGoomba
+    Thread
+        Wait 25`
+        Call PlaySound ( 00000156 )
+    EndThread
     Exec $Script_RedGoomba_FlyUp
     Call MakeLerp ( -500` 0` 60` .Easing:CubicOut )
     Loop
@@ -128,6 +141,10 @@
     Add *VarC 10`
     Call SetNpcPos ( .Npc:Partner *VarA *VarB *VarC )
     Exec $Script_PanCamera_CamPan_BlueGoomba
+    Thread
+        Wait 25`
+        Call PlaySound ( 00000156 )
+    EndThread
     Exec $Script_BlueGoomba_FlyUp
     Call MakeLerp ( -500` 0` 60` .Easing:CubicOut )
     Loop
@@ -139,6 +156,10 @@
         Wait 1`
     EndLoop
     Exec $Script_PanCamera_CamPan_YellowGoomba
+    Thread
+        Wait 25`
+        Call PlaySound ( 00000156 )
+    EndThread
     Exec $Script_YellowGoomba_FlyUp
     Call MakeLerp ( -500` 0` 60` .Easing:CubicOut )
     Loop
@@ -150,6 +171,10 @@
         Wait 1`
     EndLoop
     Exec $Script_PanCamera_CamPan_PurpleGoomba
+    Thread
+        Wait 25`
+        Call PlaySound ( 00000156 )
+    EndThread
     Exec $Script_PurpleGoomba_FlyUp
     Call MakeLerp ( -500` 0` 60` .Easing:CubicOut )
     Loop
@@ -345,7 +370,7 @@
         Exec $Script_PurpleGoomba_Jump_Defeat
     EndThread
     Call PlaySound ( .Sound:Jump )
-    Call ShowMessageAtScreenPos ( 0030001D 0` 0` )
+    Call ShowMessageAtScreenPos ( 0030001D 000000A0 00000000 )
 	Call  SetMusicTrack ( 00000000 .Song:YoshiMountain 00000000 00000006 )
     Set *MF_ARC_12_BEATENGOOMBAS .True
 	Call ResetCam ( .Cam:Default *Fixed[2.00] )

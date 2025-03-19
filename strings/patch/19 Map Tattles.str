@@ -206,7 +206,11 @@
 {
 	[Style Tattle]
 	[EnableCDownNext]
-	Waterfall Island 7 Tattle
+	Looks like we're atop another one[BR]
+	of those pillars...[BR]
+	[Wait][Next]
+	Still kinda hollow, I think I liked[BR]
+	the one with the running stream more.[BR]
 	[Wait][End]
 }
 
@@ -220,5 +224,20 @@
 	[Wait][Next]
 	Look at that adorable[BR]
 	stream passing by![BR]
+	[Wait][End]
+}
+
+#message:19:00D
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	It's pretty darn windy up here![BR]
+	I supposed that adds up...[BR]
+	[Wait][Next]
+	I guess we should take that[BR]
+	slide back down?[BR]
+	[Wait][Next]
+	I will if I have to but...[BR]
+	I don't trust it.
 	[Wait][End]
 }

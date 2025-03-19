@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_bt06" author="unnamed" textures="jan_tex">
 	<Editor>
-		<Camera pos="-26.388397,91.439026,292.644684" pitch="9.000000" yaw="0.000000"/>
+		<Camera pos="-37.765797,72.022636,167.971298" pitch="8.840000" yaw="358.239960"/>
 		<Camera pos="74.273071,65536.000000,-18.009199"/>
 		<Camera pos="65536.000000,-25.470640,-102.236252"/>
 		<Camera pos="126.273834,6.158461,65536.000000"/>
@@ -1700,7 +1700,7 @@
 			</PropertyList>
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
-			<MapObject name="DrawnModel" id="1E"/>
+			<MapObject name="DrawnModel" id="1E" hidden="true"/>
 			<ShapeMesh ver="3" texture="jan_iwatemaetif">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>

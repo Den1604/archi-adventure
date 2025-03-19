@@ -3,14 +3,14 @@
 #new:Actor $14_SpearGuy {
 % stats
 [Index]        2Ab 
-[Level]        16`b 
+[Level]        40`b 
 [MaxHP]         11`b 
 [Coins]         2`b 
 [Flags]       00000000 
 [StatusTable] $StatusTable_80218698_14 
 % ai
 [PartsCount]    4`s 
-[PartsTable]  $PartsTable_802187F0_14 
+[PartsTable]  $PartsTable_802187F0_14
 [Script]      $Script_Init_80218980_14 
 % move effectiveness
 [Escape]       50`b 

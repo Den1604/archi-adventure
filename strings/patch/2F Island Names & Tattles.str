@@ -35,7 +35,7 @@
 {
 	[Style Tattle][NoSkip][CustomVoice soundIDs=0x000,0x000]
 	[CenterX:FF]Waterfall Island[BR]
-	[SetPosX 10][DelayOff][Down 3][Spacing 42][LEFT][DOWN][RIGHT][BR]
+	[SetPosX 10][DelayOff][Down 3][Spacing 42][LEFT][DOWN]?[BR]
 	[Yield][End]
 }
 
@@ -43,7 +43,17 @@
 #message:2F:003
 {
 	[Style Right]
-	Waterfall Island Tattle[BR]
+	I've spent so much time gazing[BR]
+	at this island's waterfalls...[Pause:10][BR]
+	They're so pretty![BR]
+	[Wait][Next]
+	And also the giant mushrooms![BR]
+	I wonder how long one of those[BR]
+	could feed you.[BR]
+	[Wait][Next]
+	I'm not really sure what else[BR]
+	lingers on this island, so let's[BR]
+	explore it carefully![BR]
 	[Wait][End]
 }
 
@@ -83,6 +93,11 @@
 #message:2F:008
 {
 	[Style Right]
-	Flood Island Tattle[BR]
+	This island gets flooded and[BR]
+	drained rather quickly.[Pause:10] I'm not[BR]
+	sure how that is even possible.[BR]
+	[Wait][Next]
+	If we dock at this island, let's[BR]
+	try not to get ourselves wet![BR]
 	[Wait][End]
 }

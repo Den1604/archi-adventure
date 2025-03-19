@@ -369,3 +369,69 @@
 	[Wave][Size 32][Down 8]Curse yooooouu!!
 	[Wait][End]
 }
+
+#message:30:01E
+{
+[Style Inspect]
+[Down 10]Thank you so much for playing the[BR]
+Archipelago Adventure Demo!![Pause:10][BR]
+[Up 10][BR]
+[Wait][Next]
+Initially I wanted to have more[BR]
+content, but after getting sick[BR]
+for a while, I had to cut down[BR]
+and just make the most of it.[BR]
+[Wait][Next]
+[Wave]Ahem...[/fx][Pause:10][BR]
+Anyways, next up...[Pause:10][BR]
+the [Color:05]Credits[Color:00]!![BR]
+[Wait][Next]
+[Color:0A]Paper Mario [Color:1B]Archipelago Adventure[Color:00][Pause:10][BR]
+created by [Color:08]Shayla Snakemouth[Color:00][BR]
+[Wait][Next]
+With midis by Alluro95, Chillius[BR]
+and Bill_307.[Pause:10][BR]
+SMRPG Armed Boss Theme converted[BR]
+by [Color:01]Wrymouth[Color:00] (Thank you!!)[BR]
+[Wait][Next]
+Special Thanks:[Pause:10][BR]
+[Color:05]Emperor Thamz, [Color:02]Enneagon, [Color:06]Darxoon,[BR]
+[Color:01]Wrymouth [Color:00]& [Color:02]Rain[Pause:10] [Color:00][BR]
+[Wait][Next]
+I hope you enjoyed playing this[BR]
+little adventure.[Pause:10][BR]
+[Wait][Next]
+I won't promise a "full" version,[BR]
+but I can comfortably say that I[BR]
+will most likely continue to work on[BR]
+this for atleast a little longer.[BR]
+[Wait][Next]
+Regardless...[Pause:10][BR]
+[InputOff]There might or might not be boss[BR]
+re-fights available on the maps[BR]
+you fought them originally. [Color:08]:)[Color:00][InputOn][BR]
+[Wait][Next]
+And also one more Island to[BR]
+explore![Pause:10][BR]
+Good luck!![Pause:10][BR]
+[Size 12](Can this be considered post-game content?)[BR]
+[Wait][End]
+}
+
+#message:30:01F
+{
+	[Style Inspect]
+	[Down 11]Would you like to fight an enhanced[BR]
+	version of Javelin Guy?[BR]
+	[Yield][End]
+}
+
+#message:30:020
+{
+	[Style Inspect]
+	Congrats on beating Javelin [BR]
+	Guy EX![BR]
+	There is no reward, to refight him[BR]
+	again, re-enter the map.[BR]
+	[Wait][End]
+}

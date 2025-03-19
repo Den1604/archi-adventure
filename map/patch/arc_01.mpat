@@ -39,6 +39,9 @@ ORI v0, r0, 2
     If *MF_SpearGuy_Joined_Party == .False
         Call MakeNpcs  ( .False $NpcGroupList_SpearGuy )
     EndIf
+    If *MF_BeatWaterfallIsland == .True
+        Call MakeNpcs  ( .False $NpcGroupList_SpearGuy_SuperBoss )
+    EndIf
 	Exec  $Script_EnterMap
     Bind  $Script_BoatLeave .Trigger:WallPressA ~Collider:BoatInteractColl 00000001 00000000
 	Return
@@ -356,7 +359,7 @@ ORI v0, r0, 2
     Call ShowGotItem ( .Item:HammerThrow .True 00260066 )
     Call SpeakToPlayer ( .Npc:Partner 00010008 00010001 00000000 00300011 )
     Call SetMusicTrack ( 00000000 .Song:NewPartnerJP 00000000 00000008 )
-    Call  $Function_802439A0 ( )
+    % Call  $Function_802439A0 ( )
     Call  ShowMessageAtScreenPos    ( 001D0189  160`  40` ) % Goombario joined your party!! Press to have him te ...
     Call SetMusicTrack ( 00000000 .Song:LakilesterTheme 00000000 00000008 )
     Set *ARC_01_SPEAR_GUY_JOINED_PARTY .True
@@ -415,4 +418,117 @@ ORI v0, r0, 2
 	[EntryList] $EntryList
 	[EntryCount] 2
 	[MapTattle]  00190002
+}
+
+#new:NpcGroupList $NpcGroupList_SpearGuy_SuperBoss
+{
+	00000001 $NpcGroup_SpearGuy_SuperBoss 2F090000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_SpearGuy_SuperBoss
+{
+	.NpcID:NPC_Partner_BeforeBattle $NpcSettings_8024EC90 ~Vec3f:NPC_Partner_BeforeBattle % -150 0 -275
+	00852D0D $Script_Init_80250EE4_Super 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:NPC_Partner_BeforeBattle
+	~AnimationTable:NPC_Partner_BeforeBattle % .Sprite:Toad
+	00000000 00000000 00000000 001A0013 % This Toad is always standing in front of the gate. ...
+}
+
+#new:Script $Script_Init_80250EE4_Super
+{
+    Call BindNpcInteract ( .Npc:Self $Script_SpearGuy_SuperBoss_Interact )
+	Call BindNpcAux ( .Npc:Self $Script_FloatingHologramAux )
+    Call BindNpcDefeat ( .Npc:Self $Script_SpearGuy_SuperBossDefeat )
+    Return
+    End
+}
+
+#new:Script $Script_SpearGuy_SuperBoss_Interact
+{
+    Call DisablePlayerInput ( .True )
+    Call ShowMessageAtScreenPos ( 0030001F 000000A0 00000000 )
+    Call ShowChoice ( 001E0004 )
+    Switch *Var0
+        Case == 0 % Yes
+            Call CloseChoice ()
+            Call CloseMessage ()
+            Call StartBossBattle ( .Song:SpecialBattle )
+        Case == 1 % No
+            Call CloseChoice ()
+            Call CloseMessage ()
+            Call DisablePlayerInput ( .False )
+    EndSwitch
+    Return
+    End
+}
+
+#new:Script $Script_FloatingHologramAux
+{
+	% start the hologram effect
+	NewArray 00000001 *Var[A] 
+	UseArray *Var[A] 
+	Thread
+		UseArray *Var[A] 
+		Label    00000000 
+		Call     RandInt     	( 0000005A *Var[0] )
+		Add      *Var[0] 0000001E 
+		SetF     *Array[0] *Fixed[10.0] 
+		Wait     *Var[0] 
+		Call     RandInt     	( 00000064 *Var[1] )
+		If       *Var[1]  <  00000050 
+			Set      *Var[1] 00000001 
+		Else
+			Set      *Var[1] 00000002 
+		EndIf
+		Loop     *Var[1] 
+			SetF     *Array[0] *Fixed[40.0] 
+			Wait     00000001 
+			SetF     *Array[0] *Fixed[50.0] 
+			Wait     00000001 
+			SetF     *Array[0] *Fixed[80.0] 
+			Wait     00000001 
+			SetF     *Array[0] *Fixed[70.0] 
+			Wait     00000001 
+			SetF     *Array[0] *Fixed[60.0] 
+			Wait     00000001 
+			SetF     *Array[0] *Fixed[50.0] 
+			Wait     00000001 
+		EndLoop
+		Goto     00000000 
+	EndThread
+	SetF     *Var[0] *Fixed[100.0] 
+	Label    00000001 
+	Loop     00000032 
+		AddF     *Var[0] *Fixed[0.80078125] 
+		Call     802CFD30 ( FFFFFFFF 0000000D 00000000 *Array[0] *MapVar[1] *Var[0] )
+		Wait     00000001 
+	EndLoop
+	Loop     00000032 
+		AddF     *Var[0] *Fixed[-0.7998047] 
+		Call     802CFD30 ( FFFFFFFF 0000000D 00000000 *Array[0] *MapVar[1] *Var[0] )
+		Wait     00000001 
+	EndLoop
+	Goto     00000001 
+	Return
+	End
+}
+
+#new:Script $Script_SpearGuy_SuperBossDefeat
+{
+    Call GetBattleOutcome ( *Var0 )
+    Label 0
+        Switch *Var0
+            Case == 6`
+                Goto 0
+            Case == .Outcome:PlayerWon
+                Call ShowMessageAtScreenPos ( 00300020 000000A0 00000000 )
+                Call DisablePlayerInput ( .False )
+                Set *Var0 6`
+            EndSwitch
+        Wait 1`
+    Goto 0
+    Return
+    End
 }

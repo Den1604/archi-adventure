@@ -5,13 +5,14 @@
 	[MainScript] $Script_Main
 	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 2
+	[EntryCount] 3
 }
 
 #new:EntryList $EntryList
 {
 	~Vec4f:EntryBoat
 	~Vec4f:Entry1
+	~Vec4f:Entry2
 }
 
 #new:Script $Script_BreakBlock_StoneBlock_1
@@ -576,6 +577,19 @@
 	End
 }
 
+#new:Script $Script_PanCamera_CamPan_SlideEntry
+{
+	Call  UseSettingsFrom   ( .Cam:Default -91` 73` 100` )
+	Call  SetCamPitch       ( .Cam:Default *Fixed[15.000000] *Fixed[-6.000000] )
+	Call  SetCamDistance    ( .Cam:Default 450` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_SlideEntry )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[1.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
+	Return
+	End
+}
+
 #new:Script $Script_SetupMusic
 {
 	Call  FadeOutMusic  ( 00000000 500` ) % usually between 500-1000
@@ -586,11 +600,11 @@
 
 #new:Script $Script_SetupTexturePan
 {
-	Call     802C9000 	( ~Model:Mushroom_Water_Cover 0 )
-	Call     802C9000 	( ~Model:Mushroom_Water_Offshoot 0 )
 	Call     802C9000 	( ~Model:Mushroom_WaterFall 1 )
 	Call     802C9000 	( ~Model:Water 3 )
 	Call     802C9000 	( ~Model:WaterOutsideRim 2 )
+	Call     802C9000 	( ~Model:Mushroom_Water_Cover 0 )
+	Call     802C9000 	( ~Model:Mushroom_Water_Offshoot 0 )
 	Thread
 		Set  *Var[0] 0
 		Set  *Var[1] FFFFFF83

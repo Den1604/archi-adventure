@@ -24,7 +24,7 @@
 	[Style Narrate]
 	[InputOff]Javelin Guy joined your party!![BR]
 	[InputOn][Wait][Next]
-	[Image index=0 pos=85,97 hasBorder=1 alpha=255 fadeAmount=52]Press [C-DOWN] to have him tell you[BR]
+	Press [C-DOWN] to have him tell you[BR]
 	about everything and anything[BR]
 	involving the secret archipelago.[BR]
 	[Wait][Next]

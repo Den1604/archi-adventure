@@ -1,6 +1,15 @@
 #define .NpcID:NPC_SlideHelperPlayer               00
 #define .NpcID:NPC_SlideHelperPartner              01
 
+@ $Header
+{
+	[MainScript] $Script_Main
+	[Background] 80200000
+	[EntryList] $EntryList
+	[EntryCount] 1
+	[MapTattle]  0019000D
+}
+
 @ $Script_Main
 {
 	Set   *GB_WorldLocation  .Location:GoombaRoad
@@ -8,6 +17,7 @@
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
     Call MakeNpcs  ( .False $NpcGroupList_SlideHelpers )
@@ -130,7 +140,9 @@
     EndThread
     Call NpcFlyTo ( .NpcID:NPC_SlideHelperPartner ~Vec3D:Pos_Path10 15` 0` .Easing:CubicIn )
     Wait 30`
-    Call GotoMap ( "arc_06" 00000001 )
+    Call GotoMap ( "arc_06" 00000002 )
+    Call StopSound ( 0000004E )
+    Wait 100`
     Return
     End
 }

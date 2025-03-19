@@ -215,4 +215,5 @@
 	<ActorType desc="SlotMachineStart" id="D3" name="00290076" tattle="001C0093" sfxIncrement="30,30"/>
 	<ActorType desc="YellowGoomba" id="D4" name="00290083" tattle="001C0096" tattleCamOffset="0,4,0" sfxWalk="3AC,3AC" sfxJump="10F" sfxHurt="10F" sfxIncrement="30,30"/>
 	<ActorType desc="PurpleGoomba" id="D5" name="00290084" tattle="001C0097" tattleCamOffset="0,4,0" sfxWalk="3AC,3AC" sfxJump="10F" sfxHurt="10F" sfxIncrement="30,30"/>
+	<ActorType desc="SpearGuySuper" id="D6" name="00290036" tattle="001C0038" tattleCamOffset="0,6,0" sfxWalk="20BA,3B4" sfxJump="3E2" sfxHurt="10F" sfxIncrement="30,30"/>
 </ActorTypes>

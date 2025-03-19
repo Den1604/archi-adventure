@@ -3,7 +3,7 @@
 	[MainScript] $Script_Main
 	[Background] 80200000
 	[EntryList] $EntryList
-	[EntryCount] 2
+	[EntryCount] 3
 	[MapTattle]  00190005
 }
 
@@ -25,6 +25,7 @@
 	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
+	Exec  $Script_BindFoliage
     Exec  $Script_BoatBop
     Call  PlaySoundAtF  ( 8000005A 00000001 -91` 120` -192` )
 	Exec  $Script_EnterMap
@@ -91,6 +92,9 @@
 		Case  ==  ~Entry:Entry1
 			Set   *Var[0] $Script_CreateExitTriggers
 			Exec  EnterWalk
+		Case  ==  ~Entry:Entry2
+			Exec  $Script_EnterFromSlide
+			Exec  $Script_CreateExitTriggers
 		Default
 			Exec  $Script_CreateExitTriggers
 	EndSwitch
@@ -121,6 +125,72 @@
     End
 }
 
+#new:Script $Script_EnterFromSlide
+{
+	Call DisablePlayerInput ( .True )
+	Call DisablePartnerAI ( 00000000 )
+	Exec $Script_PanCamera_CamPan_SlideEntry
+	Call InterpPlayerYaw ( -217` 1` )
+	Call SetPlayerAnimation ( 00010033 )
+	Call SetNpcYaw ( .Npc:Partner -217` )
+	Call SetNpcAnimation ( .Npc:Partner 0001000B )
+	Set *MapVar[0] 0`
+	Call SetPlayerJumpscale ( *Fixed[1.5] )
+	Call PlayerJump1 ( ~Vec3D:Pos_SlideEntry_Jump1 25` )
+	Exec $Script_MushroomSquish
+	Call PlaySound ( 000001E8 )
+	Call PlayerJump1 ( ~Vec3D:Pos_SlideEntry_Jump2 25` )
+	Call SetPlayerAnimation ( 0001000F )
+	Call PlaySound ( 000003E3 )
+	Call ShakeCam ( .Cam:Default 1` 10` 1` )
+	Call SetNpcJumpscale ( .Npc:Partner *Fixed[1.5] )
+	Call NpcJump1 ( .Npc:Partner ~Vec3D:Pos_SlideEntry_Jump1 25` )
+	Exec $Script_MushroomSquish
+	Call PlaySound ( 000001E8 )
+	Call NpcJump1 ( .Npc:Partner ~Vec3D:Pos_SlideEntry_Jump2_Partner 25` )
+	Call SetNpcAnimation ( .Npc:Partner 0001000C )
+	Call PlaySound ( 000003E3 )
+	Call ShakeCam ( .Cam:Default 1` 10` 1` )
+	Wait 45`
+	Call SetPlayerAnimation ( 00010030 )
+	Wait 25`
+	Thread
+        Call  PlaySoundAtPlayer ( 00000172 00000000 )
+        Wait 10`
+        Call  PlaySoundAtPlayer ( 00000172 00000000 )
+    EndThread
+	Call SetPlayerAnimation ( 00010031 )
+	Call SetNpcAnimation ( .Npc:Partner 00010001 )
+	Call SetNpcJumpscale ( .Npc:Partner *Fixed[1.0] )
+	Call PlaySound ( .Sound:Jump )
+	Call NpcJump1 ( .Npc:Partner ~Vec3D:Pos_SlideEntry_Jump2_Partner 10` )
+	If *MF_BeatWaterfallIsland == .False
+		Call ShowMessageAtScreenPos ( 0030001E 000000A0 00000000 )
+		% Call ShowMessageAtScreenPos ( 0030001F 000000A0 00000000 )
+		% Call ShowMessageAtScreenPos ( 00300020 000000A0 00000000 )
+		Set *MF_BeatWaterfallIsland .True
+	EndIf
+	Call ResetCam ( .Cam:Default *Fixed[2.0] )
+	Call EnablePartnerAI ()
+	Call DisablePlayerInput ( .False )
+	Return
+	End
+}
+
+#new:Script $Script_MushroomSquish
+{
+	Call ScaleGroup ( ~Model:MushroomTopGroup *Fixed[1.20] 1` 1` )
+	Wait 1`
+	Call ScaleGroup ( ~Model:MushroomTopGroup *Fixed[1.15] 1` 1` )
+	Wait 1`
+	Call ScaleGroup ( ~Model:MushroomTopGroup *Fixed[1.10] 1` 1` )
+	Wait 1`
+	Call ScaleGroup ( ~Model:MushroomTopGroup *Fixed[1.00] 1` 1` )
+	Wait 1`
+	Return
+	End
+}
+
 @ $Script_MakeEntities
 {
 	Call  MakeEntity    ( .Entity:RedBlock ~Vec4d:Hidden_Red_Block .Item:AttackFXB 80000000 )
@@ -142,6 +212,17 @@
 	Call  GotoMap   ( "arc_07" ~Entry:arc_07:Entry0 )
 	Call StopSound ( 00000273 )
 	Wait  100`
+	Return
+	End
+}
+
+@ $Script_PanCamera_CamPan_SlideEntry
+{
+	Call  UseSettingsFrom   ( .Cam:Default -91` 73` 100` )
+	Call  SetPanTarget      ( .Cam:Default ~Vec3d:CamPan_SlideEntry )
+	Call  SetCamSpeed       ( .Cam:Default *Fixed[99.000000] )
+	Call  PanToTarget       ( .Cam:Default 00000000 00000001 )
+	Call  WaitForCam        ( .Cam:Default *Fixed[1.0] )
 	Return
 	End
 }

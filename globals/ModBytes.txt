@@ -1,3 +1,4 @@
 000 = GB_ARC_00_currentIsland = currentIsland
 001 = GB_ARC_00_unlockedIslands = MB_unlockedIslands
 002 = GB_JumpCounter
+003 = GB_SuperBoss_JavelinCounter

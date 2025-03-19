@@ -248,15 +248,15 @@
                             Set *MF_DrawMenuStuff .True
                         EndIf
 
-                    Case == 00080000 % RIGHT
-                        If *MF_BeatWaterfallIsland == .True
-                            Set *MF_DrawMenuStuff .False
-                            Call CloseMessage ()
-                            Set *GB_ARC_00_currentIsland .Island:StarShrine_Island
-                            ExecWait $Script_PanCamera_CamPan_StarShrineIsland
-                            Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
-                            Set *MF_DrawMenuStuff .True
-                        EndIf
+                    % Case == 00080000 % RIGHT
+                    %     If *MF_BeatWaterfallIsland == .True
+                    %         Set *MF_DrawMenuStuff .False
+                    %         Call CloseMessage ()
+                    %         Set *GB_ARC_00_currentIsland .Island:StarShrine_Island
+                    %         ExecWait $Script_PanCamera_CamPan_StarShrineIsland
+                    %         Call ShowMessageAtScreenPos ( 002F0005 000000A0 00000000 )
+                    %         Set *MF_DrawMenuStuff .True
+                    %     EndIf
 
                     Case == .Buttons:A
                         Set *MF_DrawMenuStuff .False
