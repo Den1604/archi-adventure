@@ -270,7 +270,6 @@
 	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
 	Call  SetCamEnabled      ( .Cam:Default .True
 	Call  SetCamLeadPlayer   ( .Cam:Default .False )
-	Exec  $Script_MakeEntities
 	Exec  $Script_SetupMusic
 	Exec  $Script_SetupTexturePan
 	Exec  $Script_EnterMap
@@ -287,15 +286,6 @@
 	RESERVED
 	CLEAR  V0
 	JPOP   RA
-}
-
-#new:Script $Script_MakeEntities
-{
-	Call  MakeEntity    ( .Entity:RedArrowSigns ~Vec4d:Entity_Arrow1 0` 80000000 )
-	Call  MakeEntity    ( .Entity:RedArrowSigns ~Vec4d:Entity_Arrow2 0` 80000000 )
-	Call  MakeEntity    ( .Entity:RedArrowSigns ~Vec4d:Entity_Arrow3 0` 80000000 )
-	Return
-	End
 }
 
 #new:Script $Script_PanCamera_CamPan_Ending

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_12" author="unnamed" textures="jan_tex">
 	<Editor>
-		<Camera pos="216.000000,174.036804,421.868622" pitch="10.000000" yaw="0.000000"/>
-		<Camera pos="334.042389,65536.000000,5.190966"/>
+		<Camera pos="5.734706,251.525620,357.328735" pitch="54.000004" yaw="3.200004"/>
+		<Camera pos="41.094490,65536.000000,4.054350"/>
 		<Camera pos="65536.000000,54.192406,2.575619"/>
 		<Camera pos="305.951508,85.415108,65536.000000"/>
 	</Editor>
@@ -8607,7 +8607,7 @@
 			<HitObject type="ROOT"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="ZoomOutZone" id="5"/>
+			<MapObject name="ZoomOutZone" id="5" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8628,7 +8628,7 @@
 			<Camera type="TYPE_4" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="22,-7,48" posB="22,-7,-32" posC="-7,0,-7"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="PurpleZone" id="4"/>
+			<MapObject name="PurpleZone" id="4" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8649,7 +8649,7 @@
 			<Camera type="TYPE_4" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="127,-7,-136" posB="127,-7,-216" posC="23,0,23"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="YellowZone" id="3"/>
+			<MapObject name="YellowZone" id="3" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8670,7 +8670,7 @@
 			<Camera type="TYPE_4" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="52,23,-220" posB="52,23,-300" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="BlueZone" id="2"/>
+			<MapObject name="BlueZone" id="2" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8689,7 +8689,7 @@
 			<Camera type="TYPE_4" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="-53,12,-137" posB="-53,12,-217" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="RedZone" id="1"/>
+			<MapObject name="RedZone" id="1" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8708,7 +8708,7 @@
 			<Camera type="TYPE_4" flag="false" boomLength="450.000000" boomPitch="16.000000" viewPitch="-6.000000" posA="-175,32,-170" posB="-175,32,-250" posC="10,0,10"/>
 		</Zone>
 		<Zone ver="0">
-			<MapObject name="MainZone" id="0"/>
+			<MapObject name="MainZone" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -8750,16 +8750,16 @@
 		<Marker ver="4" type="Root">
 			<MapObject name="Root" id="17"/>
 		</Marker>
-		<Marker ver="4" type="Position" pos="124,-400,112" yaw="0.000000">
+		<Marker ver="4" type="Position" pos="135,-400,130" yaw="0.000000">
 			<MapObject name="Pos_PurpleGoombaJump_Defeat" id="16"/>
 		</Marker>
-		<Marker ver="4" type="Position" pos="80,-400,-102" yaw="0.000000">
+		<Marker ver="4" type="Position" pos="143,-400,-94" yaw="0.000000">
 			<MapObject name="Pos_YellowGoombaJump_Defeat" id="15"/>
 		</Marker>
-		<Marker ver="4" type="Position" pos="-42,-400,125" yaw="0.000000">
+		<Marker ver="4" type="Position" pos="-74,-400,159" yaw="0.000000">
 			<MapObject name="Pos_BlueGoombaJump_Defeat" id="14"/>
 		</Marker>
-		<Marker ver="4" type="Position" pos="-94,-400,-77" yaw="0.000000">
+		<Marker ver="4" type="Position" pos="-108,-400,-86" yaw="0.000000">
 			<MapObject name="Pos_RedGoombaJump_Defeat" id="13"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="91,6,-30" yaw="0.000000">

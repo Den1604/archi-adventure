@@ -25,6 +25,9 @@
     If *MF_ARC_12_BEATENGOOMBAS == .False
         Call MakeNpcs  ( .False $NpcGroupList_GoombaSquad )
     EndIf
+    If *MF_BeatWaterfallIsland == .True
+        Call MakeNpcs  ( .False $NpcGroupList_GoombaSquad_SuperBoss )
+    EndIf
     Exec  $Script_EnterMap
 	Return
 	End
@@ -36,41 +39,41 @@
 	00000000 00000000 00000000
 }
 
+#new:NpcGroupList $NpcGroupList_GoombaSquad_SuperBoss
+{
+	00000001 $NpcGroup_GoombaSquad_SuperBoss 2F0A0000
+	00000000 00000000 00000000
+}
+
 #new:NpcGroup $NpcGroup_GoombaSquad
 {
 	.NpcID:NPC_RedGoomba $NpcSettings_8024EC90 ~Vec3f:NPC_RedGoomba
 	00112D09 $Script_Init_RedGoomba 00000000 00000000 0000005A
-	~NoDrops
+    ~NoDrops
 	~Movement:NPC_RedGoomba
 	~AnimationTable:NPC_RedGoomba
 	00000000 00000000 00000000 00000000
 
     .NpcID:NPC_BlueGoomba $NpcSettings_8024EC90 ~Vec3f:NPC_BlueGoomba
 	00112D09 $Script_Init_OtherGoombas 00000000 00000000 0000005A
-	~NoDrops
+    ~NoDrops
 	~Movement:NPC_BlueGoomba
 	~AnimationTable:NPC_BlueGoomba
 	00000000 00000000 00000000 00000000
 
     .NpcID:NPC_YellowGoomba $NpcSettings_8024EC90 ~Vec3f:NPC_YellowGoomba
 	00112D09 $Script_Init_OtherGoombas 00000000 00000000 0000005A
-	~NoDrops
+    ~NoDrops
 	~Movement:NPC_YellowGoomba
 	~AnimationTable:NPC_YellowGoomba
 	00000000 00000000 00000000 00000000
 
     .NpcID:NPC_PurpleGoomba $NpcSettings_8024EC90 ~Vec3f:NPC_PurpleGoomba
 	00112D09 $Script_Init_OtherGoombas 00000000 00000000 0000005A
-	~NoDrops
+    ~NoDrops
 	~Movement:NPC_PurpleGoomba
 	~AnimationTable:NPC_PurpleGoomba
 	00000000 00000000 00000000 00000000
-}
-
-#new:NpcSettings $NpcSettings_8024EC90
-{
-	00000000 001E001E 00000000 00000000 00000000 00000000 00000000 00000000
-	00000000 00000000 00630000
 }
 
 #new:Script $Script_Init_RedGoomba
@@ -79,6 +82,22 @@
     Call BindNpcDefeat ( .Npc:Self $Script_PostBossCutscene )
     Return
     End
+}
+
+#new:NpcGroup $NpcGroup_GoombaSquad_SuperBoss
+{
+	.NpcID:NPC_RedGoomba $NpcSettings_8024EC90 ~Vec3f:CamPan_CutsceneStart
+	00002C01 $Script_Init_RedGoomba_SuperBoss 00000000 00000000 0000005A
+    ~NoDrops
+	~Movement:NPC_RedGoomba
+	~AnimationTable:NPC_RedGoomba
+	00000000 00000000 00000000 00000000
+}
+
+#new:NpcSettings $NpcSettings_8024EC90
+{
+	00000000 001E001E 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
 }
 
 #new:Script $Script_Init_OtherGoombas
@@ -439,4 +458,100 @@
 	Call  ClearAmbientSounds ( 250` )
 	Return
 	End
+}
+
+#new:Script $Script_Init_RedGoomba_SuperBoss
+{
+    Call BindNpcInteract ( .Npc:Self $Script_RedGoomba_SuperBoss_Interact )
+	Call BindNpcAux ( .Npc:Self $Script_FloatingHologramAux )
+    Call BindNpcDefeat ( .Npc:Self $Script_RedGoomba_SuperBossDefeat )
+    Return
+    End
+}
+
+#new:Script $Script_RedGoomba_SuperBoss_Interact
+{
+    Call DisablePlayerInput ( .True )
+    Call ShowMessageAtScreenPos ( 00300021 000000A0 00000000 )
+    Call ShowChoice ( 001E0004 )
+    Switch *Var0
+        Case == 0 % Yes
+            Call CloseChoice ()
+            Call CloseMessage ()
+            Call StartBossBattle ( .Song:SpecialBattle )
+        Case == 1 % No
+            Call CloseChoice ()
+            Call CloseMessage ()
+            Call DisablePlayerInput ( .False )
+    EndSwitch
+    Return
+    End
+}
+
+#new:Script $Script_FloatingHologramAux
+{
+	% start the hologram effect
+	NewArray 00000001 *Var[A] 
+	UseArray *Var[A] 
+	Thread
+		UseArray *Var[A] 
+		Label    00000000 
+		Call     RandInt     	( 0000005A *Var[0] )
+		Add      *Var[0] 0000001E 
+		SetF     *Array[0] *Fixed[10.0] 
+		Wait     *Var[0] 
+		Call     RandInt     	( 00000064 *Var[1] )
+		If       *Var[1]  <  00000050 
+			Set      *Var[1] 00000001 
+		Else
+			Set      *Var[1] 00000002 
+		EndIf
+		Loop     *Var[1] 
+			SetF     *Array[0] *Fixed[40.0] 
+			Wait     00000001 
+			SetF     *Array[0] *Fixed[50.0] 
+			Wait     00000001 
+			SetF     *Array[0] *Fixed[80.0] 
+			Wait     00000001 
+			SetF     *Array[0] *Fixed[70.0] 
+			Wait     00000001 
+			SetF     *Array[0] *Fixed[60.0] 
+			Wait     00000001 
+			SetF     *Array[0] *Fixed[50.0] 
+			Wait     00000001 
+		EndLoop
+		Goto     00000000 
+	EndThread
+	SetF     *Var[0] *Fixed[100.0] 
+	Label    00000001 
+	Loop     00000032 
+		AddF     *Var[0] *Fixed[0.80078125] 
+		Call     802CFD30 ( FFFFFFFF 0000000D 00000000 *Array[0] *MapVar[1] *Var[0] )
+		Wait     00000001 
+	EndLoop
+	Loop     00000032 
+		AddF     *Var[0] *Fixed[-0.7998047] 
+		Call     802CFD30 ( FFFFFFFF 0000000D 00000000 *Array[0] *MapVar[1] *Var[0] )
+		Wait     00000001 
+	EndLoop
+	Goto     00000001 
+	Return
+	End
+}
+
+#new:Script $Script_RedGoomba_SuperBossDefeat
+{
+    0:  Call  GetBattleOutcome  ( *Var0 )
+   10:  Switch  *Var0
+   1C:      Case  ==  .Outcome:PlayerWon % 0
+            Call ShowMessageAtScreenPos ( 00300022 000000A0 00000000 )
+            Call  DisablePlayerInput    ( .False )
+            Call  DoNpcDefeat ( )
+   5C:      Case  ==  .Outcome:PlayerLost % 1
+   68:          Call  SetSelfVar    ( 00000000 00000000 )
+   7C:      Case  ==  .Outcome:PlayerFled % 2
+   88:          Call  SetSelfVar    ( 00000000 00000000 )
+   9C:  EndSwitch
+   A4:  Return
+   AC:  End
 }

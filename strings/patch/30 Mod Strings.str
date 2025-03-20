@@ -430,8 +430,54 @@ Good luck!![Pause:10][BR]
 {
 	[Style Inspect]
 	Congrats on beating Javelin [BR]
-	Guy EX![BR]
+	Guy EX![Pause:10][BR]
 	There is no reward, to refight him[BR]
 	again, re-enter the map.[BR]
+	[Wait][End]
+}
+
+#message:30:021
+{
+	[Style Inspect]
+	[Down 5]Would you like to fight an enhanced[BR]
+	version of the Mushroom Goomba[BR]
+	Squad?[BR]
+	[Yield][End]
+}
+
+#message:30:022
+{
+	[Style Inspect]
+	Congrats on beating the Mushroom[BR]
+	Goomba Squad EX![Pause:10][BR]
+	There is no reward, to refight them[BR]
+	again, re-enter the map.[BR]
+	[Wait][End]
+}
+
+#message:30:023
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	Huh...[Pause:10] Is that...[Pause:10] me?[Pause:10][BR]
+	This is...[Pause:10] really weird.[BR]
+	[Wait][Next]
+	We should investigate[BR]
+	what this guy's deal is.[BR]
+	[Wait][End]
+}
+
+#message:30:024
+{
+	[Style Tattle]
+	[EnableCDownNext]
+	Didn't we beat this guy and[BR]
+	his friends earlier...?[BR]
+	[Wait][Next]
+	We should go deal with that,[BR]
+	but be careful.[BR]
+	[Wait][Next]
+	I have a bad feeling about[BR]
+	this...[BR]
 	[Wait][End]
 }

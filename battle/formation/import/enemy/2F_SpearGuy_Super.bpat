@@ -144,7 +144,7 @@
   440:  Wait  5`
   44C:  Wait  2`
   458:  Call  SetGoalToTarget   ( .Actor:Self )
-  468:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:NoContact 00000000 00000000 00000002 00000020 )
+  468:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:NoContact 00000000 00000000 00000001 00000020 )
 
   Wait 1`
 EndLoop
@@ -292,7 +292,7 @@ EndLoop
   99C:  Call  JumpPartTo        ( .Actor:Self 00000003 *Var0 *Var1 *Var2  20` .True )
   9C4:  Wait  2`
   9D0:  Call  SetGoalToTarget   ( .Actor:Self )
-  9E0:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:NoContact 00000000 00000000 00000003 00000020 )
+  9E0:  Call  EnemyDamageTarget ( .Actor:Self *Var0 ~Flags:DamageType:NoContact 00000000 00000000 00000002 00000020 )
         Thread
     884:  	Call  MakeLerp  ( FFFFFFE2 0000002D 00000014 .Easing:Linear )
     8A0:  	Label  0
@@ -372,7 +372,7 @@ EndLoop
   % % 1CC:  		ExecWait  $Script_SpearStab_14 
   % % 1D8:  		ExecWait  $Script_8021BB18_14 
   % % 1E4:  	EndCaseGroup
-  1EC:  	Case  <=  39`
+  1EC:  	Case  <=  49`
   244:  		ExecWait  $Script_SpearStab_14_Super
   25C:  	Case  <=  99` 
   268:  		ExecWait  $Script_SpearThrow_14_Super
