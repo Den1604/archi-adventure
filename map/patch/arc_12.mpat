@@ -91,7 +91,7 @@
     ~NoDrops
 	~Movement:NPC_RedGoomba
 	~AnimationTable:NPC_RedGoomba
-	00000000 00000000 00000000 00000000
+	00000000 00000000 00000000 00300024
 }
 
 #new:NpcSettings $NpcSettings_8024EC90
@@ -478,6 +478,7 @@
         Case == 0 % Yes
             Call CloseChoice ()
             Call CloseMessage ()
+            Call  DisablePlayerInput    ( .False )
             Call StartBossBattle ( .Song:SpecialBattle )
         Case == 1 % No
             Call CloseChoice ()

@@ -196,3 +196,92 @@
 	to avoid being poisoned! [Color:01](1/10)[Color:0A][BR]
 	[Wait][End]
 }
+
+#message:1C:098
+{
+	[Style Right]
+	This is the Red Mushroom[BR]
+	Goomba EX.[Pause:10] He's part of the[BR]
+	Mushroom Goomba Squad EX.[BR]
+	[Wait][Next]
+	Max HP: 13[BR]
+	Attack Power: Min. 2 - Max. 3[BR]
+	Defense Power: 0[BR]
+	[Wait][Next]
+	This guy looks rarin' to go!![Pause:10][BR]
+	Stay on your guard, Mario.[Pause:10][BR]
+	He is NOT playing around[BR]
+	this time.[BR]
+	[Wait][Next]
+	Like the other Mushroom Goombas,[BR]
+	he might poison [Color:01](1/15)[Color:0A] you when[BR]
+	he hits you![Pause:10] So make sure to[BR]
+	guard his attacks![BR]
+	[Wait][End]
+}
+
+#message:1C:099
+{
+	[Style Right]
+	This is the Blue Mushroom[BR]
+	Goomba EX.[Pause:10] He's part of the[BR]
+	Mushroom Goomba Squad EX.[BR]
+	[Wait][Next]
+	Max HP: 20[BR]
+	Attack Power: 1[BR]
+	Defense Power: 1[BR]
+	[Wait][Next]
+	He seems to not have changed[BR]
+	that much?[Pause:10] At most a little more[BR]
+	aggressive, maybe...[BR]
+	[Wait][Next]
+	Like the other Mushroom Goombas,[BR]
+	he might poison [Color:01](1/15)[Color:0A] you when[BR]
+	he hits you![Pause:10] So make sure to[BR]
+	guard his attack![BR]
+	[Wait][End]
+}
+
+#message:1C:09A
+{
+	[Style Right]
+	This is the Yellow Mushroom[BR]
+	Goomba EX.[Pause:10] He's part of the[BR]
+	Mushroom Goomba Squad EX.[BR]
+	[Wait][Next]
+	Max HP: 13[BR]
+	Attack Power: Min. 1 - Max. 2[BR]
+	Defense Power: 0[BR]
+	[Wait][Next]
+	He seems even more energetic!![BR]
+	I have a feeling his attacks are[BR]
+	gonna be even quicker...[BR]
+	[Wait][Next]
+	Like the other Mushroom Goombas,[BR]
+	he might poison [Color:01](1/15)[Color:0A] you when[BR]
+	he hits you![Pause:10] So make sure to[BR]
+	guard his attacks![BR]
+	[Wait][End]
+}
+
+#message:1C:09B
+{
+	[Style Right]
+	This is the Purple Mushroom[BR]
+	Goomba EX.[Pause:10] She's part of the[BR]
+	Mushroom Goomba Squad EX.[BR]
+	[Wait][Next]
+	Max HP: 15[BR]
+	Attack Power: 2[BR]
+	Defense Power: 1[BR]
+	[Wait][Next]
+	I got nothing new on her.[Pause:10] She's[BR]
+	most likely the same as before,[BR]
+	but you should stay on your[BR]
+	guard regardless![BR]
+	[Wait][Next]
+	She also looks extra poisonous...[Pause:10][BR]
+	Make sure to guard her attacks[BR]
+	to avoid being poisoned! [Color:01](1/5)[Color:0A][BR]
+	[Wait][End]
+}

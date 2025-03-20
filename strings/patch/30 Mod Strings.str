@@ -422,7 +422,7 @@ Good luck!![Pause:10][BR]
 {
 	[Style Inspect]
 	[Down 11]Would you like to fight an enhanced[BR]
-	version of Javelin Guy?[BR]
+	version of Javelin Guy EX?[BR]
 	[Yield][End]
 }
 
@@ -441,7 +441,7 @@ Good luck!![Pause:10][BR]
 	[Style Inspect]
 	[Down 5]Would you like to fight an enhanced[BR]
 	version of the Mushroom Goomba[BR]
-	Squad?[BR]
+	Squad EX?[BR]
 	[Yield][End]
 }
 

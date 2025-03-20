@@ -8,6 +8,10 @@
 #import enemy/01_BlueGoomba2.bpat
 #import enemy/2F_YellowGoomba.bpat
 #import enemy/2F_PurpleGoomba.bpat
+#import enemy/2F_RedGoomba_SuperBoss.bpat
+#import enemy/2F_BlueGoomba_SuperBoss.bpat
+#import enemy/2F_YellowGoomba_SuperBoss.bpat
+#import enemy/2F_PurpleGoomba_SuperBoss.bpat
 
 
 #new:FormationTable $FormationTable_ARC
@@ -84,10 +88,10 @@
 
 #new:Formation $Formation_09
 {
-	$01_RedGoomba2 00000000 0000000A 00000000 00000000 00000000 00000000
-	$01_BlueGoomba2 00000001 00000009 00000000 00000000 00000000 00000000
-	$2F_YellowGoomba 00000002 00000008 00000000 00000000 00000000 00000000
-	$2F_PurpleGoomba 00000003 00000007 00000000 00000000 00000000 00000000
+	$2F_RedGoomba_SuperBoss 00000000 0000000A 00000000 00000000 00000000 00000000
+	$2F_BlueGoomba_SuperBoss 00000001 00000009 00000000 00000000 00000000 00000000
+	$2F_YellowGoomba_SuperBoss 00000002 00000008 00000000 00000000 00000000 00000000
+	$2F_PurpleGoomba_SuperBoss 00000003 00000007 00000000 00000000 00000000 00000000
 }
 
 #new:StageTable $StageTable_ARC
