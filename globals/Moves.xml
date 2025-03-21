@@ -109,7 +109,7 @@
 	<Move index="06A" nameMsg="00-000" desc1Msg="23-089" desc2Msg="25-089" flags="00000002" category="00" inputPopup="FF" fp="00" bp="03" name="SpinAttack" ability="SpinAttack"/>
 	<Move index="06B" nameMsg="00-000" desc1Msg="23-08A" desc2Msg="25-08A" flags="00000002" category="00" inputPopup="FF" fp="00" bp="02" name="DizzyAttack" ability="DizzyAttack"/>
 	<Move index="06C" nameMsg="00-000" desc1Msg="23-09E" desc2Msg="25-09E" flags="00000002" category="00" inputPopup="FF" fp="00" bp="01" name="ISpy" ability="ISpy"/>
-	<Move index="06D" nameMsg="00-000" desc1Msg="23-08B" desc2Msg="25-08B" flags="00000002" category="00" inputPopup="FF" fp="00" bp="01" name="SpeedySpin" ability="SpeedySpin"/>
+	<Move index="06D" nameMsg="00-000" desc1Msg="23-08B" desc2Msg="25-08B" flags="00000002" category="00" inputPopup="FF" fp="00" bp="00" name="SpeedySpin" ability="SpeedySpin"/>
 	<Move index="06E" nameMsg="26-09D" desc1Msg="23-09D" desc2Msg="25-09D" flags="00000002" category="00" inputPopup="FF" fp="00" bp="01" name="Refund" ability="Refund"/>
 	<Move index="06F" nameMsg="800989F0" desc1Msg="00-000" desc2Msg="00-000" flags="00000002" category="00" inputPopup="FF" fp="00" bp="01" name="Unused_FinalGoompa" ability="FinalGoompa"/>
 	<Move index="070" nameMsg="800989DC" desc1Msg="00-000" desc2Msg="00-000" flags="00000002" category="00" inputPopup="FF" fp="00" bp="01" name="Unused_FinalBobomb" ability="FinalBobomb"/>
