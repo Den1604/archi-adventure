@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="arc_09" author="unnamed" background="iwa_bg" textures="jan_tex">
 	<Editor>
-		<Camera pos="1165.754028,577.276001,797.462341" pitch="10.999996" yaw="0.000000"/>
-		<Camera pos="1071.545776,65536.000000,-332.826996"/>
+		<Camera pos="1214.691895,728.504272,126.276314" pitch="21.079983" yaw="342.880463"/>
+		<Camera pos="1165.360474,65536.000000,-265.928436"/>
 		<Camera pos="65536.000000,158.638733,-162.151871"/>
 		<Camera pos="1052.038940,302.644501,65536.000000"/>
 	</Editor>
@@ -18040,8 +18040,8 @@
 						<Vertex xyz="1261,564,-208"/>
 						<Vertex xyz="1261,525,-208"/>
 						<Vertex xyz="1261,714,-208"/>
-						<Vertex xyz="1237,675,-179"/>
 						<Vertex xyz="1237,525,-179"/>
+						<Vertex xyz="1237,675,-179"/>
 						<Vertex xyz="1261,525,-208"/>
 						<Vertex xyz="1132,714,-208"/>
 						<Vertex xyz="1153,675,-179"/>
@@ -18056,7 +18056,7 @@
 						<Triangle ijk="6,4,5"/>
 						<Triangle ijk="5,7,6"/>
 						<Triangle ijk="8,9,10"/>
-						<Triangle ijk="10,11,8"/>
+						<Triangle ijk="9,8,11"/>
 						<Triangle ijk="12,13,14"/>
 						<Triangle ijk="14,15,12"/>
 					</TriangleList>

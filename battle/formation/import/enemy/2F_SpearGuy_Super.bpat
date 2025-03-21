@@ -2,7 +2,7 @@
 
 #new:Actor $2F_SpearGuy_Super {
 % stats
-[Index]        2Ab 
+[Index]        D6b 
 [Level]        1`b 
 [MaxHP]         27`b 
 [Coins]         0`b 
